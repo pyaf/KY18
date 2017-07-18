@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bethany Bootstrap Theme</title>
+    <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+    <meta name="keywords" content="">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'  type='text/css'>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/i.css">
+  <style media="screen">
+  html {
+  position: relative;
+  min-height: 100%;
+}
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  transition-property: opacity;
+}
+.carousel-fade .carousel-inner .active {
+  opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1;
+}
+.carousel-fade .carousel-control {
+  z-index: 2;
+}
+@media all and (transform-3d),
+(-webkit-transform-3d) {
+  .carousel-fade .carousel-inner > .item.next,
+  .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+  }
+  .carousel-fade .carousel-inner > .item.prev,
+  .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+  }
+  .carousel-fade .carousel-inner > .item.next.left,
+  .carousel-fade .carousel-inner > .item.prev.right,
+  .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+  }
+}
+.item:nth-child(1) {
+  background: url(https://ununsplash.imgix.net/photo-1417021423914-070979c8eb34?q=75&fm=jpg&s=55746bd56e02a131b1e48c12196ea866) no-repeat center center fixed;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.item:nth-child(2) {
+  background: url(https://ununsplash.imgix.net/reserve/oY3ayprWQlewtG7N4OXl_DSC_5225-2.jpg?q=75&fm=jpg&s=85ab821f3fa535036a68155aab571bad) no-repeat center center fixed;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.item:nth-child(3) {
+  background: url(https://unsplash.imgix.net/photo-1414073875831-b47709631146?q=75&fm=jpg&s=731b6d5150eea8bafa63ae8194e72ebd) no-repeat center center fixed;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.carousel {
+  z-index: -99;
+}
+.carousel .item {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.title {
+text-align: center;
+margin-top: 20px;
+padding: 10px;
+text-shadow: 2px 2px #000;
+color: #FFF;
+}
+  </style>
+  </head>
+  <body>
+    <!--header-->
+    <header class="main-header" id="header">
+        <div class="bg-color">
+            <!--nav-->
+            <nav class="nav navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="fa fa-bars"></span>
+                        </button>
+                            <a href="/" class="navbar-brand">KY'18</a>
+                        </div>
+                        <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#header">Home</a></li>
+                                <li><a href="#gallery">Gallery</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!--/ nav-->
+
+            <div class="container text-center">
+
+              <div class="carousel slide carousel-fade" data-ride="carousel">
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                      </div>
+                      <div class="item">
+                      </div>
+                      <div class="item">
+                      </div>
+                  </div>
+                  <div class="wrapper wow fadeInUp delay-05s" >
+                      <h2 class="top-title">A legacy of 46 years</h2>
+                      <h3 class="title">Kashiyatra</h3>
+                      <h4 class="sub-title">Coming Soon</h4>
+                  </div>
+                  <div class="title">
+                    <h1>This is Awesome</h1>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </header>
+    <!--/ header-->
+    <!---->
+
+
+    <section class="section-padding wow fadeInUp delay-02s" id="gallery"style="background: white;visibility: visible;animation-name: fadeInUp;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <div class="section-title">
+                        <h2 class="head-title">Gallery</h2>
+                        <hr class="botm-line">
+                        <p class="sec-para">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-12">
+                    <div class="col-md-4 col-sm-6 padding-right-zero">
+                        <div class="portfolio-box design">
+                            <img src="/static/img/port01.jpg" alt="" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 padding-right-zero">
+                        <div class="portfolio-box design">
+                            <img src="/static/img/port02.jpg" alt="" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 padding-right-zero">
+                        <div class="portfolio-box design">
+                            <img src="/static/img/port03.jpg" alt="" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 padding-right-zero">
+                        <div class="portfolio-box design">
+                            <img src="/static/img/port04.jpg" alt="" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 padding-right-zero">
+                        <div class="portfolio-box design">
+                            <img src="/static/img/port05.jpg" alt="" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 padding-right-zero">
+                        <div class="portfolio-box design">
+                            <img src="/static/img/port06.jpg" alt="" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!---->
+    <!---->
+    <section class="section-padding wow fadeInUp delay-05s" id="contact">
+        <div class="container">
+            <div class="row white">
+                <div class="col-md-8 col-sm-12">
+                    <div class="section-title">
+                        <h2 class="head-title black">Register for Campus Ambassador</h2>
+                      <a href="#" class="btn btn-submit">
+                        <span class="fa fa-facebook"></span> Facebook</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!---->
+    <!---->
+    <footer class="" id="footer">
+      <div class="row">
+        <div class="container">
+              <div class="col-sm-offset-5 col-sm-6 footer-copyright ">
+
+                  Contact Us
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+              </div>
+          </div>
+        </div>
+    </footer>
+    <!---->
+    <!--contact ends-->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.easing.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/wow.js"></script>
+    <script src="/static/js/custom.js"></script>
+    <script src="/static/contactform/contactform.js"></script>
+    <script type="text/javascript">
+      $('.carousel').carousel();
+    </script>
+
+  </body>
+</html>
