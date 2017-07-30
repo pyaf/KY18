@@ -66,15 +66,15 @@ class CAProfileAdmin(admin.ModelAdmin):
     def mobile_number(obj):
         return obj.kyprofile.mobile_number
 
-    def RegNum(obj):
-        return obj.regNum
+    def reg_num(obj):
+        return obj.reg_num
 
     list_filter = ('is_choosen',)
-    list_display = ('ca_id', email, name, college, mobile_number, RegNum)
+    list_display = ('ca_id', email, name, college, mobile_number, reg_num)
     search_fields = ('ca_id', 'kyprofile__college__collegeName', 'kyprofile__full_name')
 
 
-admin.site.unregister(Site)
+# admin.site.unregister(Site)
 admin.site.unregister(Group)
 admin.site.register(KYProfile, KYProfileAdmin)
 admin.site.register(CAProfile, CAProfileAdmin)

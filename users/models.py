@@ -82,7 +82,7 @@ class CAProfile(models.Model):
     pincode = models.PositiveIntegerField(null=True, blank=True)
     whatsapp_number = models.BigIntegerField(blank=True)
     fb_link = models.CharField(max_length=300, null=True, blank=True)
-    regNum = models.PositiveIntegerField(default=0, null=True, blank=True) #no. of refered kyprofile.
+    reg_num = models.PositiveIntegerField(default=0, null=True, blank=True) #no. of refered kyprofile.
     ca_id = models.CharField(max_length=20, null=True, blank=True)
     is_choosen = models.BooleanField(default=False)
 
