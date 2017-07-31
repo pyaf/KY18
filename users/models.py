@@ -19,9 +19,9 @@ year_choices = [
 
 gender_choices = [
         (None,'Gender'),
-        ('Male', 'Male'),
-        ('Female', 'Female'),
-        ('Other', 'Other')
+        ('male', 'Male'),
+        ('female', 'Female'),
+        ('other', 'Other')
 ]
 
 class College(models.Model):
@@ -36,10 +36,13 @@ class College(models.Model):
 class KYProfile(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=50, unique=True)
     full_name = models.CharField(max_length=130, null=True, blank=True)
+    gender = models.CharField(max_length=10, choices=gender_choices, null=True, blank=True)
+
     college = models.ForeignKey(College, null=True, blank=True)
     year = models.PositiveSmallIntegerField(choices=year_choices, null=True, blank=True)
-    gender = models.CharField(max_length=10, choices=gender_choices, null=True, blank=True)
     mobile_number = models.BigIntegerField(null=True, blank=True)
+
+    profile_link = models.CharField(max_length=300, null=True, blank=True)
     profile_picture = models.URLField(null=True, blank=True)
     has_ca_profile = models.BooleanField(default=False)
     ky_id = models.CharField(max_length=20, null=True, blank=True)
@@ -66,22 +69,24 @@ class KYProfile(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return "%s" %(self.ky_id)
 
-#instance is socialaccount
+#instance is socialaccount, instance .user is kyprofile
 def save_profile(sender, instance, **kwargs):
-    print(instance)
-    instance.kyprofile.full_name = instance.extra_data['name']
-    instance.kyprofile.profile_picture = instance.get_avatar_url()
+    instance.user.full_name = instance.extra_data['name']
+    instance.user.gender = instance.extra_data['gender']
+    instance.user.profile_link = instance.extra_data['link']
+    instance.user.profile_picture = instance.get_avatar_url()
     instance.user.save()
 
 post_save.connect(save_profile, sender=SocialAccount)
 
 class CAProfile(models.Model):
     kyprofile = models.OneToOneField(KYProfile)
-    regs = models.ManyToManyField(KYProfile, blank=True, related_name='regs')
+
+    whatsapp_number = models.BigIntegerField(blank=True)
     postal_address = models.TextField(null=True, blank=True)
     pincode = models.PositiveIntegerField(null=True, blank=True)
-    whatsapp_number = models.BigIntegerField(blank=True)
-    fb_link = models.CharField(max_length=300, null=True, blank=True)
+
+    regs = models.ManyToManyField(KYProfile, blank=True, related_name='regs')
     reg_num = models.PositiveIntegerField(default=0, null=True, blank=True) #no. of refered kyprofile.
     ca_id = models.CharField(max_length=20, null=True, blank=True)
     is_choosen = models.BooleanField(default=False)

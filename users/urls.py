@@ -4,7 +4,9 @@ from django.contrib.auth.views import logout
 from .views import *
 
 urlpatterns = [
-    url(r'^$', IndexView.as_view(), name="register_url"),
+    url(r'^$', IndexView.as_view()),
+    url(r'^ca-form/$', CaFormView),
     url(r'^dashboard/$', DashboardView, name="dashboard_url"),
+    url(r'^privacy_policy/$', PrivacyPolicyView)
 
 ]
