@@ -58,7 +58,39 @@ def DashboardView(request):
     kyprofile = request.user
     print(kyprofile)
     if kyprofile.has_ca_profile:
-        template_name = 'dashboard.html'
+        template_name = 'ca-dashboard/dashboard.html'
+        return render(request, template_name, {})
+    else:
+        return redirect('/ca-form')
+
+@login_required(login_url="/login")
+def CAProfileView(request):
+    kyprofile = request.user
+    print(kyprofile)
+    if kyprofile.has_ca_profile:
+        template_name = 'ca-dashboard/user.html'
+        return render(request, template_name, {})
+    else:
+        return redirect('/ca-form')
+
+
+@login_required(login_url="/login")
+def LeaderBoardView(request):
+    kyprofile = request.user
+    print(kyprofile)
+    if kyprofile.has_ca_profile:
+        template_name = 'ca-dashboard/leaderboard.html'
+        return render(request, template_name, {})
+    else:
+        return redirect('/ca-form')
+
+
+@login_required(login_url="/login")
+def NotificationsView(request):
+    kyprofile = request.user
+    print(kyprofile)
+    if kyprofile.has_ca_profile:
+        template_name = 'ca-dashboard/notifications.html'
         return render(request, template_name, {})
     else:
         return redirect('/ca-form')
