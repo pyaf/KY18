@@ -16,4 +16,15 @@ class Notifications(models.Model):
 		self.save()
 
 	def __str__(self):
-		return self.main_text	
+		return self.main_text
+
+class Post(models.Model):
+	message = models.TextField(null=True, blank=True)
+	created_time = models.DateTimeField(null=True, blank=True)
+	pid = models.CharField(max_length=100, unique=True)#post id
+	link = models.URLField(null=True, blank=True)
+	full_picture = models.URLField(null=True, blank=True)
+	picture = models.URLField(null=True, blank=True)
+
+	def __str__(self):
+		return self.id

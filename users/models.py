@@ -5,8 +5,7 @@ from django.contrib.auth.base_user import AbstractBaseUser
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from allauth.socialaccount.models import SocialToken
-import urllib2
+from allauth.socialaccount.models import SocialToken, SocialAccount
 
 from .manager import UserManager
 
@@ -32,7 +31,6 @@ class College(models.Model):
 
     def __str__(self):
         return '%s' % self.collegeName
-
 
 
 class KYProfile(AbstractBaseUser, PermissionsMixin):
@@ -80,6 +78,7 @@ def save_profile(sender, instance, **kwargs):
     instance.user.save()
 
 post_save.connect(save_profile, sender=SocialAccount)
+
 
 class CAProfile(models.Model):
     kyprofile = models.OneToOneField(KYProfile)
