@@ -8,6 +8,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 import json
 from users.models import *
+from allauth.socialaccount.models import SocialToken
+import urllib2
 from etc.models import *
 
 
@@ -25,7 +27,7 @@ class IndexView(TemplateView):
 
 
 @login_required(login_url="/login")
-def CaFormView(request):
+def CaFormView(request):#ca-form
     template_name='ca-form.html'
     kyprofile = request.user
     if request.method == 'POST':
@@ -70,24 +72,57 @@ def DashboardView(request):
     if kyprofile.has_ca_profile:
         template_name = 'ca-dashboard/dashboard.html'
         context = _getNotifications(kyprofile)
+        
+        access_token = SocialToken.objects.get(account__user=request.user, account__provider='facebook')
+        url = "https://graph.facebook.com/kashiyatra.IITBHU/posts?fields=full_picture,picture,link,message,created_time&limit=10&access_token=" + access_token.token
+        response =  urllib2.urlopen(url)
+
+        data = response.read()
+        print(data)
+
         return render(request, template_name, context)
     else:
         return redirect('/ca-form')
+
+
+
 
 @login_required(login_url="/login")
 def CAProfileView(request):
     kyprofile = request.user
-    print(kyprofile)
+    ca_profile_object = CAProfile.objects.get(kyprofile=request.user)
+
+    data = {
+        "email": kyprofile.email,
+        "fullname": kyprofile.full_name,
+        "year": kyprofile.year,
+        "gender": kyprofile.gender,
+        "college": kyprofile.college,
+        "whatsapp_number": ca_profile_object.whatsapp_number,
+        "pincode": ca_profile_object.pincode,
+        "address": ca_profile_object.postal_address,
+
+    }
+    if request.method == 'POST':
+        post = request.POST
+        kyprofile.year = post.get('year', None)
+        kyprofile.fullname = post.get('fullname', None)
+        kyprofile.save()
+        ca_profile_object.whatsapp_number = post.get('whatsapp_number', None)
+        ca_profile_object.postal_address = post.get('address', None)
+        ca_profile_object.pincode = post.get('pincode', None)
+        ca_profile_object.save()
+
     if kyprofile.has_ca_profile:
         template_name = 'ca-dashboard/user.html'
         context = _getNotifications(kyprofile)
+        context['data'] = data
         return render(request, template_name, context)
     else:
         return redirect('/ca-form')
-
-
+    
 @login_required(login_url="/login")
-def LeaderBoardView(request):
+def LeaderBoard(request):
     kyprofile = request.user
     print(kyprofile)
     if kyprofile.has_ca_profile:
@@ -108,7 +143,6 @@ def NotificationsView(request):
         return render(request, template_name, context)
     else:
         return redirect('/ca-form')
-
 
 def PrivacyPolicyView(request):
     template_name = 'privacy_policy.html'
