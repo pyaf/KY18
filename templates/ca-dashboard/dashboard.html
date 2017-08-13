@@ -89,6 +89,12 @@
 	                        <p style="color:aliceblue">Leader Board</p>
 	                    </a>
 	                </li>
+					<li>
+                        <a href="/logout">
+                            <i class="fa fa-sign-out"></i>
+                            <p style="color:aliceblue">Logout</p>
+                        </a>
+                    </li>
 	            </ul>
 	    	</div>
 	    </div>
@@ -196,6 +202,10 @@
 			});
 		}
 
+	    var idx=window.location.toString().indexOf("#_=_");
+	     if (idx>0) {
+	       window.location = window.location.toString().substring(0, idx);
+	     }
 	</script>
 
 </html>

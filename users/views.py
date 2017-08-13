@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
+from django.contrib.auth import logout
 from django.views.generic import TemplateView, FormView
 from django.views import View
 from django.contrib.auth import authenticate, login
@@ -41,12 +42,15 @@ def CaFormView(request):#ca-form
         if collegeName and whatsapp_number and mobile_number and \
                                         postal_address and pincode and year:
 
-            ca = CAProfile.objects.create(kyprofile=kyprofile,
-                                    whatsapp_number=whatsapp_number,
-                                    postal_address=postal_address,
-                                    pincode=pincode,)
-            welcome_note = Notifications.objects.get(id=0)
-            welcome_note.users.add(self)
+            ca, created = CAProfile.objects.get_or_create(kyprofile=kyprofile)
+            if created:
+                ca.whatsapp_number=whatsapp_number,
+                ca.postal_address=postal_address,
+                ca.pincode=pincode
+                ca.save()
+
+            welcome_note = Notifications.objects.all().order_by('id')[0]
+            welcome_note.users.add(ca)
             welcome_note.save()
             college, created = College.objects.get_or_create(
                                             collegeName=collegeName)
@@ -144,3 +148,7 @@ def NotificationsView(request):
 def PrivacyPolicyView(request):
     template_name = 'privacy_policy.html'
     return render(request, template_name, {})
+
+def LogoutView(request):
+    logout(request)
+    return redirect('/')
