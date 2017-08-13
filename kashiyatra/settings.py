@@ -24,7 +24,7 @@ if os.environ.get('development', '') == 'True':
 INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.sites',
-
+    'etc',
     'users',
     'allauth',
     'allauth.account',

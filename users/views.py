@@ -8,6 +8,17 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 import json
 from users.models import *
+from etc.models import *
+
+
+def _getNotifications(kyprofile):
+    notifications = Notifications.objects.filter(users=kyprofile.caprofile, 
+                                                recieved_date__lte=timezone.now())
+    context = {
+        'notifications': notifications.order_by('recieved_date'),
+        'count': notifications.count(),
+    }
+    return context
 
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -56,10 +67,10 @@ def CaFormView(request):
 @login_required(login_url="/login")
 def DashboardView(request):
     kyprofile = request.user
-    print(kyprofile)
     if kyprofile.has_ca_profile:
         template_name = 'ca-dashboard/dashboard.html'
-        return render(request, template_name, {})
+        context = _getNotifications(kyprofile)
+        return render(request, template_name, context)
     else:
         return redirect('/ca-form')
 
@@ -69,7 +80,8 @@ def CAProfileView(request):
     print(kyprofile)
     if kyprofile.has_ca_profile:
         template_name = 'ca-dashboard/user.html'
-        return render(request, template_name, {})
+        context = _getNotifications(kyprofile)
+        return render(request, template_name, context)
     else:
         return redirect('/ca-form')
 
@@ -80,7 +92,8 @@ def LeaderBoardView(request):
     print(kyprofile)
     if kyprofile.has_ca_profile:
         template_name = 'ca-dashboard/leaderboard.html'
-        return render(request, template_name, {})
+        context = _getNotifications(kyprofile)
+        return render(request, template_name, context)
     else:
         return redirect('/ca-form')
 
@@ -91,7 +104,8 @@ def NotificationsView(request):
     print(kyprofile)
     if kyprofile.has_ca_profile:
         template_name = 'ca-dashboard/notifications.html'
-        return render(request, template_name, {})
+        context = _getNotifications(kyprofile)
+        return render(request, template_name, context)
     else:
         return redirect('/ca-form')
 
