@@ -10,13 +10,24 @@ import json
 from users.models import *
 from allauth.socialaccount.models import SocialToken
 import urllib2
+from etc.models import *
+
+
+def _getNotifications(kyprofile):
+    notifications = Notifications.objects.filter(users=kyprofile.caprofile, 
+                                                recieved_date__lte=timezone.now())
+    context = {
+        'notifications': notifications.order_by('recieved_date'),
+        'count': notifications.count(),
+    }
+    return context
 
 class IndexView(TemplateView):
     template_name = 'index.html'
 
 
 @login_required(login_url="/login")
-def CaFormView(request):
+def CaFormView(request):#ca-form
     template_name='ca-form.html'
     kyprofile = request.user
     if request.method == 'POST':
@@ -58,31 +69,26 @@ def CaFormView(request):
 @login_required(login_url="/login")
 def DashboardView(request):
     kyprofile = request.user
-    print(kyprofile)
     if kyprofile.has_ca_profile:
         template_name = 'ca-dashboard/dashboard.html'
-        return render(request, template_name, {})
+        context = _getNotifications(kyprofile)
+        
+        access_token = SocialToken.objects.get(account__user=request.user, account__provider='facebook')
+        url = "https://graph.facebook.com/kashiyatra.IITBHU/posts?fields=full_picture,picture,link,message,created_time&limit=10&access_token=" + access_token.token
+        response =  urllib2.urlopen(url)
+
+        data = response.read()
+        print(data)
+
+        return render(request, template_name, context)
     else:
         return redirect('/ca-form')
+
+
+
 
 @login_required(login_url="/login")
 def CAProfileView(request):
-    kyprofile = request.user
-    access_token = SocialToken.objects.get(account__user=request.user, account__provider='facebook')
-    url = "https://graph.facebook.com/kashiyatra.IITBHU/posts?fields=full_picture,picture,link,message,created_time&limit=10&access_token=" + access_token.token
-    response =  urllib2.urlopen(url)
-
-    data = response.read()
-    print(data)
-    if kyprofile.has_ca_profile:
-        template_name = 'ca-dashboard/user.html'
-        return render(request, template_name, {})
-    else:
-        return redirect('/ca-form')
-
-
-@login_required(login_url="/login")
-def LeaderBoardView(request):
     kyprofile = request.user
     ca_profile_object = CAProfile.objects.get(kyprofile=request.user)
 
@@ -108,8 +114,21 @@ def LeaderBoardView(request):
         ca_profile_object.save()
 
     if kyprofile.has_ca_profile:
+        template_name = 'ca-dashboard/user.html'
+        context = _getNotifications(kyprofile)
+        context['data'] = data
+        return render(request, template_name, context)
+    else:
+        return redirect('/ca-form')
+    
+@login_required(login_url="/login")
+def LeaderBoard(request):
+    kyprofile = request.user
+    print(kyprofile)
+    if kyprofile.has_ca_profile:
         template_name = 'ca-dashboard/leaderboard.html'
-        return render(request, template_name, {data})
+        context = _getNotifications(kyprofile)
+        return render(request, template_name, context)
     else:
         return redirect('/ca-form')
 
@@ -120,10 +139,10 @@ def NotificationsView(request):
     print(kyprofile)
     if kyprofile.has_ca_profile:
         template_name = 'ca-dashboard/notifications.html'
-        return render(request, template_name, {})
+        context = _getNotifications(kyprofile)
+        return render(request, template_name, context)
     else:
         return redirect('/ca-form')
-
 
 def PrivacyPolicyView(request):
     template_name = 'privacy_policy.html'
