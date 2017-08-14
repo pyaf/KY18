@@ -8,6 +8,8 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 import json
 from users.models import *
+from allauth.socialaccount.models import SocialToken
+import urllib2
 
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -66,7 +68,12 @@ def DashboardView(request):
 @login_required(login_url="/login")
 def CAProfileView(request):
     kyprofile = request.user
-    print(kyprofile)
+    access_token = SocialToken.objects.get(account__user=request.user, account__provider='facebook')
+    url = "https://graph.facebook.com/kashiyatra.IITBHU/posts?fields=full_picture,picture,link,message,created_time&limit=10&access_token=" + access_token.token
+    response =  urllib2.urlopen(url)
+
+    data = response.read()
+    print(data)
     if kyprofile.has_ca_profile:
         template_name = 'ca-dashboard/user.html'
         return render(request, template_name, {})
@@ -77,10 +84,32 @@ def CAProfileView(request):
 @login_required(login_url="/login")
 def LeaderBoardView(request):
     kyprofile = request.user
-    print(kyprofile)
+    ca_profile_object = CAProfile.objects.get(kyprofile=request.user)
+
+    data = {
+        "email": kyprofile.email,
+        "fullname": kyprofile.full_name,
+        "year": kyprofile.year,
+        "gender": kyprofile.gender,
+        "college": kyprofile.college,
+        "whatsapp_number": ca_profile_object.whatsapp_number,
+        "pincode": ca_profile_object.pincode,
+        "address": ca_profile_object.postal_address,
+
+    }
+    if request.method == 'POST':
+        post = request.POST
+        kyprofile.year = post.get('year', None)
+        kyprofile.fullname = post.get('fullname', None)
+        kyprofile.save()
+        ca_profile_object.whatsapp_number = post.get('whatsapp_number', None)
+        ca_profile_object.postal_address = post.get('address', None)
+        ca_profile_object.pincode = post.get('pincode', None)
+        ca_profile_object.save()
+
     if kyprofile.has_ca_profile:
         template_name = 'ca-dashboard/leaderboard.html'
-        return render(request, template_name, {})
+        return render(request, template_name, {data})
     else:
         return redirect('/ca-form')
 

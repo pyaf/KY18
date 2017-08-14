@@ -5,7 +5,9 @@ from django.contrib.auth.base_user import AbstractBaseUser
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from allauth.socialaccount.models import SocialAccount
+from allauth.socialaccount.models import SocialToken
+import urllib2
+
 from .manager import UserManager
 
 year_choices = [
