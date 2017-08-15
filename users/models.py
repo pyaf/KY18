@@ -83,7 +83,7 @@ post_save.connect(save_profile, sender=SocialAccount)
 class CAProfile(models.Model):
     kyprofile = models.OneToOneField(KYProfile)
 
-    whatsapp_number = models.BigIntegerField(blank=True)
+    whatsapp_number = models.BigIntegerField(null=True, blank=True)
     postal_address = models.TextField(null=True, blank=True)
     pincode = models.PositiveIntegerField(null=True, blank=True)
 
