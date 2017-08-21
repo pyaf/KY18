@@ -14,6 +14,7 @@ from users.models import *
 from etc.models import *
 from django.utils import timezone
 
+
 def _getNotifications(kyprofile):
     notifications = Notifications.objects.filter(users=kyprofile.caprofile,
                                                 recieved_date__lte=timezone.now())
