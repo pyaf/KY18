@@ -34,6 +34,7 @@ font-style:normal
 @font-face
 {
 font-family:'Montserrat';
+
 src:url("../static/fonts/Montserrat-Light.eot");
 src:local("☺"),url("../static/fonts/Montserrat-Light.woff") format("woff"),url("../static/fonts/Montserrat-Light.ttf") format("truetype"),url("../static/fonts/Montserrat-Light.svg") format("svg");
 font-weight:300;
@@ -1514,6 +1515,7 @@ font-style:normal
 @font-face
 {
 font-family:'Montserrat';
+
 src:url("../static/fonts/Montserrat-Light.eot");
 src:local("☺"),url("../static/fonts/Montserrat-Light.woff") format("woff"),url("../static/fonts/Montserrat-Light.ttf") format("truetype"),url("../static/fonts/Montserrat-Light.svg") format("svg");
 font-weight:300;
@@ -2663,6 +2665,7 @@ height:30px;
 background-color:#0f33ff;
 border-radius:50%;
 display:none;
+
 }
 .about--banner h2::after
 {
@@ -2864,6 +2867,7 @@ left:205px
 {
 display:none
 }
+
 .about--banner h2
 {
 /*display:none*/
@@ -2871,6 +2875,7 @@ display:none
 .about--options
 {
 display:block;
+
 }
 }
 .contact
@@ -3045,6 +3050,7 @@ text-transform:uppercase
 	 background-image:url("../img/premium.jpg");
 }
 
+
 #opt-2
 {
 	 background-image:url("assets/img/offc merch.jpg");
@@ -3092,5 +3098,6 @@ text-transform:uppercase
 			}
 			}
 			.outer-nav li.is-vis:nth-child(2){-webkit-transition-delay:.04s;transition-delay:.04s}.outer-nav li.is-vis:nth-child(3){-webkit-transition-delay:.08s;transition-delay:.08s}.outer-nav li.is-vis:nth-child(4){-webkit-transition-delay:.12s;transition-delay:.12s}.outer-nav li.is-vis:nth-child(5){-webkit-transition-delay:.16s;transition-delay:.16s}
+
 
  
