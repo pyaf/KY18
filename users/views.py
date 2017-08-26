@@ -14,7 +14,6 @@ from users.models import *
 from etc.models import *
 from django.utils import timezone
 
-
 def _getNotifications(kyprofile):
     notifications = Notifications.objects.filter(users=kyprofile.caprofile,
                                                 recieved_date__lte=timezone.now())
@@ -38,16 +37,20 @@ def CaFormView(request):#ca-form
         year = post.get('year', None)
         whatsapp_number = post.get('whatsapp_number', None)
         postal_address = post.get('postal_address', None)
+	
         pincode = post.get('pincode', None)
+        reason=post.get('reason', None)
         mobile_number = post.get('mobile_number', None)
-        if collegeName and whatsapp_number and mobile_number and \
+        if collegeName and whatsapp_number and reason and mobile_number and \
                                         postal_address and pincode and year:
 
             ca, created = CAProfile.objects.get_or_create(kyprofile=kyprofile)
             if created:
                 ca.whatsapp_number=whatsapp_number,
                 ca.postal_address=postal_address,
-                ca.pincode=pincode
+                ca.pincode=pincode,
+                ca.reason=reason 
+		
                 ca.save()
 
             welcome_note = Notifications.objects.all().order_by('id')[0]
@@ -71,24 +74,6 @@ def CaFormView(request):#ca-form
         'all_colleges': College.objects.all(),
         }
         return render(request, template_name, context)
-
-@receiver(post_save,sender=CAProfile)
-def AddCaToSheet(sender,instance,**kwargs):
-    if instance.ca_id:
-        data = {'id': instance.kyprofile.ky_id,
-                'name': instance.kyprofile.full_name,
-                'email': instance.kyprofile.email,
-                'college': instance.kyprofile.college,
-                'refCode': instance.ca_id,
-                'year': instance.kyprofile.year,
-                'sex': instance.kyprofile.gender,
-                'mobileNumber': instance.kyprofile.mobile_number}
-
-        url = 'https://script.google.com/macros/s/AKfycbxUUHoa81jigbSdGtSl91qTdCJ0J__JA1HdqNq-VFAfuTtq4o01/exec'
-
-        return requests.post(url, data=data)
-
-
 
 
 @login_required(login_url="/login")
@@ -115,6 +100,7 @@ def CAProfileUpdateView(request):
         kyprofile.save()
         ca_profile_object.whatsapp_number = post.get('whatsapp_number', None)
         ca_profile_object.postal_address = post.get('address', None)
+
         ca_profile_object.pincode = post.get('pincode', None)
         ca_profile_object.save()
 

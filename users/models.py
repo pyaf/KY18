@@ -83,10 +83,11 @@ post_save.connect(save_profile, sender=SocialAccount)
 class CAProfile(models.Model):
     kyprofile = models.OneToOneField(KYProfile)
 
-    whatsapp_number = models.BigIntegerField(null=True, blank=True)
+    whatsapp_number = models.BigIntegerField(blank=True)
     postal_address = models.TextField(null=True, blank=True)
     pincode = models.PositiveIntegerField(null=True, blank=True)
-
+    reason = models.TextField(null=True, blank=True)
+ 
     regs = models.ManyToManyField(KYProfile, blank=True, related_name='regs')
     reg_num = models.PositiveIntegerField(default=0, null=True, blank=True) #no. of refered kyprofile.
     ca_id = models.CharField(max_length=20, null=True, blank=True)
