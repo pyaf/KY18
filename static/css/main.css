@@ -758,9 +758,11 @@ fill:#fff
 }
 .intro--banner img
 {
-position:absolute;
+/*position:absolute;
 bottom:21px;
-right:-12px
+right:-12px*/
+width:100%;
+z-index:-1;
 }
 .intro--options
 {
@@ -2167,7 +2169,7 @@ max-width:100%
 .intro--banner
 {
 position:relative;
-height:475px
+height:100%;
 }
 .intro--banner::before
 {
@@ -3092,4 +3094,102 @@ text-transform:uppercase
 			}
 			.outer-nav li.is-vis:nth-child(2){-webkit-transition-delay:.04s;transition-delay:.04s}.outer-nav li.is-vis:nth-child(3){-webkit-transition-delay:.08s;transition-delay:.08s}.outer-nav li.is-vis:nth-child(4){-webkit-transition-delay:.12s;transition-delay:.12s}.outer-nav li.is-vis:nth-child(5){-webkit-transition-delay:.16s;transition-delay:.16s}
 
- 
+.responsibilities	
+{
+display: flex;
+flex-wrap:wrap;
+justify-content:space-between;
+}	
+.one
+{
+	width:47%;
+	height:150px;
+	display:flex;
+	justify-content:center;
+
+}
+
+.onec
+{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-size: medium;
+	
+}
+
+.oner
+{
+	border:1px #fff solid;
+	width:150px;
+	height:150px;
+	border-radius:100%;
+}
+
+
+.two
+{
+	width:47%;
+	height:150px;
+	display:flex;
+	justify-content: center;
+}
+
+.twoc
+{
+	border:1px #fff solid;
+	width:50%;
+	
+}
+
+.twor
+{
+	/*border:1px #fff solid;*/
+	width:50%;
+	border-radius:100%;
+
+}
+
+.three
+{
+	
+    width: 47%;
+    height: 150px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.threec
+{
+	border:1px #fff solid;
+	width:50%;
+	
+}
+
+.threer
+{
+	border:1px #fff solid;
+	width:50%;
+}
+.four
+{
+	width:47%;
+	height:150px;
+	display:flex;
+	margin-top:25px;
+	justify-content: center;
+}
+ .fourc
+{
+	border:1px #fff solid;
+	width:50%;
+	
+}
+
+.fourr
+{
+	border:1px #fff solid;
+	width:50%;
+}
