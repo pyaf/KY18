@@ -52,16 +52,20 @@ def CaFormView(request):#ca-form
         year = post.get('year', None)
         whatsapp_number = post.get('whatsapp_number', None)
         postal_address = post.get('postal_address', None)
+	
         pincode = post.get('pincode', None)
+        reason=post.get('reason', None)
         mobile_number = post.get('mobile_number', None)
-        if collegeName and whatsapp_number and mobile_number and \
+        if collegeName and whatsapp_number and reason and mobile_number and \
                                         postal_address and pincode and year:
 
             ca, created = CAProfile.objects.get_or_create(kyprofile=kyprofile)
             if created:
                 ca.whatsapp_number=whatsapp_number,
                 ca.postal_address=postal_address,
-                ca.pincode=pincode
+                ca.pincode=pincode,
+                ca.reason=reason 
+		
                 ca.save()
 
             welcome_note = Notifications.objects.all().order_by('id')[0]
@@ -75,7 +79,6 @@ def CaFormView(request):#ca-form
             kyprofile.year = year
             kyprofile.has_ca_profile = True
             kyprofile.save()
-            addCaToSheet(kyprofile)
             return redirect('/dashboard')
         else:
             return HttpResponse("Invalid form submission")#sth to be done
@@ -86,7 +89,6 @@ def CaFormView(request):#ca-form
         'all_colleges': College.objects.all(),
         }
         return render(request, template_name, context)
-
 
 
 @login_required(login_url="/login")
@@ -113,6 +115,7 @@ def CAProfileUpdateView(request):
         kyprofile.save()
         ca_profile_object.whatsapp_number = post.get('whatsapp_number', None)
         ca_profile_object.postal_address = post.get('address', None)
+
         ca_profile_object.pincode = post.get('pincode', None)
         ca_profile_object.save()
 
