@@ -15,6 +15,20 @@ from etc.models import *
 from django.utils import timezone
 
 
+def addCaToSheet(kyprofile):
+    data = {'id': kyprofile.ky_id,
+            'name': kyprofile.full_name,
+            'email': kyprofile.email,
+            'college': kyprofile.college,
+            'refCode': kyprofile.caprofile.ca_id,
+            'year': kyprofile.year,
+            'sex': kyprofile.gender,
+            'mobileNumber': kyprofile.mobile_number}
+
+    url = 'https://script.google.com/macros/s/AKfycbxUUHoa81jigbSdGtSl91qTdCJ0J__JA1HdqNq-VFAfuTtq4o01/exec'
+
+    return requests.post(url, data=data)
+
 def _getNotifications(kyprofile):
     notifications = Notifications.objects.filter(users=kyprofile.caprofile,
                                                 recieved_date__lte=timezone.now())
@@ -61,6 +75,7 @@ def CaFormView(request):#ca-form
             kyprofile.year = year
             kyprofile.has_ca_profile = True
             kyprofile.save()
+            addCaToSheet(kyprofile)
             return redirect('/dashboard')
         else:
             return HttpResponse("Invalid form submission")#sth to be done
@@ -71,23 +86,6 @@ def CaFormView(request):#ca-form
         'all_colleges': College.objects.all(),
         }
         return render(request, template_name, context)
-
-@receiver(post_save,sender=CAProfile)
-def AddCaToSheet(sender,instance,**kwargs):
-    if instance.ca_id:
-        data = {'id': instance.kyprofile.ky_id,
-                'name': instance.kyprofile.full_name,
-                'email': instance.kyprofile.email,
-                'college': instance.kyprofile.college,
-                'refCode': instance.ca_id,
-                'year': instance.kyprofile.year,
-                'sex': instance.kyprofile.gender,
-                'mobileNumber': instance.kyprofile.mobile_number}
-
-        url = 'https://script.google.com/macros/s/AKfycbxUUHoa81jigbSdGtSl91qTdCJ0J__JA1HdqNq-VFAfuTtq4o01/exec'
-
-        return requests.post(url, data=data)
-
 
 
 
