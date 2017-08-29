@@ -23,13 +23,16 @@
     <link href="/static/ca-dashboard/css/demo.css" rel="stylesheet" />
 
     <!--     Fonts and icons     -->
+
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
+
 </head>
 
 <body>
 
 	<div class="wrapper">
+
 	    <div class="sidebar" data-color="purple" style="background-color:rgba(13,13,14,0.85)">
 
 
@@ -41,23 +44,28 @@
 			</div>
 
 
+
 	    	<div class="sidebar-wrapper">
 				<ul class="nav">
 	                <li>
 						<a href="/dashboard">
 	                        <i class="material-icons">dashboard</i>
 	                        <p style="color:aliceblue">Dashboard</p>
+
 	                    </a>
 	                </li>
 	                <li class="active">
 	                    <a href="user.html">
 	                        <i class="material-icons">person</i>
+
 	                        <p style="color:aliceblue">User Profile</p>
+
 	                    </a>
 	                </li>
 					<li>
 	                    <a href="/leaderboard">
 	                        <i class="material-icons">content_paste</i>
+
 	                        <p style="color:aliceblue">Leader Board</p>
 	                    </a>
 	                </li>
@@ -67,12 +75,15 @@
                             <p style="color:aliceblue">Logout</p>
                         </a>
                     </li>
+
 	            </ul>
 	    	</div>
 	    </div>
 
+
 	    <div class="main-panel" style="background-color:#1c182d">
 			<nav class="navbar navbar-transparent navbar-absolute" style="background-color:#34133c">
+
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse">
@@ -81,13 +92,16 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
+
 						<a class="navbar-brand" href="#" style="color:white; font-family:cursive;">Profile</a>
+
 					</div>
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav navbar-right">
 
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
 									<i class="material-icons" style="color:aliceblue">notifications</i>
 									<span class="notification">{{count}}</span>
 
@@ -97,6 +111,7 @@
 									{% for notice in notifications %}
 									<li><a href="#">{{notice.main_text}}</a></li>
 									{%endfor%}
+
 									<li><a href="/notifications" class="pull-right">Show All</a></li>
 								</ul>
 							</li>
@@ -112,19 +127,23 @@
 	            <div class="container-fluid">
 	                <div class="row">
 	                    <div class="col-md-8">
+
 	                        <div class="card" style="background-color:rgba(39,39,43,0.9)">
 	                            <div class="card-header" data-background-color="green">
+
 	                                <h4 class="title">Edit Profile</h4>
 									<p class="category">Complete your profile</p>
 	                            </div>
 	                            <div class="card-content">
-	                               <form action="/ca-profile" role="form" method="POST">
+
+									<form id ='caform'  role="form" >
                     					{% csrf_token %}
 	                                    <div class="row">
 										     <div class="col-md-12">
-												<div class="form-group label-floating"
+												<div class="form-group label-floating">
 													<label class="control-label" >Email address</label>
-													<input type="email" class="form-control" name="email" value="{{email}}"  disabled>
+													<input type="email" class="form-control" name="email" value={{email}}  disabled>
+
 												</div>
 	                                        </div>
 	                                    </div>
@@ -132,6 +151,7 @@
 	                                        <div class="col-md-6">
 												<div class="form-group label-floating">
 													<label class="control-label" >Full Name</label>
+
 													<input type="text" class="form-control" name="fullname" value="{{fullname}}" disabled>
 												</div>
 	                                        </div>
@@ -147,13 +167,13 @@
 										<div class="col-md-6">
 											<div class="form-group label-floating">
 												<label class="control-label">Mobile Number</label>
-												<input type="number" required="true" class="form-control" name="mobile_number" value={{mobile_number}}>
+												<input type="number" required="true" class="form-control" id="mobile_number" name="mobile_number" value={{mobile_number}}>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group label-floating">
 												<label class="control-label">WhatsApp Number</label>
-												<input type="number" required="true" class="form-control" name="whatsapp_number" value={{whatsapp_number}}>
+												<input type="number" required="true" class="form-control" id="whatsapp_number" name="whatsapp_number" value={{whatsapp_number}}>
 											</div>
 										</div>
 									</div>
@@ -169,7 +189,7 @@
 											<div class="col-md-12">
 												<div class="form-group label-floating">
 													<label class="control-label">Address</label>
-													<input type="text" class="form-control" required="true" name="address" value="{{address}}">
+													<input type="text" class="form-control" required="true" id="address" name="address" value="{{address}}">
 												</div>
 	                                        </div>
 										</div>
@@ -178,32 +198,39 @@
 												<div class="form-group label-floating">
 													<label class="control-label">Year of study</label>
 													<input class="form-control" name="year" value="{{year}}" required="true" disabled>
+
 												</div>
 	                                        </div>
 											<div class="col-md-4">
 												<div class="form-group label-floating">
+
 													<label class="control-label">Postal Code</label>
-													<input type="number" class="form-control" name="pincode" required="true" value="{{pincode}}">
+													<input type="number" class="form-control" name="pincode" iid="pincode" required="true" value="{{pincode}}">
 												</div>
 	                                        </div>
 										</div>
 	                                    <button type="submit" class="btn btn-primary pull-right" data-background-color="green" >Update Profile</button>
+
 	                                    <div class="clearfix"></div>
 	                                </form>
 	                            </div>
 	                        </div>
 	                    </div>
 						<div class="col-md-4">
+
     						<div class="card card-profile" style="background-color:rgba(13,13,14,0.85)">
+
     							<div class="card-avatar">
     								<a href="#pablo">
     									<img class="img" src="{{user.profile_picture}}" />
     								</a>
     							</div>
 
+
     							<div class="content" >
     								<!-- <h6 class="category text-gray">CEO / Co-Founder</h6> -->
     								<h4 class="card-title" style="color:bisque" >{{user.full_name}}</h4>
+
     							</div>
     						</div>
 		    			</div>
@@ -218,9 +245,41 @@
 </body>
 
 	<!--   Core JS Files   -->
+
+
+
+
+
 	<script src="/static/ca-dashboard/js/jquery-3.1.0.min.js" type="text/javascript"></script>
 	<script src="/static/ca-dashboard/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="/static/ca-dashboard/js/material.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+		$(document).on('submit','#caform',function(e){
+			e.preventDefault();
+
+			$.ajax({
+				type:'POST',
+				url:'/ca-profile',
+				data:{
+					whatsapp_number:$('#whatsapp_number').val(),
+        			address:$('#address').val(),
+        			pincode:$('#pincode').val(),
+        			mobile_number:$('#mobile_number').val(),
+        			csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+					},
+				success:function(){
+				alert("your profie is successfully updated");
+				}
+			});
+
+		});
+	</script>
+
+	<script src="/static/ca-dashboard/js/jquery-3.1.0.min.js" type="text/javascript"></script>
+	<script src="/static/ca-dashboard/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/static/ca-dashboard/js/material.min.js" type="text/javascript"></script>
+
 
 	<!--  Charts Plugin -->
 	<script src="/static/ca-dashboard/js/chartist.min.js"></script>
@@ -236,5 +295,6 @@
 
 	<!-- Material Dashboard DEMO methods, don't include it in your project! -->
 	<script src="/static/ca-dashboard/js/demo.js"></script>
+
 
 </html>

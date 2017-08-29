@@ -1,9 +1,10 @@
+
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth.views import logout
 from .views import *
 
-urlpatterns = [
+urlpatterns = [ 
     url(r'^$', IndexView.as_view()),
     url(r'^ca-form/$', CaFormView),
     url(r'^dashboard/$', DashboardView, name="dashboard_url"),
@@ -11,6 +12,9 @@ urlpatterns = [
     url(r'^leaderboard/$', LeaderBoardView),
     url(r'^notifications/$', NotificationsView),
     url(r'^privacy_policy/$', PrivacyPolicyView),
-    url(r'^logout/$', LogoutView)
+    url(r'^logout/$', LogoutView),
+    url(r'^update_post', update_post_model),
+    url(r'^point_count', point_count),
+    
 
 ]

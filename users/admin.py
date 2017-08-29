@@ -3,7 +3,10 @@ from django.contrib.auth.models import Group
 from django.contrib.sites.models import Site
 
 
+
 from users.models import KYProfile, CAProfile, College
+
+from etc.models import Post
 
 class KYprofileInline(admin.StackedInline):
     model = KYProfile
@@ -74,8 +77,16 @@ class CAProfileAdmin(admin.ModelAdmin):
     search_fields = ('ca_id', 'kyprofile__college__collegeName', 'kyprofile__full_name')
 
 
+class Post_Admin(admin.ModelAdmin):
+    list_display = ["pid"]
+
+    class Meta:
+        model = Post
+
 # admin.site.unregister(Site)
 admin.site.unregister(Group)
 admin.site.register(KYProfile, KYProfileAdmin)
+
+admin.site.register(Post,Post_Admin)
 admin.site.register(CAProfile, CAProfileAdmin)
 admin.site.register(College, CollegeAdmin)
