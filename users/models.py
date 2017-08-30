@@ -5,8 +5,8 @@ from django.contrib.auth.base_user import AbstractBaseUser
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from allauth.socialaccount.models import SocialToken, SocialAccount
 
+from allauth.socialaccount.models import SocialToken, SocialAccount
 from .manager import UserManager
 
 year_choices = [
@@ -31,6 +31,7 @@ class College(models.Model):
 
     def __str__(self):
         return '%s' % self.collegeName
+
 
 
 class KYProfile(AbstractBaseUser, PermissionsMixin):
@@ -80,6 +81,7 @@ def save_profile(sender, instance, **kwargs):
 post_save.connect(save_profile, sender=SocialAccount)
 
 
+
 class CAProfile(models.Model):
     kyprofile = models.OneToOneField(KYProfile)
 
@@ -87,7 +89,7 @@ class CAProfile(models.Model):
     postal_address = models.TextField(null=True, blank=True)
     pincode = models.PositiveIntegerField(null=True, blank=True)
     reason = models.TextField(null=True, blank=True)
-
+    points=models.PositiveIntegerField(default=0, null=True, blank=True)
     regs = models.ManyToManyField(KYProfile, blank=True, related_name='regs')
     reg_num = models.PositiveIntegerField(default=0, null=True, blank=True) #no. of refered kyprofile.
     ca_id = models.CharField(max_length=20, null=True, blank=True)
@@ -103,5 +105,7 @@ class CAProfile(models.Model):
         super(self.__class__, self).save(*args, **kwargs)
 
 
+
     def __str__(self):
         return "%s - %s" %(self.kyprofile.full_name, self.ca_id)
+
