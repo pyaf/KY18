@@ -9,5 +9,7 @@ urlpatterns = [
     url(r'^account/email$',page_not_found, {'exception': Exception('Not Found')}),
     url(r'^account/', include('allauth.urls')),
     url(r'^ca/', include('users.urls')),
+    url(r'^', include('etc.urls')),
+
 
 ]
