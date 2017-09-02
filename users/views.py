@@ -14,6 +14,7 @@ from users.models import *
 from etc.models import *
 from django.utils import timezone
 from kashiyatra.settings import LOGIN_URL
+from django.core.mail import send_mail
 
 def addCaToSheet(kyprofile):
     data = {'id': kyprofile.ky_id,
@@ -28,6 +29,9 @@ def addCaToSheet(kyprofile):
     url = 'https://script.google.com/macros/s/AKfycbxUUHoa81jigbSdGtSl91qTdCJ0J__JA1HdqNq-VFAfuTtq4o01/exec'
 
     return requests.post(url, data=data)
+def sendMail(kyprofile):
+    send_mail('Registrations Successfull', 'body of the message', 'noreply@ky18.co', [kyprofile.email])
+
 
 def _getNotifications(kyprofile):
     notifications = Notifications.objects.filter(users=kyprofile.caprofile,
@@ -55,7 +59,7 @@ def CaFormView(request):#ca-form
         year = post.get('year', None)
         whatsapp_number = post.get('whatsapp_number', None)
         postal_address = post.get('postal_address', None)
-	
+
         pincode = post.get('pincode', None)
         reason=post.get('reason', None)
         mobile_number = post.get('mobile_number', None)
@@ -67,7 +71,7 @@ def CaFormView(request):#ca-form
                 ca.whatsapp_number=whatsapp_number
                 ca.postal_address=postal_address
                 ca.pincode=pincode
-                ca.reason=reason 
+                ca.reason=reason
                 ca.save()
 
             welcome_note = Notifications.objects.all().order_by('id')[0]
@@ -81,6 +85,8 @@ def CaFormView(request):#ca-form
             kyprofile.year = year
             kyprofile.has_ca_profile = True
             kyprofile.save()
+            addCaToSheet(kyprofile)
+            sendMail(kyprofile)
             return redirect('/dashboard')
         else:
             return HttpResponse("Invalid form submission")#sth to be done
