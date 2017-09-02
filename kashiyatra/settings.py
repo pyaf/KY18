@@ -183,3 +183,13 @@ SITE_ID=1
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+#Sending email
+
+EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'postmaster@mg.ky18.co'
+EMAIL_HOST_PASSWORD = 'b1f61b44cf2f93ead0aa0c8d4940ea8d'
+EMAIL_USE_TLS = True
