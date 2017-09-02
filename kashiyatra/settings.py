@@ -110,7 +110,9 @@ AUTHENTICATION_BACKENDS = (
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTH_USER_MODEL = 'users.KYProfile'
 
+X_FRAME_OPTIONS = 'ALLOWALL'
 
+XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
 LOGIN_URL = '/account/facebook/login/'
 SOCIALACCOUNT_QUERY_EMAIL = True
 LOGIN_REDIRECT_URL = "/dashboard/"
