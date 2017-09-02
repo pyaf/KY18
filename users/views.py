@@ -13,7 +13,7 @@ from allauth.socialaccount.models import SocialToken
 from users.models import *
 from etc.models import *
 from django.utils import timezone
-
+from kashiyatra.settings import LOGIN_URL
 
 def addCaToSheet(kyprofile):
     data = {'id': kyprofile.ky_id,
@@ -41,8 +41,11 @@ def _getNotifications(kyprofile):
 class IndexView(TemplateView):
     template_name = 'index.html'
 
+def GuidlinesView(request):
+    template_name = 'ca-dashboard/guidlines.html'
+    return render(request, template_name, {})
 
-@login_required(login_url="/login")
+@login_required(login_url=LOGIN_URL)
 def CaFormView(request):#ca-form
     template_name='ca-form.html'
     kyprofile = request.user
@@ -52,16 +55,20 @@ def CaFormView(request):#ca-form
         year = post.get('year', None)
         whatsapp_number = post.get('whatsapp_number', None)
         postal_address = post.get('postal_address', None)
+	
         pincode = post.get('pincode', None)
+        reason=post.get('reason', None)
         mobile_number = post.get('mobile_number', None)
-        if collegeName and whatsapp_number and mobile_number and \
+        if collegeName and whatsapp_number and reason and mobile_number and \
                                         postal_address and pincode and year:
 
             ca, created = CAProfile.objects.get_or_create(kyprofile=kyprofile)
             if created:
                 ca.whatsapp_number=whatsapp_number,
                 ca.postal_address=postal_address,
-                ca.pincode=pincode
+                ca.pincode=pincode,
+                ca.reason=reason 
+		
                 ca.save()
 
             welcome_note = Notifications.objects.all().order_by('id')[0]
@@ -75,7 +82,6 @@ def CaFormView(request):#ca-form
             kyprofile.year = year
             kyprofile.has_ca_profile = True
             kyprofile.save()
-            addCaToSheet(kyprofile)
             return redirect('/dashboard')
         else:
             return HttpResponse("Invalid form submission")#sth to be done
@@ -88,8 +94,7 @@ def CaFormView(request):#ca-form
         return render(request, template_name, context)
 
 
-
-@login_required(login_url="/login")
+@login_required(login_url=LOGIN_URL)
 def DashboardView(request):
     kyprofile = request.user
     if kyprofile.has_ca_profile:
@@ -102,7 +107,7 @@ def DashboardView(request):
         return redirect('/ca-form')
 
 
-@login_required(login_url="/login")
+@login_required(login_url=LOGIN_URL)
 def CAProfileUpdateView(request):
     kyprofile = request.user
     ca_profile_object = CAProfile.objects.get(kyprofile=kyprofile)
@@ -113,6 +118,7 @@ def CAProfileUpdateView(request):
         kyprofile.save()
         ca_profile_object.whatsapp_number = post.get('whatsapp_number', None)
         ca_profile_object.postal_address = post.get('address', None)
+
         ca_profile_object.pincode = post.get('pincode', None)
         ca_profile_object.save()
 
@@ -139,7 +145,7 @@ def CAProfileUpdateView(request):
     else:
         return redirect('/ca-form')
 
-@login_required(login_url="/login")
+@login_required(login_url=LOGIN_URL)
 def LeaderBoardView(request):
     kyprofile = request.user
     print(kyprofile)
@@ -151,7 +157,7 @@ def LeaderBoardView(request):
         return redirect('/ca-form')
 
 
-@login_required(login_url="/login")
+@login_required(login_url=LOGIN_URL)
 def NotificationsView(request):
     kyprofile = request.user
     print(kyprofile)
