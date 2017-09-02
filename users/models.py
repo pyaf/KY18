@@ -86,7 +86,6 @@ class CAProfile(models.Model):
     whatsapp_number = models.BigIntegerField(null=True, blank=True)
     postal_address = models.TextField(null=True, blank=True)
     pincode = models.PositiveIntegerField(null=True, blank=True)
-    reason = models.TextField(null=True, blank=True)
 
     regs = models.ManyToManyField(KYProfile, blank=True, related_name='regs')
     reg_num = models.PositiveIntegerField(default=0, null=True, blank=True) #no. of refered kyprofile.

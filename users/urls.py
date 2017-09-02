@@ -7,7 +7,6 @@ urlpatterns = [
     url(r'^$', IndexView.as_view()),
     url(r'^ca-form/$', CaFormView),
     url(r'^dashboard/$', DashboardView, name="dashboard_url"),
-    url(r'^ca-guidlines/$', GuidlinesView),
     url(r'^ca-profile', CAProfileUpdateView),
     url(r'^leaderboard/$', LeaderBoardView),
     url(r'^notifications/$', NotificationsView),
