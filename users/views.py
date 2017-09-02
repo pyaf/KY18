@@ -64,11 +64,10 @@ def CaFormView(request):#ca-form
 
             ca, created = CAProfile.objects.get_or_create(kyprofile=kyprofile)
             if created:
-                ca.whatsapp_number=whatsapp_number,
-                ca.postal_address=postal_address,
-                ca.pincode=pincode,
+                ca.whatsapp_number=whatsapp_number
+                ca.postal_address=postal_address
+                ca.pincode=pincode
                 ca.reason=reason 
-		
                 ca.save()
 
             welcome_note = Notifications.objects.all().order_by('id')[0]
