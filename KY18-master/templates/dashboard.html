@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <title>Dashboard</title>
+</head>
+<body>
+  <div class="jumbotron">
+    <div class="container">
+    <h1>Dashboard</h1>
+
+    <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <td>
+            <img src="{{user.profile_picture}}" alt="Smiley face" height="200" width="200">
+          </td>
+          <td>
+            Hey! {{user.full_name}}, your have successfully registered for Campus Ambassador of KY'18.<br>
+            CA Dashboard is in construction, We'll contact you soon!.
+        </tr>
+      </table>
+</div>
+    <br><br>
+    <form method="post" action="/account/logout/">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sign Out</button>
+  </form>
+</div>
+</div>
+  <script src="/static/js/jquery.min.js" charset="utf-8"></script>
+  <script src="/static/js/bootstrap.min.js" charset="utf-8"></script>
+  <script>
+  var idx=window.location.toString().indexOf("#_=_");
+   if (idx>0) {
+     window.location = window.location.toString().substring(0, idx);
+   }
+   </script>
+</body>
+</html>
