@@ -13,7 +13,7 @@ from allauth.socialaccount.models import SocialToken
 from users.models import *
 from etc.models import *
 from django.utils import timezone
-
+from kashiyatra.settings import LOGIN_URL
 
 def addCaToSheet(kyprofile):
     data = {'id': kyprofile.ky_id,
@@ -41,8 +41,11 @@ def _getNotifications(kyprofile):
 class IndexView(TemplateView):
     template_name = 'index.html'
 
+def GuidlinesView(request):
+    template_name = 'ca-dashboard/guidlines.html'
+    return render(request, template_name, {})
 
-@login_required(login_url="/login")
+@login_required(login_url=LOGIN_URL)
 def CaFormView(request):#ca-form
     template_name='ca-form.html'
     kyprofile = request.user
@@ -91,7 +94,7 @@ def CaFormView(request):#ca-form
         return render(request, template_name, context)
 
 
-@login_required(login_url="/login")
+@login_required(login_url=LOGIN_URL)
 def DashboardView(request):
     kyprofile = request.user
     if kyprofile.has_ca_profile:
@@ -104,7 +107,7 @@ def DashboardView(request):
         return redirect('/ca-form')
 
 
-@login_required(login_url="/login")
+@login_required(login_url=LOGIN_URL)
 def CAProfileUpdateView(request):
     kyprofile = request.user
     ca_profile_object = CAProfile.objects.get(kyprofile=kyprofile)
@@ -142,7 +145,7 @@ def CAProfileUpdateView(request):
     else:
         return redirect('/ca-form')
 
-@login_required(login_url="/login")
+@login_required(login_url=LOGIN_URL)
 def LeaderBoardView(request):
     kyprofile = request.user
     print(kyprofile)
@@ -154,7 +157,7 @@ def LeaderBoardView(request):
         return redirect('/ca-form')
 
 
-@login_required(login_url="/login")
+@login_required(login_url=LOGIN_URL)
 def NotificationsView(request):
     kyprofile = request.user
     print(kyprofile)
