@@ -15,15 +15,16 @@ from etc.models import *
 from django.utils import timezone
 from kashiyatra.settings import LOGIN_URL
 
-def addCaToSheet(ca):
-    data = {'id': ca.ca_id,
-            'name': ca.kyprofile.full_name,
-            'email': ca.kyprofile.email,
-            'college': ca.kyprofile.college,
-            # 'refCode': ca.kyprofile.caprofile.ca_id,
-            'year': ca.kyprofile.year,
-            'sex': ca.kyprofile.gender,
+def addCaToSheet(kyprofile):
+    data = {'id': kyprofile.ky_id,
+            'name': kyprofile.full_name,
+            'email': kyprofile.email,
+            'college': kyprofile.college,
+            'caId': kyprofile.caprofile.ca_id,
+            'year': kyprofile.year,
+            'sex': kyprofile.gender,
             'mobileNumber': kyprofile.mobile_number,
+            'whatsappNumber':kyprofile.caprofile.whatsapp_number
             }
 
     url = 'https://script.google.com/macros/s/AKfycbxUUHoa81jigbSdGtSl91qTdCJ0J__JA1HdqNq-VFAfuTtq4o01/exec'
@@ -56,7 +57,7 @@ def CaFormView(request):#ca-form
         year = post.get('year', None)
         whatsapp_number = post.get('whatsapp_number', None)
         postal_address = post.get('postal_address', None)
-	
+
         pincode = post.get('pincode', None)
         reason=post.get('reason', None)
         mobile_number = post.get('mobile_number', None)
@@ -68,7 +69,7 @@ def CaFormView(request):#ca-form
                 ca.whatsapp_number=whatsapp_number
                 ca.postal_address=postal_address
                 ca.pincode=pincode
-                ca.reason=reason 
+                ca.reason=reason
                 ca.save()
             college, created = College.objects.get_or_create(
                                             collegeName=collegeName)
@@ -79,7 +80,7 @@ def CaFormView(request):#ca-form
             kyprofile.has_ca_profile = True
             kyprofile.save()
             try:
-                # addCaToSheet(ca)
+                addCaToSheet(kyprofile)
                 welcome_note = Notifications.objects.all().order_by('id')[0]
                 welcome_note.users.add(ca)
                 welcome_note.save()
@@ -174,4 +175,3 @@ def NotificationsView(request):
 def PrivacyPolicyView(request):
     template_name = 'privacy_policy.html'
     return render(request, template_name, {})
-
