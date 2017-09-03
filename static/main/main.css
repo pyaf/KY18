@@ -9,9 +9,11 @@ body, html {
 }
 
 .bgimg {
-    background-image: url('/static/main/images/bg.jpg');
+    background-image: url('/static/main/images/bg-min.jpg');
     height: 100%;
     background-position: center;
+        background-repeat: no-repeat;
+
     background-size: cover;
     position: relative;
     color: white;
