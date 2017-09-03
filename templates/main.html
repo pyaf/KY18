@@ -1,54 +1,41 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<title>Kashiyatra'18</title>
-
-<!--CSS-->
-<link rel="stylesheet" href="../static/main/css/style.css">
-<link rel="stylesheet" href="../static/main/css/bootstrap-light.css">
-<link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-<!--/CSS-->
-
-<!--JS-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="../static/main/js/jquery.plugin.js"></script>
-<script src="../static/main/js/jquery.countdown.js"></script>
-<script>
-$(function () {
-	$('#defaultCountdown').countdown({until: new Date(2017, 12, 18)})
-	//Replace above date with your own, to find out more visit http://keith-wood.name/countdown.html
-});
-</script>
-<!--/JS-->
-<link rel="icon" type="image/png" href="../static/main/ky.jpg" >
+    <meta charset="UTF-8">
+    <title>Kashiyatra'18</title>
+    <link rel="stylesheet" href="/static/main/main.css">
 </head>
 <body>
+    <div class="bgimg">
+      <div class="topleft">
+        <img src="/static/main/ky.jpg" alt="Kashiyatra Logo" class="logo">
+      </div>
+      <div class="middle">
+        <h1 style="padding-top: 15%;padding-bottom: 0%;">KASHIYATRA'<span class="yellow">18</span></h1>
+        <h2>COMING <span class="yellow">SOON</span></h2>
+        <hr>
+        <p id="demo" style="font-size:40px"></p>
+      </div>
+    </div>
+    <script>
+        var countDownDate = new Date("Jan 19, 2018 00:00:00").getTime();
 
+        var x = setInterval(function() {
 
-<!--DARK OVERLAY-->
-<div class="overlay"></div>
-<!--/DARK OVERLAY-->
+          var now = new Date().getTime();
+          var distance = countDownDate - now;
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          document.getElementById("demo").innerHTML = days + " <span class=\"yellow\">d</span>  " + hours + " <span class=\"yellow\">h</span>  "
+          + minutes + " <span class=\"yellow\">m</span>  " + seconds + " <span class=\"yellow\">s</span>  ";
 
-
-<!--WRAP-->
-<div id="wrap">
-	<!--CONTAINER-->
-	<div class="container">
-		<img src="../static/main/ky.jpg" alt="Paper Plane" class="image-align" />
-		<h1>
-			KASHIYATRA'<span class="yellow">18</span><br>
-			<h2 id="ky1">COMING <span class="yellow2">SOON</span></h2>
-		</h1>
-
-		<div id="defaultCountdown"></div>
-
-
-	</div>
-	<!--/CONTAINER-->
-
-</div>
-<!--/WRAP-->
-
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+    </script>
 </body>
 </html>
