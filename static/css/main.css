@@ -3247,7 +3247,16 @@ justify-content:space-between;
 #two{
 	display: none
 }
+#mob{
+	display:none
+}
 @media (max-width: 600px){
+	#desk{
+		display:none;
+	}
+	#mob{
+		display:block;
+	}
 	.logo{
 		padding-top:2px;padding-left:2px;
 	}
@@ -3348,7 +3357,3 @@ justify-content:space-between;
 .logo{
 		padding-top:10px ;padding-left:2px;
 	}
-.l-main-content main-content{
-	background-image:url(cap1.jpg);  background-repeat: no-repeat;
-		  background-size:1450px;background-position:center;background-attachment:fixed;
-}
