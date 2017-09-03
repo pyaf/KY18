@@ -1440,6 +1440,7 @@ justify-content:center
 }
 .contact--lockup .modal
 {
+	font-size: 13px;
 padding:45px 45px;
 text-align:center;
 background-color:#0c0c0c;
@@ -2870,6 +2871,8 @@ display:none
 }
 .about--banner h2
 {
+	padding-top:5%;
+	padding-bottom: 5%;
 /*display:none*/
 }
 .about--options
@@ -3024,12 +3027,24 @@ text-transform:uppercase
 		}
 		}
 	@media (max-width: 600px){
+
 		.outer-nav>li
 		{
 			font-size:34px
 			}
 			}
-			.outer-nav li.is-vis:nth-child(2){-webkit-transition-delay:.04s;transition-delay:.04s}.outer-nav li.is-vis:nth-child(3){-webkit-transition-delay:.08s;transition-delay:.08s}.outer-nav li.is-vis:nth-child(4){-webkit-transition-delay:.12s;transition-delay:.12s}.outer-nav li.is-vis:nth-child(5){-webkit-transition-delay:.16s;transition-delay:.16s}
+			.outer-nav li.is-vis:nth-child(2){
+				-webkit-transition-delay:.04s;transition-delay:.04s
+				}
+			.outer-nav li.is-vis:nth-child(3){
+				-webkit-transition-delay:.08s;transition-delay:.08s
+				}
+				.outer-nav li.is-vis:nth-child(4){
+					-webkit-transition-delay:.12s;transition-delay:.12s
+				}
+					.outer-nav li.is-vis:nth-child(5){
+						-webkit-transition-delay:.16s;transition-delay:.16s
+					}
 
 
  
@@ -3211,6 +3226,7 @@ justify-content:space-between;
 		padding-top:2px;padding-left:2px;
 	}
 	.work-request{
+		padding-bottom: 50px;
 		width:90%;margin-left: auto;
     margin-right: auto;
 	}
@@ -3236,7 +3252,7 @@ justify-content:space-between;
 		
 	}
 	.hire h2{
-		font-size:45px !important;
+		font-size:34px !important;
 	}
 	.side-nav{
 		display:none;
@@ -3255,6 +3271,7 @@ justify-content:space-between;
 }
 #tc {
 	font-size:15px;
+	padding-left: 5%;
 }
 
 }
@@ -3277,15 +3294,15 @@ justify-content:space-between;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	border: solid white 2px;
+	/*border: solid white 2px;*/
 	width:100%;
-	height:120px;
+	height:95px;
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
 .respo_cir1{
-	width: 120px;
-	height: 120px;
+	width: 110px;
+	height: 110px;
 	border-radius:120px;
 	background-color: yellow;
 }
