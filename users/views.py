@@ -15,15 +15,16 @@ from etc.models import *
 from django.utils import timezone
 from kashiyatra.settings import LOGIN_URL
 
-def addCaToSheet(kyprofile):
-    data = {'id': kyprofile.ky_id,
-            'name': kyprofile.full_name,
-            'email': kyprofile.email,
-            'college': kyprofile.college,
-            'refCode': kyprofile.caprofile.ca_id,
-            'year': kyprofile.year,
-            'sex': kyprofile.gender,
-            'mobileNumber': kyprofile.mobile_number}
+def addCaToSheet(ca):
+    data = {'id': ca.ca_id,
+            'name': ca.kyprofile.full_name,
+            'email': ca.kyprofile.email,
+            'college': ca.kyprofile.college,
+            # 'refCode': ca.kyprofile.caprofile.ca_id,
+            'year': ca.kyprofile.year,
+            'sex': ca.kyprofile.gender,
+            'mobileNumber': kyprofile.mobile_number,
+            }
 
     url = 'https://script.google.com/macros/s/AKfycbxUUHoa81jigbSdGtSl91qTdCJ0J__JA1HdqNq-VFAfuTtq4o01/exec'
 
@@ -69,10 +70,6 @@ def CaFormView(request):#ca-form
                 ca.pincode=pincode
                 ca.reason=reason 
                 ca.save()
-
-            welcome_note = Notifications.objects.all().order_by('id')[0]
-            welcome_note.users.add(ca)
-            welcome_note.save()
             college, created = College.objects.get_or_create(
                                             collegeName=collegeName)
 
@@ -81,14 +78,21 @@ def CaFormView(request):#ca-form
             kyprofile.year = year
             kyprofile.has_ca_profile = True
             kyprofile.save()
-            return redirect('/dashboard')
+            try:
+                # addCaToSheet(ca)
+                welcome_note = Notifications.objects.all().order_by('id')[0]
+                welcome_note.users.add(ca)
+                welcome_note.save()
+            except Exception as e:
+                pass
+            return redirect('/ca/dashboard')
         else:
             return HttpResponse("Invalid form submission")#sth to be done
     else:
         context = {
-        'email': kyprofile.email,
-        'full_name': kyprofile.full_name,
-        'all_colleges': College.objects.all(),
+            'email': kyprofile.email,
+            'full_name': kyprofile.full_name,
+            'all_colleges': College.objects.all(),
         }
         return render(request, template_name, context)
 
@@ -103,7 +107,7 @@ def DashboardView(request):
 
         return render(request, template_name, context)
     else:
-        return redirect('/ca-form')
+        return redirect('/ca/ca-form')
 
 
 @login_required(login_url=LOGIN_URL)
@@ -142,7 +146,7 @@ def CAProfileUpdateView(request):
         new_context.update(notices)
         return render(request, template_name, new_context)
     else:
-        return redirect('/ca-form')
+        return redirect('/ca/ca-form')
 
 @login_required(login_url=LOGIN_URL)
 def LeaderBoardView(request):
@@ -153,7 +157,7 @@ def LeaderBoardView(request):
         context = _getNotifications(kyprofile)
         return render(request, template_name, context)
     else:
-        return redirect('/ca-form')
+        return redirect('/ca/ca-form')
 
 
 @login_required(login_url=LOGIN_URL)
@@ -165,12 +169,9 @@ def NotificationsView(request):
         context = _getNotifications(kyprofile)
         return render(request, template_name, context)
     else:
-        return redirect('/ca-form')
+        return redirect('/ca/ca-form')
 
 def PrivacyPolicyView(request):
     template_name = 'privacy_policy.html'
     return render(request, template_name, {})
 
-def LogoutView(request):
-    logout(request)
-    return redirect('/')

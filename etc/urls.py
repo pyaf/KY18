@@ -5,4 +5,6 @@ from .views import *
 
 urlpatterns = [
     url(r'^$', IndexView),
+   url(r'^logout/$', LogoutView)
+
 ]

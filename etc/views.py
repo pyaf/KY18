@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Notifications
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 
 @login_required
@@ -14,3 +15,7 @@ def notification_list(request):
 def IndexView(request):
 	template_name = 'main.html'
 	return render(request, template_name, {})
+
+def LogoutView(request):
+    logout(request)
+    return redirect('/')
