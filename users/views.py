@@ -15,16 +15,19 @@ from etc.models import *
 from django.utils import timezone
 from kashiyatra.settings import LOGIN_URL
 
-def addCaToSheet(kyprofile):
+def addCaToSheet(kyprofile,ca):
     data = {'id': kyprofile.ky_id,
             'name': kyprofile.full_name,
             'email': kyprofile.email,
             'college': kyprofile.college,
-            'caId': kyprofile.caprofile.ca_id,
+            'caId': ca.ca_id,
             'year': kyprofile.year,
             'sex': kyprofile.gender,
             'mobileNumber': kyprofile.mobile_number,
-            'whatsappNumber':kyprofile.caprofile.whatsapp_number
+            'whatsappNumber':ca.whatsapp_number,
+            'fbLink' :kyprofile.profile_link,
+            'reason':ca.reason
+
             }
 
     url = 'https://script.google.com/macros/s/AKfycbxUUHoa81jigbSdGtSl91qTdCJ0J__JA1HdqNq-VFAfuTtq4o01/exec'
@@ -80,7 +83,7 @@ def CaFormView(request):#ca-form
             kyprofile.has_ca_profile = True
             kyprofile.save()
             try:
-                addCaToSheet(kyprofile)
+                addCaToSheet(kyprofile,ca)
             except Exception as e:
                 pass
             welcome_note = Notifications.objects.all().order_by('id')[0]
