@@ -19,6 +19,7 @@ if os.environ.get('development', '') == 'True':
     DEBUG = False
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
