@@ -81,11 +81,11 @@ def CaFormView(request):#ca-form
             kyprofile.save()
             try:
                 addCaToSheet(kyprofile)
-                welcome_note = Notifications.objects.all().order_by('id')[0]
-                welcome_note.users.add(ca)
-                welcome_note.save()
             except Exception as e:
                 pass
+            welcome_note = Notifications.objects.all().order_by('id')[0]
+            welcome_note.users.add(ca)
+            welcome_note.save()
             return redirect('/ca/dashboard')
         else:
             return HttpResponse("Invalid form submission")#sth to be done
