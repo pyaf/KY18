@@ -16,21 +16,24 @@ from django.utils import timezone
 from kashiyatra.settings import LOGIN_URL
 
 def addCaToSheet(kyprofile,ca):
-    data = {'id': kyprofile.ky_id,
-            'name': kyprofile.full_name,
+
+    data = {
+            'ky_id': kyprofile.ky_id,
+            'ca_id': ca.ca_id,
+            'full_name': kyprofile.full_name,
             'email': kyprofile.email,
             'college': kyprofile.college,
-            'caId': ca.ca_id,
             'year': kyprofile.year,
-            'sex': kyprofile.gender,
-            'mobileNumber': kyprofile.mobile_number,
-            'whatsappNumber':ca.whatsapp_number,
-            'fbLink' :kyprofile.profile_link,
-            'reason':ca.reason
+            'gender': kyprofile.gender,
+            'mobile_number': kyprofile.mobile_number,
+            'whatsapp_number': ca.whatsapp_number,
+            'postal_address': ca.postal_address,
+            'pincode': ca.pincode,
+            'profile_link': kyprofile.profile_link,
+            'reason': ca.reason,
+    }
 
-            }
-
-    url = 'https://script.google.com/macros/s/AKfycbxUUHoa81jigbSdGtSl91qTdCJ0J__JA1HdqNq-VFAfuTtq4o01/exec'
+    url = 'https://script.google.com/macros/s/AKfycbyeu8AJ8Su8uwnvykOR_vzB9Rz49r05B2EKvgTKEFefpNeU4ik/exec'
 
     return requests.post(url, data=data)
 
@@ -122,6 +125,10 @@ def CAProfileUpdateView(request):
     if request.method == 'POST':
         post = request.POST
         kyprofile.mobile_number = post.get('mobile_number', None)
+        collegeName = post.get('college', None)
+        college, created = College.objects.get_or_create(
+                                            collegeName=collegeName)
+        kyprofile.college = college
         kyprofile.save()
         ca_profile_object.whatsapp_number = post.get('whatsapp_number', None)
         ca_profile_object.postal_address = post.get('address', None)

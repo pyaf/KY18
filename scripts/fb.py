@@ -1,9 +1,11 @@
 #Script to update Post objects.
+#python -m scripts.fb
 import os
 import django
 import requests
 from datetime import datetime
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "kashiyatra.settings")
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", 'kashiyatra.settings')
 django.setup()
 from etc.models import Post
 access_token = os.environ['AT']
