@@ -1,4 +1,5 @@
 from django.conf.urls import url, include
+from django.shortcuts import redirect
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views.defaults import page_not_found
@@ -10,11 +11,9 @@ urlpatterns = [
     
     url(r'^account/email',page_not_found, {'exception': Exception('Not Found')}),
     url(r'^account/signup/$',page_not_found, {'exception': Exception('Not Found')}),
-    url(r'^account/login/$',page_not_found, {'exception': Exception('Not Found')}),
+    url(r'^account/login/$', lambda x: redirect('/account/facebook/login/')),
     url(r'^account/password/',page_not_found, {'exception': Exception('Not Found')}),
     url(r'^account/confirm-email',page_not_found, {'exception': Exception('Not Found')}),
-
-    
     url(r'^account/', include('allauth.urls')),
     url(r'^ca/', include('users.urls')),
     url(r'^', include('etc.urls')),
