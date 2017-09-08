@@ -28,7 +28,15 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 </head>
-
+<style>
+	input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+</style>
 <body>
 
 	<div class="wrapper">
@@ -124,7 +132,7 @@
 									<p class="category">Complete your profile</p>
 	                            </div>
 	                            <div class="card-content">
-	                               <form action="" role="form" method="POST">
+	                               <form action="" role="form" method="POST" id="user-update">
                     					{% csrf_token %}
 	                                    <div class="row">
 										     <div class="col-md-12">
@@ -243,4 +251,42 @@
 	<!-- Material Dashboard DEMO methods, don't include it in your project! -->
 	<script src="/static/ca-dashboard/js/demo.js"></script>
 
+	<script src="/static/js/jquery.validate-1.14.0.min.js"></script>
+	<script src="/static/js/jquery-validate.bootstrap-tooltip.js"></script>
+	<script>
+	$(document).ready(function() {
+
+
+  $("#user-update").validate({
+
+    rules: {
+
+      college: "required",
+      mobile_number: {
+        required: true,
+        minlength: 10,
+        maxlength: 10,
+      },
+      whatsapp_number:{
+        required: true,
+        minlength: 10,
+        maxlength: 10,
+      }, 
+      pincode: {
+        required: true,
+        minlength: 6,
+        maxlength: 6,
+      },
+      reason:{
+        required: true,
+      },
+    },
+
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+
+});	
+	</script>
 </html>

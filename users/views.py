@@ -57,6 +57,7 @@ def GuidlinesView(request):
 def CaFormView(request):#ca-form
     template_name='ca-form.html'
     kyprofile = request.user
+    # print(request.method)
     if request.method == 'POST':
         post = request.POST
         collegeName = post.get('college', None)
@@ -69,14 +70,13 @@ def CaFormView(request):#ca-form
         mobile_number = post.get('mobile_number', None)
         if collegeName and whatsapp_number and reason and mobile_number and \
                                         postal_address and pincode and year:
-
+            # print(collegeName,whatsapp_number, postal_address, pincode, reason, mobile_number, pincode, year)
             ca, created = CAProfile.objects.get_or_create(kyprofile=kyprofile)
-            if created:
-                ca.whatsapp_number=whatsapp_number
-                ca.postal_address=postal_address
-                ca.pincode=pincode
-                ca.reason=reason
-                ca.save()
+            ca.whatsapp_number=whatsapp_number
+            ca.postal_address=postal_address
+            ca.pincode=pincode
+            ca.reason=reason
+            ca.save()
             college, created = College.objects.get_or_create(
                                             collegeName=collegeName)
 
