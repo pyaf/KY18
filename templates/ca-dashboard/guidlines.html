@@ -5,6 +5,7 @@
 	<link rel="apple-touch-icon" sizes="76x76" href="/static/ca-dashboard/img/apple-icon.png" />
 	<!-- <link rel="icon" type="image/png" href="/static/ca-dashboard/img/favicon.png" /> -->
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	{% include 'base.html' %}
 
 	<title>KY CA Dashboard</title>
 
@@ -53,34 +54,34 @@
 				</h6>
 			</div>
 
-			<div class="sidebar-wrapper">
-				  <ul class="nav">
-					  <li>
-						  <a href="/dashboard">
-							  <i class="material-icons">dashboard</i>
-							  <p  style="color:aliceblue">Dashboard</p>
-						  </a>
-					  </li>
-					  <li>
-						  <a href="/ca-profile">
-							  <i class="material-icons">person</i>
-							  <p  style="color:aliceblue">User Profile</p>
-						  </a>
-					  </li>
-					  <li >
-						  <a href="#">
-							  <i class="material-icons">content_paste</i>
-							  <p  style="color:aliceblue">Leader Board</p>
-						  </a>
-					  </li>
-					  <li>
-                          <a href="/logout">
-                              <i class="fa fa-sign-out"></i>
-                              <p style="color:aliceblue">Logout</p>
-                          </a>
-                      </li>
-				  </ul>
-			  </div>
+	    	<div class="sidebar-wrapper">
+	            <ul class="nav">
+	                <li class="active">
+	                    <a href="{% url 'ca-dashboard' %}">
+	                        <i class="material-icons">dashboard</i>
+	                        <p style="color:aliceblue">Dashboard</p>
+	                    </a>
+	                </li>
+	                <li>
+						<a href="{% url 'ca-profile' %}">
+	                        <i class="material-icons">person</i>
+	                        <p style="color:aliceblue">User Profile</p>
+	                    </a>
+	                </li>
+	                <li>
+	                    <a href="{% url 'ca-leaderboard' %}">
+	                        <i class="material-icons">content_paste</i>
+	                        <p style="color:aliceblue">Leader Board</p>
+	                    </a>
+	                </li>
+					<li>
+                        <a href="/logout">
+                            <i class="fa fa-sign-out"></i>
+                            <p style="color:aliceblue">Logout</p>
+                        </a>
+                    </li>
+	            </ul>
+	    	</div>
 	    </div>
 
 	    <div class="main-panel" style="background-color:#1c182d">
@@ -98,7 +99,7 @@
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav navbar-right">
 						    <li class="nav-item">
-						        <a class="nav-link" style="color:aliceblue" href="/ca-guidlines">
+						        <a class="nav-link" style="color:aliceblue" href="{% url 'ca-guidlines' %}">
 	                        		<p style="color:aliceblue;font-size: 15px">Guidlines</p>
 						        </a>
 						    </li>
@@ -112,7 +113,7 @@
 									{% for notice in notifications %}
 									<li><a href="#">{{notice.main_text}}</a></li>
 									{%endfor%}
-									<li><a href="/notifications" class="pull-right">Show All</a></li>
+									<li><a href="{% url 'ca-notifications' %}" class="pull-right">Show All</a></li>
 								</ul>
 							</li>
 							<li>

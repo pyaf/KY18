@@ -11,6 +11,15 @@
   <link rel="stylesheet" href="/static/css/ca-form.css">
 </head>
 <style>
+
+  input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
 .ui-helper-hidden-accessible{
   display: none;
 
@@ -34,7 +43,7 @@ ul {
           <div class="row">
               <div class="col-sm-5">
                   <br>
-                  <form action="/ca-form/" role="form" method="POST">
+                  <form action="" role="form" method="POST" id="ca-form">
                     {% csrf_token %}
                       <div class="form-group float-label-control">
                           <label for="">Email</label>
@@ -48,7 +57,7 @@ ul {
 
                       <div class="form-group float-label-control">
                           <label for="">College</label>
-                          <input type="text" id="id_college" name="college" class="form-control" placeholder="College">
+                          <input type="text" id="id_college" name="college" class="form-control" required="true" placeholder="College">
                       </div>
 
                       <div class="form-group float-label-control">
@@ -64,12 +73,12 @@ ul {
 
                       <div class="form-group float-label-control">
                           <label for="">Mobile Number</label>
-                          <input type="number" class="form-control" name="mobile_number" placeholder="Mobile Number">
+                          <input type="number" class="form-control" name="mobile_number"  placeholder="Mobile Number">
                       </div>
 
                       <div class="form-group float-label-control">
                           <label for="">WhatsApp Number</label>
-                          <input type="number" class="form-control" name="whatsapp_number" placeholder="WhatsApp Number">
+                          <input type="number" class="form-control" name="whatsapp_number"  placeholder="WhatsApp Number">
                       </div>
 
                      <div class="form-group float-label-control">
@@ -78,11 +87,11 @@ ul {
                     </div>
                     <div class="form-group float-label-control">
                         <label for="">Pincode</label>
-                        <input type="number" class="form-control" name="pincode" placeholder="Pincode">
+                        <input type="number" class="form-control"  name="pincode" placeholder="Pincode">
                     </div>
 <div class="form-group float-label-control">
                         <label for="">why choose you?</label>
-                        <textarea class="form-control" name="reason" rows="2"></textarea>
+                        <textarea class="form-control"  name="reason" rows="2"></textarea>
                     </div>
                       <button class="btn btn-submit"type="submit">Done</button>
                   </form>
@@ -109,31 +118,74 @@ ul {
   </div>
 
 </body>
-<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/jquery-1.11.3.min.js"></script>
+<script src="/static/js/bootstrap-3.3.5.min.js"></script>
+<script src="/static/js/jquery.validate-1.14.0.min.js"></script>
+<script src="/static/js/jquery-validate.bootstrap-tooltip.js"></script>
 <script src="/static/js/ca-form.js" charset="utf-8"></script>
-<script src="/static/js/1.12.0jquery-ui.min.js"></script>
 <script type="text/javascript">
       var idx=window.location.toString().indexOf("#_=_");
        if (idx>0) {
          window.location = window.location.toString().substring(0, idx);
        }
 
-       $( function() {
-         var availableTags = [
-           {% for clg in all_colleges %}
-               "{{clg}}",
-           {% endfor %}
-         ];
-         $("#id_college").autocomplete({
-           source: availableTags
-         });
-       } );
-       // over write the default autocomplete function to match the option starting with term
-       $.ui.autocomplete.filter = function (array, term) {
-         var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(term), "i");
-         return $.grep(array, function (value) {
-           return matcher.test(value.label || value.value || value);
-         });
-       };
+
+
+// Wait for the DOM to be ready
+$(document).ready(function() {
+
+  $("#ca-form").validate({
+
+    rules: {
+
+      college: "required",
+      mobile_number: {
+        required: true,
+        minlength: 10,
+        maxlength: 10,
+      },
+      whatsapp_number:{
+        required: true,
+        minlength: 10,
+        maxlength: 10,
+      }, 
+      pincode: {
+        required: true,
+        minlength: 6,
+        maxlength: 6,
+      },
+      reason:{
+        required: true,
+      },
+    },
+
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+
+});
+</script>
+<!-- <script src="/static/js/1.12.0jquery-ui.min.js"></script> -->
+
+<script>
+
+       //     $( function() {
+       //   var availableTags = [
+       //     {% for clg in all_colleges %}
+       //         "{{clg}}",
+       //     {% endfor %}
+       //   ];
+       //   $("#id_college").autocomplete({
+       //     source: availableTags
+       //   });
+       // } );
+       // // over write the default autocomplete function to match the option starting with term
+       // $.ui.autocomplete.filter = function (array, term) {
+       //   var matcher = new RegExp("^" + $.ui.autocomplete.escapeRegex(term), "i");
+       //   return $.grep(array, function (value) {
+       //     return matcher.test(value.label || value.value || value);
+       //   });
+       // };
 </script>
 </html>

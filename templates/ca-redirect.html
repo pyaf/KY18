@@ -1,25 +1,25 @@
 <html>
 <head></head>
+    <link href="/static/ca-dashboard/css/bootstrap.min.css" rel="stylesheet" />
 <body>
-<style type="text/css">
-.my_content_container a {
-    border-bottom: 1px solid #777777;
-    border-left: 1px solid #000000;
-    border-right: 1px solid #333333;
-    border-top: 1px solid #000000;
-    color: #003200;
-    display: block;
-    height: 2.5em;
-    padding: 0 1em;
-    width: 5em;       
-    text-decoration: none;       
-}
-// :hover and :active styles left as an exercise for the reader.
-</style>
 
-<div class="my_content_container">
-    <a href="https://www.facebook.com/v2.10/dialog/oauth?client_id=421719991556493&redirect_uri=http://localhost:8000/account/login&auth_type=rerequest
-    &scope=email">login again</a>
+<div class="container">
+<div class="row">
+    <h3>Error Occured</h3>
+ <ul> 
+<li><p>An error occured while logging you in via facebook, please make sure your email id is linked to your Facebook account. </p></li>
+<li><p>If your email id is already linked to Facebook, then make sure you have confirmed your email id on Facebook.</p></li>
+<li>
+<p>Refer this post for more info: <a href="https://www.facebook.com/help/376335499080938/">https://www.facebook.com/help/376335499080938/</a></p>
+</li>
+ </ul>   
+ <p>    
+ Follow Above instructions and Retry 
+<a class="btn btn-info" href="https://www.facebook.com/v2.10/dialog/oauth?client_id=421719991556493&redirect_uri=http://{{ request.get_host }}/account/login&auth_type=rerequest&scope=email">Login again</a>
+ </p>
+
+ <h3>If you are still facing problem while registering on Kashiyatra Campus Ambassador Portal   <br>  Drop us an email: <a href="mailto:kashiyatra@iitbhu.ac.in">kashiyatra@iitbhu.ac.in</a></h3>
+</div>
 </div>
 </body>
 </html>

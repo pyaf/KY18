@@ -27,4 +27,4 @@ class Post(models.Model):
 	picture = models.URLField(null=True, blank=True)
 
 	def __str__(self):
-		return self.id
+		return str(self.link)

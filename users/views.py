@@ -15,17 +15,25 @@ from etc.models import *
 from django.utils import timezone
 from kashiyatra.settings import LOGIN_URL
 
-def addCaToSheet(kyprofile):
-    data = {'id': kyprofile.ky_id,
-            'name': kyprofile.full_name,
+def addCaToSheet(kyprofile,ca):
+
+    data = {
+            'ky_id': kyprofile.ky_id,
+            'ca_id': ca.ca_id,
+            'full_name': kyprofile.full_name,
             'email': kyprofile.email,
             'college': kyprofile.college,
-            'refCode': kyprofile.caprofile.ca_id,
             'year': kyprofile.year,
-            'sex': kyprofile.gender,
-            'mobileNumber': kyprofile.mobile_number}
+            'gender': kyprofile.gender,
+            'mobile_number': kyprofile.mobile_number,
+            'whatsapp_number': ca.whatsapp_number,
+            'postal_address': ca.postal_address,
+            'pincode': ca.pincode,
+            'profile_link': kyprofile.profile_link,
+            'reason': ca.reason,
+    }
 
-    url = 'https://script.google.com/macros/s/AKfycbxUUHoa81jigbSdGtSl91qTdCJ0J__JA1HdqNq-VFAfuTtq4o01/exec'
+    url = 'https://script.google.com/macros/s/AKfycbyeu8AJ8Su8uwnvykOR_vzB9Rz49r05B2EKvgTKEFefpNeU4ik/exec'
 
     return requests.post(url, data=data)
 
@@ -49,30 +57,26 @@ def GuidlinesView(request):
 def CaFormView(request):#ca-form
     template_name='ca-form.html'
     kyprofile = request.user
+    # print(request.method)
     if request.method == 'POST':
         post = request.POST
         collegeName = post.get('college', None)
         year = post.get('year', None)
         whatsapp_number = post.get('whatsapp_number', None)
         postal_address = post.get('postal_address', None)
-	
+
         pincode = post.get('pincode', None)
         reason=post.get('reason', None)
         mobile_number = post.get('mobile_number', None)
         if collegeName and whatsapp_number and reason and mobile_number and \
                                         postal_address and pincode and year:
-
+            # print(collegeName,whatsapp_number, postal_address, pincode, reason, mobile_number, pincode, year)
             ca, created = CAProfile.objects.get_or_create(kyprofile=kyprofile)
-            if created:
-                ca.whatsapp_number=whatsapp_number
-                ca.postal_address=postal_address
-                ca.pincode=pincode
-                ca.reason=reason 
-                ca.save()
-
-            welcome_note = Notifications.objects.all().order_by('id')[0]
-            welcome_note.users.add(ca)
-            welcome_note.save()
+            ca.whatsapp_number=whatsapp_number
+            ca.postal_address=postal_address
+            ca.pincode=pincode
+            ca.reason=reason
+            ca.save()
             college, created = College.objects.get_or_create(
                                             collegeName=collegeName)
 
@@ -81,14 +85,21 @@ def CaFormView(request):#ca-form
             kyprofile.year = year
             kyprofile.has_ca_profile = True
             kyprofile.save()
-            return redirect('/dashboard')
+            try:
+                addCaToSheet(kyprofile,ca)
+            except Exception as e:
+                pass
+            welcome_note = Notifications.objects.all().order_by('id')[0]
+            welcome_note.users.add(ca)
+            welcome_note.save()
+            return redirect('/ca/dashboard')
         else:
             return HttpResponse("Invalid form submission")#sth to be done
     else:
         context = {
-        'email': kyprofile.email,
-        'full_name': kyprofile.full_name,
-        'all_colleges': College.objects.all(),
+            'email': kyprofile.email,
+            'full_name': kyprofile.full_name,
+            'all_colleges': College.objects.all(),
         }
         return render(request, template_name, context)
 
@@ -103,7 +114,7 @@ def DashboardView(request):
 
         return render(request, template_name, context)
     else:
-        return redirect('/ca-form')
+        return redirect('/ca/ca-form')
 
 
 @login_required(login_url=LOGIN_URL)
@@ -114,6 +125,10 @@ def CAProfileUpdateView(request):
     if request.method == 'POST':
         post = request.POST
         kyprofile.mobile_number = post.get('mobile_number', None)
+        collegeName = post.get('college', None)
+        college, created = College.objects.get_or_create(
+                                            collegeName=collegeName)
+        kyprofile.college = college
         kyprofile.save()
         ca_profile_object.whatsapp_number = post.get('whatsapp_number', None)
         ca_profile_object.postal_address = post.get('address', None)
@@ -142,7 +157,7 @@ def CAProfileUpdateView(request):
         new_context.update(notices)
         return render(request, template_name, new_context)
     else:
-        return redirect('/ca-form')
+        return redirect('/ca/ca-form')
 
 @login_required(login_url=LOGIN_URL)
 def LeaderBoardView(request):
@@ -153,7 +168,7 @@ def LeaderBoardView(request):
         context = _getNotifications(kyprofile)
         return render(request, template_name, context)
     else:
-        return redirect('/ca-form')
+        return redirect('/ca/ca-form')
 
 
 @login_required(login_url=LOGIN_URL)
@@ -165,12 +180,8 @@ def NotificationsView(request):
         context = _getNotifications(kyprofile)
         return render(request, template_name, context)
     else:
-        return redirect('/ca-form')
+        return redirect('/ca/ca-form')
 
 def PrivacyPolicyView(request):
     template_name = 'privacy_policy.html'
     return render(request, template_name, {})
-
-def LogoutView(request):
-    logout(request)
-    return redirect('/')
