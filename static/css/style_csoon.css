@@ -1,6 +1,11 @@
 @font-face {
-   font-family: myFont;
-   src:url("/static/main/HARRP___.TTF");
+font-family: "HARRP";
+src: url("HARRP___.TTF");
+src:local("☺"),url("HARRP___.TTF") format("ttf")
+}
+body{
+	color: white;
+	font-family:"HARRP",sans-serif;
 }
 .logo{
     /*background-color: yellow;*/
@@ -124,4 +129,3 @@ img {
 .header{width: 100%; margin-top: 10%; height: 200px;}
 .link{margin-top: 10%}
 }
-

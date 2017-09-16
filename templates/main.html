@@ -2,22 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Kashiyatra'18</title>
-    <link rel="stylesheet" href="/static/main/main.css">
+    <title>Coming Soon|KY'18</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../static/css/style_csoon.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="bgimg">
-      <div class="topleft">
-        <img src="/static/main/ky.jpg" alt="Kashiyatra Logo" class="logo">
-      </div>
-      <div class="middle">
-        <h1 style="padding-top: 15%;padding-bottom: 0%;">KASHIYATRA'<span class="yellow">18</span></h1>
-        <h2>COMING <span class="yellow">SOON</span></h2>
-        <hr>
-        <p id="demo" style="font-size:40px"></p>
-      </div>
+<body style="background-image: url(Website_image.jpg);background-repeat: no-repeat;
+		  background-size:1450px;background-position:center;background-attachment:fixed;">
+<div class="top">
+    <div class="logo">
+        <img src="../static/img/ky%20logo.png">
     </div>
-    <script>
+    <div class="iit">
+        <img src="../static/img/logo.png" class="head" style='height: 100%; width: 100%; object-fit: contain'>
+    </div>
+</div>
+<div class="header">
+    <img style='margin-right:10%;' src="../static/img/KY_Header_withouttheme1.png">
+</div>
+<div class="link">
+<div class="type-1">
+  <div>
+    <a href="" class="btn btn-1">
+      <span class="txt">Register for CA</span>
+      <span class="round"><i class="fa fa-chevron-right"></i></span>
+    </a>
+  </div>
+</div>
+</div>
+<div class="time">
+<p id="demo" style="font-size:38px; text-align: center"></p>
+</div>
+<script>
         var countDownDate = new Date("Jan 19, 2018 00:00:00").getTime();
 
         var x = setInterval(function() {
@@ -29,7 +47,7 @@
           var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
           var seconds = Math.floor((distance % (1000 * 60)) / 1000);
           document.getElementById("demo").innerHTML = days + " <span class=\"yellow\">d</span>  " + hours + " <span class=\"yellow\">h</span>  "
-          + minutes + " <span class=\"yellow\">m</span>  " + seconds + " <span class=\"yellow\">s</span>  ";
+          + minutes + " <span class=\"yellow\">m</span>  " + seconds + " <span class=\"yellow\">s</span>";
 
           if (distance < 0) {
             clearInterval(x);
