@@ -1,14 +1,4 @@
-body, html {
-    height: 100%;
-    margin: 0;
-}
-a{
-    color:white;
-}
 
-h2{
-    margin: 0 0 0 0 ;
-}
 @font-face {
    font-family: myFont;
    src:url("/static/main/HARRP___.TTF");
@@ -27,26 +17,32 @@ h2{
     font-size: 40px;
 }
 
-.yellow {
-    color: #ff9c00;
+.txt {
+  font-size: 14px;
+  line-height: 1.45;
 }
 
+.type-1 a:hover {
+  padding-left: 48px;
+  padding-right: 28px;
+}
+.type-1 a:hover .round {
+  width: calc(100% - 6px);
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+}
+.type-1 a:hover .round i {
+  left: 12%;
+}
 img {
-    padding: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+@media (max-width: 700px){
+.logo{width: 20%;}
+.iit{width: 50%}
+.header{width: 100%; margin-top: 10%; height: 200px;}
+.link{margin-top: 10%}
 }
 
-.middle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-hr {
-    margin: auto;
-    width: 40%;
-}
