@@ -5,7 +5,11 @@ from django.views.generic import TemplateView
 from django.views.defaults import page_not_found
 from django.contrib.auth.views import logout
 
+def lafda(request, shit):
+    return redirect('/')
+
 urlpatterns = [
+    url(r'^(?P<shit>[\w{}.-]{5})/', lafda),
     url(r'^admin/', admin.site.urls),
     url(r'^account/social/signup/',TemplateView.as_view(template_name='ca-redirect.html')),
     
