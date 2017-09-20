@@ -10,7 +10,7 @@ def lafda(request, shit):
 
 urlpatterns = [
     url(r'^(?P<shit>[\w{}.-]{5})/', lafda),
-    url(r'^admin/', admin.site.urls),
+    url(r'^ky-the-admin/', admin.site.urls),
     url(r'^account/social/signup/',TemplateView.as_view(template_name='ca-redirect.html')),
     
     url(r'^account/email',page_not_found, {'exception': Exception('Not Found')}),
