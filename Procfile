@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath server kashiyatra.wsgi
+web: gunicorn kashiyatra.wsgi
