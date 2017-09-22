@@ -7,7 +7,9 @@ from datetime import datetime
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", 'kashiyatra.settings')
 django.setup()
-from etc.models import Post
+from etc.models import Post, Notifications
+from users.models import CAProfile
+
 access_token = os.environ['AT']
 url = "https://graph.facebook.com/kashiyatra.IITBHU/posts?fields=full_picture,picture,link,message,created_time&limit=10&access_token=" + access_token
 
@@ -29,6 +31,9 @@ for data in response['data']:
             post.full_picture = full_picture
             post.created_time = created_time
             post.save()
+            msg = "Hola! new KY post on your dashboard, like and share to earn points. ;)"
+            notice = Notifications.objects.create(main_text=msg)
+            notice.users=CAProfile.objects.all()
             print('Created new post, id= %s' % pid)
         else:
             print('Post already in db\n')

@@ -25,6 +25,7 @@ class Post(models.Model):
 	link = models.URLField(null=True, blank=True)
 	full_picture = models.URLField(null=True, blank=True)
 	picture = models.URLField(null=True, blank=True)
+	show = models.BooleanField(default=True)
 
 	def __str__(self):
 		return str(self.link)

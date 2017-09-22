@@ -110,7 +110,7 @@ def DashboardView(request):
     if kyprofile.has_ca_profile:
         template_name = 'ca-dashboard/dashboard.html'
         context = _getNotifications(kyprofile)
-        context['posts'] = Post.objects.all().order_by('-id')[:9]
+        context['posts'] = Post.objects.filter(show=True).order_by('-id')[:9]
 
         return render(request, template_name, context)
     else:
