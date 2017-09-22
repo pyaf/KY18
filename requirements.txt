@@ -8,9 +8,11 @@ gunicorn==19.6.0
 idna==2.5
 oauthlib==2.0.2
 psycopg2==2.6.2
+python-http-client==3.0.0
 python3-openid==3.1.0
 pytz==2017.2
 requests==2.18.1
 requests-oauthlib==0.8.0
+sendgrid==5.2.0
 urllib3==1.21.1
 whitenoise==3.2

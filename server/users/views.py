@@ -14,28 +14,7 @@ from users.models import *
 from etc.models import *
 from django.utils import timezone
 from kashiyatra.settings import LOGIN_URL
-
-def addCaToSheet(kyprofile,ca):
-
-    data = {
-            'ky_id': kyprofile.ky_id,
-            'ca_id': ca.ca_id,
-            'full_name': kyprofile.full_name,
-            'email': kyprofile.email,
-            'college': kyprofile.college,
-            'year': kyprofile.year,
-            'gender': kyprofile.gender,
-            'mobile_number': kyprofile.mobile_number,
-            'whatsapp_number': ca.whatsapp_number,
-            'postal_address': ca.postal_address,
-            'pincode': ca.pincode,
-            'profile_link': kyprofile.profile_link,
-            'reason': ca.reason,
-    }
-
-    url = 'https://script.google.com/macros/s/AKfycbyeu8AJ8Su8uwnvykOR_vzB9Rz49r05B2EKvgTKEFefpNeU4ik/exec'
-
-    return requests.post(url, data=data)
+from users.apis import *
 
 def _getNotifications(kyprofile):
     notifications = Notifications.objects.filter(users=kyprofile.caprofile,
@@ -87,11 +66,12 @@ def CaFormView(request):#ca-form
             kyprofile.save()
             try:
                 addCaToSheet(kyprofile,ca)
+                regSuccessMail(kyprofile)
+                welcome_note = Notifications.objects.all().order_by('id')[0]
+                welcome_note.users.add(ca)
+                welcome_note.save()
             except Exception as e:
                 pass
-            welcome_note = Notifications.objects.all().order_by('id')[0]
-            welcome_note.users.add(ca)
-            welcome_note.save()
             return redirect('/ca/dashboard')
         else:
             return HttpResponse("Invalid form submission")#sth to be done
