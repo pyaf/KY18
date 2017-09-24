@@ -185,3 +185,4 @@ SITE_ID=1
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 EMAIL_BACKEND = "sgbackend.SendGridBackend"
 SENDGRID_API_KEY = os.environ.get('sgkey', '')
+print(SENDGRID_API_KEY)
