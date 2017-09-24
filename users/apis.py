@@ -46,6 +46,6 @@ def regSuccessMail(kyprofile):
 	email = kyprofile.email
 	try:
 		return send_email(subject, body, email)
-	except:
+	except Exception as e:
 	 	return e
 
