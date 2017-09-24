@@ -5,18 +5,13 @@ from django.utils import timezone
 # Create your models here.
 
 class Notifications(models.Model):
-	main_text = models.CharField(max_length=2000)
-	users = models.ManyToManyField(CAProfile)
-	read_notify = defaultdict(lambda: False)
+	text = models.CharField(max_length=2000)
+	users = models.ManyToManyField(CAProfile, blank=True)
+	read_by = models.ManyToManyField(CAProfile, blank=True, related_name='mark_read')
 	recieved_date = models.DateTimeField(default=timezone.now)
-	read_date = models.DateTimeField(blank=True, null=True)
-
-	def read(self):
-		self.read_date = timezone.now()
-		self.save()
 
 	def __str__(self):
-		return self.main_text
+		return self.text
 
 class Post(models.Model):
 	message = models.TextField(null=True, blank=True)

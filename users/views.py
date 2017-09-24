@@ -88,11 +88,12 @@ def CaFormView(request):#ca-form
 def DashboardView(request):
     kyprofile = request.user
     if kyprofile.has_ca_profile:
-        template_name = 'ca-dashboard/dashboard.html'
-        context = _getNotifications(kyprofile)
-        context['posts'] = Post.objects.filter(show=True).order_by('-id')[:9]
+        template_name = 'angular/index.html'
+        # template_name = 'ca-dashboard/dashboard.html'
+        # context = _getNotifications(kyprofile)
+        # context['posts'] = Post.objects.filter(show=True).order_by('-id')[:9]
 
-        return render(request, template_name, context)
+        return render(request, template_name, {})
     else:
         return redirect('/ca/ca-form')
 
