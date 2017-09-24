@@ -50,7 +50,7 @@ def CaFormView(request):#ca-form
         if collegeName and whatsapp_number and reason and mobile_number and \
                                         postal_address and pincode and year:
             # print(collegeName,whatsapp_number, postal_address, pincode, reason, mobile_number, pincode, year)
-            ca, created = CAProfile.objects.get_or_create(kyprofile=kyprofile)
+            ca, ca_created = CAProfile.objects.get_or_create(kyprofile=kyprofile)
             ca.whatsapp_number=whatsapp_number
             ca.postal_address=postal_address
             ca.pincode=pincode
@@ -65,13 +65,14 @@ def CaFormView(request):#ca-form
             kyprofile.has_ca_profile = True
             kyprofile.save()
             try:
-                addCaToSheet(kyprofile,ca)
-                regSuccessMail(kyprofile)
-                welcome_note = Notifications.objects.all().order_by('id')[0]
-                welcome_note.users.add(ca)
-                welcome_note.save()
+                if ca_created:
+                    addCaToSheet(kyprofile,ca)
+                    regSuccessMail(kyprofile)
+                    welcome_note = Notifications.objects.all().order_by('id')[0]
+                    welcome_note.users.add(ca)
+                    welcome_note.save()
             except Exception as e:
-                pass
+                print(e)
             return redirect('/ca/dashboard')
         else:
             return HttpResponse("Invalid form submission")#sth to be done
