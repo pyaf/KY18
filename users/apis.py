@@ -24,15 +24,13 @@ def addCaToSheet(kyprofile,ca):
     return requests.post(url, data=data)
 
 def send_email(subject, body, email):
-
     mail = EmailMultiAlternatives(
       subject = subject,
       body = body,
       from_email = "Kashiyatra <kashiyatra@iitbhu.ac.in>",
       to = [email],
-      headers = {"Reply-To":"kashiyatra@iitbhu.ac.in"},
+      reply_to = ["kashiyatra@iitbhu.ac.in"],
     )
-
     mail.send()
     return True
 
