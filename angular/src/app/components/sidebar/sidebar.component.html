@@ -1,5 +1,5 @@
-      <div class="sidebar" data-color="purple" style="background-color:rgba(13,13,14,0.85)" >
-      <div class="logo">
+<div class="sidebar" data-color="purple" style="background-color:rgba(13,13,14,0.85)" >
+  <div class="logo">
         <img src="{{profile_picture}}" alt="Smiley face" class="" height="200" width="200"> <br>
         <h6 class="simple-text" style="color:bisque; font-family:cursive;">
           CA ID: {{ca_id}}
@@ -21,17 +21,23 @@
                     </a>
                   </li>
                   <li>
-                    <a routerLink="ca/dashboard/leaderboard" routerLinkActive="active">
+                    <a routerLink="ca/dashboard/tasks" routerLinkActive="active">
                           <i class="material-icons">content_paste</i>
-                          <p style="color:aliceblue">Leader Board</p>
-                      </a>
+                          <p style="color:aliceblue">Public Relations</p>
+                    </a>
                   </li>
-          <li>
-                        <a href="/logout">
-                            <i class="fa fa-sign-out"></i>
-                            <p style="color:aliceblue">Logout</p>
-                        </a>
-                    </li>
+                  <li>
+                    <a routerLink="ca/dashboard/leaderboard" routerLinkActive="active">
+                      <i class="material-icons">content_paste</i>
+                      <p style="color:aliceblue">Leader Board</p>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/logout">
+                      <i class="fa fa-sign-out"></i>
+                      <p style="color:aliceblue">Logout</p>
+                    </a>
+                  </li>
               </ul>
         </div>
       </div>

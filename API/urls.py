@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^current_user/$', current_user),
     url(r'^posts/$', posts),
     url(r'^notifications/$', notifications),
+    url(r'^public-relations/$', publicRelationsView.as_view()),
     url(r'^all-notifications/$', all_notifications),
     url(r'^ca-profile/$', CAProfileUpdate),
     url(r'^updatecauser/$', updateCAUser),

@@ -4,6 +4,8 @@ from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from django.http import Http404
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework import viewsets
@@ -12,19 +14,32 @@ import json
 
 from API.serializers import *
 from users.models import KYProfile
-from etc.models import Post
+from etc.models import *
 from itertools import chain
 
 class UserViewSet(viewsets.ModelViewSet):
-    permission_classes = (permissions.IsAdminUser,)
-    queryset = KYProfile.objects.all()
-    serializer_class = UserSerializer
+	permission_classes = (permissions.IsAdminUser,)
+	queryset = KYProfile.objects.all()
+	serializer_class = UserSerializer
 
+class publicRelationsView(APIView):
+	def get(self, request, format=None):
+		ca = request.user.caprofile
+		prs = PublicRelation.objects.filter(ca=ca)
+		serializer = PublicRelationSerializer(prs, many=True)
+		return Response(serializer.data)
+
+	def post(self, request, format=None):
+		serializer = PublicRelationSerializer(data=request.data)
+		if serializer.is_valid():
+			serializer.save(ca=request.user.caprofile)
+			return Response(serializer.data, status=status.HTTP_201_CREATED)
+		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET'])
 def current_user(request, format=None):
-    serializer = UserSerializer(request.user)
-    return Response(serializer.data)
+	serializer = UserSerializer(request.user)
+	return Response(serializer.data)
 
 @api_view(['GET'])
 def posts(request):

@@ -7,12 +7,12 @@ import { CaDataService } from '../../services/ca-data.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+	constructor(public caservice: CaDataService){
+	}
 
   public unread_notices: JSON;
   public read_notices: JSON;
   public notice_count: any;
-	constructor(public caservice: CaDataService){
-	}
   ngOnInit():void {
   this.caservice.getTop5Notices()
     .then((data) =>{

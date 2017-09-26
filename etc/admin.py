@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Notifications, Post
+from .models import Notifications, Post, PublicRelation
 # Register your models here.
 admin.site.register(Notifications)
+admin.site.register(PublicRelation)
 
 class PostAdmin(admin.ModelAdmin):
 

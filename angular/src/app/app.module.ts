@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { GuidelinesComponent } from './components/guidelines/guidelines.component';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { CaProfileComponent } from './components/ca-profile/ca-profile.component';
+import { TasksComponent } from './components/tasks/tasks.component';
   
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { CaProfileComponent } from './components/ca-profile/ca-profile.component
     GuidelinesComponent,
     LeaderboardComponent,
     CaProfileComponent,
+    TasksComponent,
   ],
   imports: [
     BrowserModule,

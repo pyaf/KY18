@@ -24,3 +24,15 @@ class Post(models.Model):
 
 	def __str__(self):
 		return str(self.link)
+
+class PublicRelation(models.Model):
+	ca = models.ForeignKey(CAProfile)
+	related_to = models.CharField(max_length=200)
+	name = models.CharField(max_length=100)
+	email = models.EmailField()
+	contact = models.BigIntegerField()
+	designation = models.CharField(max_length=200)
+	college = models.CharField(max_length=200)
+
+	def __str__(self):
+		return str(self.ca)

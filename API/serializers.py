@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from users.models import KYProfile, CAProfile
-from etc.models import Post, Notifications
+from etc.models import Post, Notifications, PublicRelation
 
 # Serializers define the API representation.
 class UserSerializer(serializers.ModelSerializer):
@@ -29,3 +29,10 @@ class NotificationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Notifications
         fields = ('text', 'recieved_date')
+
+class PublicRelationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PublicRelation
+        fields = ('pk', 'related_to', 'name', 'email', 'contact', 'designation',
+                    'college')
+

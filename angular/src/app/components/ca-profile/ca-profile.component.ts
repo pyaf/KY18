@@ -3,6 +3,7 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { HttpXsrfTokenExtractor } from '@angular/common/http';
 import { causerprofile } from '../../models/causerprofile';
+import { CaDataService } from '../../services/ca-data.service';
 
 @Component({
   selector: 'app-ca-profile',
@@ -10,28 +11,15 @@ import { causerprofile } from '../../models/causerprofile';
   styleUrls: ['./ca-profile.component.css']
 })
 export class CaProfileComponent implements OnInit {
+  constructor(public http: Http, public caservice: CaDataService) { 
+  }
+  public user = new causerprofile(0,'','',0,'','',0, 0, '');
   public BASE_URL: string = window.location.origin;
   public headers: Headers = new Headers({
         'content-type': 'application/json',
-        'X-CSRFToken': this.getCookie('csrftoken')
+        'X-CSRFToken': this.caservice.getCookie('csrftoken')
       })
-  public user = new causerprofile(0,'','',0,'','',0, 0, '');
-  constructor(public http: Http) { 
-  }
-  public getCookie(name: string) {
-        let ca: Array<string> = document.cookie.split(';');
-        let caLen: number = ca.length;
-        let cookieName = `${name}=`;
-        let c: string;
 
-        for (let i: number = 0; i < caLen; i += 1) {
-            c = ca[i].replace(/^\s+/g, '');
-            if (c.indexOf(cookieName) == 0) {
-                return c.substring(cookieName.length, c.length);
-            }
-        }
-        return '';
-    }
   ngOnInit(): void{
     let url: string = `${this.BASE_URL}/api/ca-profile/`;
      this.http.get(url, {headers: this.headers}).subscribe((res)=>{
