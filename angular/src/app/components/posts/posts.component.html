@@ -1,0 +1,21 @@
+<div class="content" >
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6" *ngFor="let post of posts" style="margin:auto">
+        <div class="card" style="background-color:rgba(39,39,43,0.9)">
+          <div class="card-header card-chart" data-background-color="red">
+            <div class="ct-chart" id="">
+              <img src="{{post.full_picture}}" alt="">
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="category" style="color:bisque">{{post.message}}</p>
+            <div class="pull-right">
+              <button class="btn" style="width:100%;background-color:#3b5998" (click)="share('post.link')"><i class="fa fa-share"></i>&nbsp;&nbsp;&nbsp;&nbsp;Share to Facebook</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

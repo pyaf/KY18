@@ -9,7 +9,7 @@ __pycache__/
 db.sqlite3
 # C extensions
 *.so
-
+node_modules
 # Distribution / packaging
 .Python
 env/
