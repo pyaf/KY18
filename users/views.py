@@ -28,9 +28,9 @@ def _getNotifications(kyprofile):
 class IndexView(TemplateView):
     template_name = 'index.html'
 
-def GuidlinesView(request):
-    template_name = 'ca-dashboard/guidlines.html'
-    return render(request, template_name, {})
+# def GuidlinesView(request):
+#     template_name = 'ca-dashboard/guidlines.html'
+#     return render(request, template_name, {})
 
 @login_required(login_url=LOGIN_URL)
 def CaFormView(request):#ca-form
@@ -140,28 +140,28 @@ def CAProfileUpdateView(request):
     else:
         return redirect('/ca/ca-form')
 
-@login_required(login_url=LOGIN_URL)
-def LeaderBoardView(request):
-    kyprofile = request.user
-    print(kyprofile)
-    if kyprofile.has_ca_profile:
-        template_name = 'ca-dashboard/leaderboard.html'
-        context = _getNotifications(kyprofile)
-        return render(request, template_name, context)
-    else:
-        return redirect('/ca/ca-form')
+# @login_required(login_url=LOGIN_URL)
+# def LeaderBoardView(request):
+#     kyprofile = request.user
+#     print(kyprofile)
+#     if kyprofile.has_ca_profile:
+#         template_name = 'ca-dashboard/leaderboard.html'
+#         context = _getNotifications(kyprofile)
+#         return render(request, template_name, context)
+#     else:
+#         return redirect('/ca/ca-form')
 
 
-@login_required(login_url=LOGIN_URL)
-def NotificationsView(request):
-    kyprofile = request.user
-    print(kyprofile)
-    if kyprofile.has_ca_profile:
-        template_name = 'ca-dashboard/notifications.html'
-        context = _getNotifications(kyprofile)
-        return render(request, template_name, context)
-    else:
-        return redirect('/ca/ca-form')
+# @login_required(login_url=LOGIN_URL)
+# def NotificationsView(request):
+#     kyprofile = request.user
+#     print(kyprofile)
+#     if kyprofile.has_ca_profile:
+#         template_name = 'ca-dashboard/notifications.html'
+#         context = _getNotifications(kyprofile)
+#         return render(request, template_name, context)
+#     else:
+#         return redirect('/ca/ca-form')
 
 def PrivacyPolicyView(request):
     template_name = 'privacy_policy.html'

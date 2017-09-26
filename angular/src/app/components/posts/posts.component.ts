@@ -11,10 +11,10 @@ declare var FB: any;
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent implements OnInit{
-  private BASE_URL: string = window.location.origin;
-  private headers: Headers = new Headers({'content-type': 'application/json'})
-  private posts: JSON;
-  constructor(private http: Http) { }
+  public BASE_URL: string = window.location.origin;
+  public headers: Headers = new Headers({'content-type': 'application/json'})
+  public posts: JSON;
+  constructor(public http: Http) { }
 
   ngOnInit(): void{
 		let url: string = `${this.BASE_URL}/api/posts/`;

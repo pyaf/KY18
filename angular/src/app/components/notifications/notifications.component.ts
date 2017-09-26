@@ -7,9 +7,9 @@ import { Headers, Http } from '@angular/http';
   styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
-  private BASE_URL: string = window.location.origin;
-  private headers: Headers = new Headers({'content-type': 'application/json'})
-  private notifications: JSON;
+  public BASE_URL: string = window.location.origin;
+  public headers: Headers = new Headers({'content-type': 'application/json'})
+  public notifications: JSON;
   constructor(private http: Http) { }
 
   ngOnInit(): void{

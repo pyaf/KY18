@@ -1,12 +1,14 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User, Group
 from django.db.models import Q
+from django.views.decorators.csrf import csrf_exempt
 
 from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework import viewsets
 from rest_framework import permissions
+import json
 
 from API.serializers import *
 from users.models import KYProfile
@@ -33,8 +35,9 @@ def posts(request):
 @api_view(['GET'])
 def notifications(request):
 	ca = request.user.caprofile
-	unread = Notifications.objects.exclude(read_by=ca).order_by('-id')[:5]
-	read = Notifications.objects.filter(read_by=ca).order_by('-id')
+	usersnotices = Notifications.objects.filter(users=ca)
+	unread = usersnotices.exclude(read_by=ca).order_by('-id')[:5]
+	read = usersnotices.filter(read_by=ca).order_by('-id')
 	unread_data = NotificationSerializer(unread, many=True).data
 	read_data = NotificationSerializer(read[:(5 -len(unread))], many=True).data
 	data = {
@@ -42,4 +45,38 @@ def notifications(request):
 		'unread': unread_data
 	}
 	return Response(data)
+
+@api_view(['GET'])
+def CAProfileUpdate(request):
+	user = UserSerializer(request.user)
+	ca = CASerializer(request.user.caprofile)
+	data = {
+		'user': user.data,
+		'ca': ca.data
+	}
+	return Response(data)
+
+@api_view(['GET'])
+def all_notifications(request):
+	ca = request.user.caprofile
+	notices = Notifications.objects.filter(users=ca).order_by('-id')
+	notices = NotificationSerializer(notices, many=True)
+	return Response(notices.data)
+
+
+@api_view(['POST'])
+def updateCAUser(request):
+	try:
+		post = request.data
+		kyprofile = request.user
+		kyprofile.mobile_number = post.get('mobile_number', 0)
+		kyprofile.save()
+		ca = kyprofile.caprofile
+		ca.whatsapp_number = post.get('whatsapp_number', 0)
+		ca.postal_address = post.get('postal_address', '')
+		ca.pincode = post.get('pincode', 0)
+		ca.save()
+		return Response(status=status.HTTP_200_OK)
+	except Exception as e:
+		return Response(e)
 

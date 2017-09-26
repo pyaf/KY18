@@ -8,10 +8,10 @@ import { CaDataService } from '../../services/ca-data.service';
 })
 export class NavbarComponent implements OnInit {
 
-  private unread_notices: JSON;
-  private read_notices: JSON;
-  private notice_count: any;
-	constructor(private caservice: CaDataService){
+  public unread_notices: JSON;
+  public read_notices: JSON;
+  public notice_count: any;
+	constructor(public caservice: CaDataService){
 	}
   ngOnInit():void {
   this.caservice.getTop5Notices()

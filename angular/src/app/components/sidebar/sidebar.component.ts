@@ -7,8 +7,8 @@ import { CaDataService } from '../../services/ca-data.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-	private profile_picture: string;
-  private ca_id: string;
+	public profile_picture: string;
+  public ca_id: string;
 
   constructor(private caservice: CaDataService) { }
   ngOnInit():void {
