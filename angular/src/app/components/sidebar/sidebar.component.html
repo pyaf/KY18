@@ -8,20 +8,20 @@
 
         <div class="sidebar-wrapper">
               <ul class="nav">
-                  <li class="active">
-                      <a href="">
+                  <li>
+                      <a routerLink="ca/dashboard" routerLinkActive="active">
                           <i class="material-icons">dashboard</i>
                           <p style="color:aliceblue">Dashboard</p>
                       </a>
                   </li>
                   <li>
-            <a href="((% url 'ca-profile' %))">
-                          <i class="material-icons">person</i>
-                          <p style="color:aliceblue">User Profile</p>
-                      </a>
+                    <a routerLink="ca/dashboard/ca-profile" routerLinkActive="active">
+                        <i class="material-icons">person</i>
+                        <p style="color:aliceblue">User Profile</p>
+                    </a>
                   </li>
                   <li>
-                      <a href="">
+                    <a routerLink="ca/dashboard/leaderboard" routerLinkActive="active">
                           <i class="material-icons">content_paste</i>
                           <p style="color:aliceblue">Leader Board</p>
                       </a>

@@ -12,17 +12,31 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { GuidelinesComponent } from './components/guidelines/guidelines.component';
+import { CaProfileComponent } from './components/ca-profile/ca-profile.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 
 
 const  BASE_URL : string = 'ca/dashboard';
 const appRoutes: Routes = [
 	{
-		path: BASE_URL,// + '/#guidelines',
+		path: BASE_URL,
 		component: PostsComponent,
 	},
     {
-        path: BASE_URL + '#guidelines',
+        path: BASE_URL + '/guidelines',
         component: GuidelinesComponent,
+    },
+    {
+        path: BASE_URL + '/ca-profile',
+        component: CaProfileComponent,
+    },
+    {
+        path: BASE_URL + '/leaderboard',
+        component: LeaderboardComponent,
+    },
+    {
+        path: BASE_URL + '/notifications',
+        component: NotificationsComponent,
     }
 ]
 
@@ -38,3 +52,4 @@ const appRoutes: Routes = [
 })
 export class AppRoutingModule{}
 
+//https://angular.io/guide/forms

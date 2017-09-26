@@ -11,6 +11,8 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { GuidelinesComponent } from './components/guidelines/guidelines.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+import { CaProfileComponent } from './components/ca-profile/ca-profile.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { GuidelinesComponent } from './components/guidelines/guidelines.componen
     SidebarComponent,
     NavbarComponent,
     GuidelinesComponent,
+    LeaderboardComponent,
+    CaProfileComponent,
   ],
   imports: [
     BrowserModule,
