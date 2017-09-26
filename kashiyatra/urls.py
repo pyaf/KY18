@@ -31,4 +31,3 @@ urlpatterns = [
         RedirectView.as_view(url='/static/%(path)s', permanent=False)),
 ]
 
-# urlpatterns += static('/', document_root=STATICFILES_DIRS[0])
