@@ -15,7 +15,7 @@ export class TasksComponent implements OnInit {
   public button = "Add";
   public newRelation = null;
   public relations = ['Cultural Events', 'Cultural Festival', 'Dance Society', 
-  									'Literary Society', 'Music Society', 'Fine Arts Society',
+  									'Literary Society', 'Music Society', 'Theatre Society', 'Fine Arts Society',
   									'Quiz Society', 'Others']
 
   ngOnInit(): void {
