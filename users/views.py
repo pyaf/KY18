@@ -66,8 +66,8 @@ def CaFormView(request):#ca-form
             kyprofile.save()
             try:
                 if ca_created:
-                    addCaToSheet(kyprofile,ca)
                     regSuccessMail(kyprofile)
+                    addCaToSheet(kyprofile,ca)
                     welcome_note = Notifications.objects.all().order_by('id')[0]
                     welcome_note.users.add(ca)
                     welcome_note.save()
@@ -99,47 +99,47 @@ def DashboardView(request):
         return redirect('/ca/ca-form')
 
 
-@login_required(login_url=LOGIN_URL)
-def CAProfileUpdateView(request):
-    kyprofile = request.user
-    ca_profile_object = CAProfile.objects.get(kyprofile=kyprofile)
+# @login_required(login_url=LOGIN_URL)
+# def CAProfileUpdateView(request):
+#     kyprofile = request.user
+#     ca_profile_object = CAProfile.objects.get(kyprofile=kyprofile)
 
-    if request.method == 'POST':
-        post = request.POST
-        kyprofile.mobile_number = post.get('mobile_number', None)
-        collegeName = post.get('college', None)
-        college, created = College.objects.get_or_create(
-                                            collegeName=collegeName)
-        kyprofile.college = college
-        kyprofile.save()
-        ca_profile_object.whatsapp_number = post.get('whatsapp_number', None)
-        ca_profile_object.postal_address = post.get('address', None)
+#     if request.method == 'POST':
+#         post = request.POST
+#         kyprofile.mobile_number = post.get('mobile_number', None)
+#         collegeName = post.get('college', None)
+#         college, created = College.objects.get_or_create(
+#                                             collegeName=collegeName)
+#         kyprofile.college = college
+#         kyprofile.save()
+#         ca_profile_object.whatsapp_number = post.get('whatsapp_number', None)
+#         ca_profile_object.postal_address = post.get('address', None)
 
-        ca_profile_object.pincode = post.get('pincode', None)
-        ca_profile_object.save()
+#         ca_profile_object.pincode = post.get('pincode', None)
+#         ca_profile_object.save()
 
-    context = {
-        "email": kyprofile.email,
-        "fullname": kyprofile.full_name,
-        "year": kyprofile.year,
-        "gender": kyprofile.gender,
-        "mobile_number": kyprofile.mobile_number,
-        "college": kyprofile.college,
-        "whatsapp_number": ca_profile_object.whatsapp_number,
-        "pincode": ca_profile_object.pincode,
-        "address": ca_profile_object.postal_address,
+#     context = {
+#         "email": kyprofile.email,
+#         "fullname": kyprofile.full_name,
+#         "year": kyprofile.year,
+#         "gender": kyprofile.gender,
+#         "mobile_number": kyprofile.mobile_number,
+#         "college": kyprofile.college,
+#         "whatsapp_number": ca_profile_object.whatsapp_number,
+#         "pincode": ca_profile_object.pincode,
+#         "address": ca_profile_object.postal_address,
 
-    }
+#     }
 
-    if kyprofile.has_ca_profile:
-        template_name = 'ca-dashboard/user.html'
-        notices = _getNotifications(kyprofile)
-        #new_context = context + notices
-        new_context = context.copy()
-        new_context.update(notices)
-        return render(request, template_name, new_context)
-    else:
-        return redirect('/ca/ca-form')
+#     if kyprofile.has_ca_profile:
+#         template_name = 'ca-dashboard/user.html'
+#         notices = _getNotifications(kyprofile)
+#         #new_context = context + notices
+#         new_context = context.copy()
+#         new_context.update(notices)
+#         return render(request, template_name, new_context)
+#     else:
+#         return redirect('/ca/ca-form')
 
 # @login_required(login_url=LOGIN_URL)
 # def LeaderBoardView(request):

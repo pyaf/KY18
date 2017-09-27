@@ -27,23 +27,25 @@ def send_email(subject, body, email):
     mail = EmailMultiAlternatives(
       subject = subject,
       body = body,
-      from_email = "Kashiyatra <kashiyatra@iitbhu.ac.in>",
+      from_email = "Kashiyatra Indian Institute of Technology BHU Varanasi<kashiyatra@iitbhu.ac.in>", #can't use commas 
       to = [email],
       reply_to = ["kashiyatra@iitbhu.ac.in"],
+      # headers={"Reply-To": "kashiyatra@iitbhu.ac.in"}, #gives errors with reply to in headers
+
     )
     mail.send()
     return True
 
 def regSuccessMail(kyprofile):
-	subject = "Registration Successful at Kashiyatra"
-	body = '''Hi %s,\n
-				This is to inform you that you have successfully registered for Kashiyatra 2018.\n\n
-				Regards\n
-				Team KY\n''' %(kyprofile.full_name)
+    subject = "Registration Successful at Kashiyatra"
+    body = '''Hi %s,\n
+            This is to inform you that you have successfully registered for Kashiyatra 2018.\n\n
+            Regards\n
+            Team KY\n''' %(kyprofile.full_name)
 
-	email = kyprofile.email
-	try:
-		return send_email(subject, body, email)
-	except Exception as e:
-	 	return e
+    email = kyprofile.email
+    try:
+        return send_email(subject, body, email)
+    except Exception as e:
+        print(e)
 
