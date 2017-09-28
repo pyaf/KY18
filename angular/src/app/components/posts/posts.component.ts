@@ -23,7 +23,8 @@ export class PostsComponent implements OnInit{
 		});
   }
 
-  share(post_link){
+  shareIt(post_link){
+    // console.log(post_link);
     window.share(post_link);
   }
 
