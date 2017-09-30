@@ -194,6 +194,8 @@ ALLOWED_HOSTS = ['*']
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "templates/angular/"),
+    os.path.join(BASE_DIR, "static/meta/"),
+
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
