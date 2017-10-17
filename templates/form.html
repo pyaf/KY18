@@ -51,7 +51,7 @@ ul {
 <h1 style="font-family: 'Exo', sans-serif;">Kashiyatra</h1>
 <br><br><br>
 				<h2></h2>
-                 <a href="/accounts/facebook/login/" style="color:white;"><button> login / register with Facebook
+                 <a href="/account/facebook/login/" style="color:white;"><button> Register / Login with Facebook
                   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                   <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                     <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
@@ -60,7 +60,7 @@ ul {
                   <span class="btn-background"></span>
                 </button></a>
 <br><br>
-			<a href="/accounts/google/login" style="color:white;"><button>login / register with     google
+			<a href="/account/google/login" style="color:white;"><button>Register / Login with Google
                  	 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                 	  <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                    	 <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
@@ -68,7 +68,7 @@ ul {
                  	 </svg>
                  	 <span class="btn-background"></span>
                	 </button></a><br><br>
-<a href="/email_reg" style="color:white;"><button>register with     email
+<a href="/email_reg" style="color:white;"><button>Register with Email
                  	 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                 	  <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                    	 <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
@@ -91,23 +91,15 @@ ul {
                     {% csrf_token %}
                       <div class="form-group float-label-control">
                           <label for="">Email</label>
-                          <input type="email" class="form-control" id="email" name="email" required="true" placeholder="email">
+                          <input type="email" class="form-control" id="email" name="email" required="true" placeholder="Email">
                       </div>
 
                       <div class="form-group float-label-control">
                           <label for="">Password</label>
-                          <input type="password" class="form-control" id="pass1" name="pass1" required="true" placeholder="password">
+                          <input type="password" class="form-control" id="pass1" name="pass1" required="true" placeholder="Password">
                           </div>
-                     
 
-                      
-                      
-
-                    
-
-                   
-
-                      <button class="btn btn-submit"  style="color:white;" type="submit">Done<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                      <button class="btn btn-submit"  style="color:white;" type="submit">Login<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
                   <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                     <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
                   </g>

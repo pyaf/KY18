@@ -8,7 +8,7 @@ from allauth.account.utils import filter_users_by_email
 
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from models import KYProfile
+from .models import KYProfile
 
 class MyResetPasswordForm(ResetPasswordForm):
     def clean_email(self):

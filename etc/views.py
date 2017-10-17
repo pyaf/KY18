@@ -10,12 +10,3 @@ def notification_list(request):
 	notifications = Notifications.objects.filter(recieved_date__lte=timezone.now()).order_by('recieved_date')
 	print(notifications)
 	return render(request, 'etc/notifications.html',{'notifications':notifications})
-
-
-def IndexView(request):
-	template_name = 'main.html'
-	return render(request, template_name, {})
-
-def LogoutView(request):
-    logout(request)
-    return redirect('/')

@@ -47,35 +47,28 @@ ul {
                           <label for="">Email</label>
                           <input type="email" class="form-control" readonly placeholder="Email" value="{{email}}">
                       </div>
-      {% csrf_token %}
+
                       <div class="form-group float-label-control">
                           <label for="">Name</label>
                           <input type="text" class="form-control" readonly placeholder="Name" value="{{full_name}}">
                       </div>
-{% csrf_token %}
                       <div class="form-group float-label-control">
-                          <label for="">College</label>
-                          <input type="text" id="id_college" name="college" class="form-control" required="true" placeholder="College">
-                      </div>
-{% csrf_token %}
-                      <div class="form-group float-label-control">
-                          <label for="">Choose Year</label>
-                          <select class="year" id="id_year" name="year" placeholder="Year" required="true" style="background-color: transparent; width:100%;;height:100%;font-size: 20px;padding: 1.5%;">
-                            <option value="1">First</option>
-                            <option value="2">Second</option>
-                            <option value="3">Third</option>
-                            <option value="4">Fourth</option>
-                            <option value="5">Fifth</option>
-                          </select>
-                      </div>
-{% csrf_token %}
-                      <div class="form-group float-label-control">
-                          <label for="">Mobile Number</label>
-                          <input type="number" class="form-control" name="mobile_number"  placeholder="Mobile Number">
+                          <label for="">WhatsApp Number</label>
+                          <input type="number" class="form-control" name="whatsapp_number"  placeholder="WhatsApp Number">
                       </div>
 
-                   
-
+                     <div class="form-group float-label-control">
+                        <label for="">Postal Address</label>
+                        <textarea class="form-control" name="postal_address" rows="1"></textarea>
+                    </div>
+                    <div class="form-group float-label-control">
+                        <label for="">Pincode</label>
+                        <input type="number" class="form-control"  name="pincode" placeholder="Pincode">
+                    </div>
+                  <div class="form-group float-label-control">
+                        <label for="">why choose you?</label>
+                        <textarea class="form-control"  name="reason" rows="2"></textarea>
+                    </div>
                       <button class="btn btn-submit"type="submit">Done</button>
                   </form>
 
@@ -121,12 +114,8 @@ $(document).ready(function() {
 
     rules: {
 
-      college: "required",
-      mobile_number: {
-        required: true,
-        minlength: 10,
-        maxlength: 10,
-      },
+     postal_address: "required",
+
       whatsapp_number:{
         required: true,
         minlength: 10,

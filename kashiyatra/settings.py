@@ -135,12 +135,12 @@ AUTH_USER_MODEL = 'users.KYProfile'
 
 # XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
 #LOGIN_URL = '/form'
-LOGIN_URL= '/'
+LOGIN_URL= '/form'
 LOGIN_URL_email= '/email_reg/'
 LOGIN_URL_social= '/accounts/'
 
 SOCIALACCOUNT_QUERY_EMAIL = True
-LOGIN_REDIRECT_URL = "/user/dashboard/"
+LOGIN_REDIRECT_URL = "/dashboard/"
 
 ACCOUNT_EMAIL_REQUIRED=True
 ACCOUNT_UNIQUE_EMAIL = True
@@ -155,6 +155,8 @@ ACCOUNT_USER_USERNAME_FIELD = None
 
 #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
 SENDGRID_API_KEY ='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'
+EMAIL_BACKEND = "sgbackend.SendGridBackend"
+
 ACCOUNT_FORMS = {
     # 'signup': 'users.forms.RegisterForm'
     'reset_password': 'users.forms.MyResetPasswordForm'
@@ -232,6 +234,5 @@ SITE_ID=1
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-EMAIL_BACKEND = "sgbackend.SendGridBackend"
 
 #SENDGRID_API_KEY = os.environ.get('sgkey', '')

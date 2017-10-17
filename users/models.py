@@ -42,8 +42,9 @@ class KYProfile(AbstractBaseUser, PermissionsMixin):
     mobile_number = models.BigIntegerField(null=True, blank=True)
 
     profile_link = models.CharField(max_length=300, null=True, blank=True)
-    profile_picture = models.URLField(null=True, blank=True)
+    profile_picture = models.URLField(null=True, blank=True, default='https://storage.forums.net/6479407/images/vagmAzMznjBJGQf_sumV.png')
     has_ca_profile = models.BooleanField(default=False)
+    profile_completed = models.BooleanField(default=False)
     ky_id = models.CharField(max_length=20, null=True, blank=True)
     referralCode = models.CharField(max_length=20, null=True, blank=True) #should be caId of some CA.
     is_staff = models.BooleanField(default=False)
@@ -71,7 +72,7 @@ class KYProfile(AbstractBaseUser, PermissionsMixin):
 #instance is socialaccount, instance .user is kyprofile
 def save_profile(sender, instance, **kwargs):
     instance.user.full_name = instance.extra_data['name']
-    if instance.provider!='google':
+    if instance.provider!='Google': #make sure the social app object's name is Google (case-sensitive)
     	instance.user.gender = instance.extra_data['gender']
     instance.user.profile_link = instance.extra_data['link']
     instance.user.profile_picture = instance.get_avatar_url()

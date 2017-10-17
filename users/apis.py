@@ -1,5 +1,10 @@
 import requests
 from django.core.mail import EmailMultiAlternatives
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.encoding import force_bytes, force_text
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.template.loader import render_to_string
+from .tokens import account_activation_token
 
 def addCaToSheet(kyprofile,ca):
 
@@ -37,7 +42,7 @@ def send_email(subject, body, email):
     return True
 
 def regSuccessMail(kyprofile):
-    subject = "Registration Successful at Kashiyatra"
+    subject = "CA Registration Successful at Kashiyatra"
     body = '''Hi %s,\n
             This is to inform you that you have successfully registered for Kashiyatra 2018.\n\n
             Regards\n
@@ -49,3 +54,14 @@ def regSuccessMail(kyprofile):
     except Exception as e:
         print(e)
 
+def send_reg_email(kyprofile, current_site):
+    
+    body = render_to_string('acc_active_email.html', {
+        'user':kyprofile, 
+        'domain':current_site.domain,
+        'uid': urlsafe_base64_encode(force_bytes(kyprofile.pk)),
+        'token': account_activation_token.make_token(kyprofile),
+    }) + '\n KY Team'
+    email = kyprofile.email
+    subject = 'Kashiyatra Account confirmation'
+    send_email(subject, body, email)
