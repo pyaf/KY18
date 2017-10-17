@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.sites',
     'API',
+    #'django.contrib.sites',
     'etc',
     'users',
     'allauth',
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'allauth.socialaccount.providers.google',
     # Disable Django's own staticfiles handling in favour of WhiteNoise, for
     # greater consistency between gunicorn and `./manage.py runserver`. See:
     # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
@@ -76,7 +78,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-            ],
+
+                'django.template.context_processors.i18n',
+                # Required by allauth template tags
+ #               "django.core.context_processors.request",
+          ],
             'debug': DEBUG,
         },
     },
@@ -128,10 +134,14 @@ AUTH_USER_MODEL = 'users.KYProfile'
 # X_FRAME_OPTIONS = 'ALLOWALL'
 
 # XS_SHARING_ALLOWED_METHODS = ['POST','GET','OPTIONS', 'PUT', 'DELETE']
+#LOGIN_URL = '/form'
+LOGIN_URL= '/'
+LOGIN_URL_email= '/email_reg/'
+LOGIN_URL_social= '/accounts/'
 
-LOGIN_URL = '/account/facebook/login/'
 SOCIALACCOUNT_QUERY_EMAIL = True
-LOGIN_REDIRECT_URL = "/ca/dashboard/"
+LOGIN_REDIRECT_URL = "/user/dashboard/"
+
 ACCOUNT_EMAIL_REQUIRED=True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
@@ -141,6 +151,10 @@ ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_USER_EMAIL_FIELD = 'email'
 ACCOUNT_EMAIL_VERIFICATION=False
 ACCOUNT_USER_USERNAME_FIELD = None
+
+
+#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
+SENDGRID_API_KEY ='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'
 ACCOUNT_FORMS = {
     # 'signup': 'users.forms.RegisterForm'
     'reset_password': 'users.forms.MyResetPasswordForm'
@@ -168,7 +182,21 @@ SOCIALACCOUNT_PROVIDERS = {
         # 'LOCALE_FUNC': '',
         'VERIFIED_EMAIL': False,
         'VERSION': 'v2.4',
+
+    },
+	
+'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
     }
+
+
+    
 }
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -205,4 +233,5 @@ SITE_ID=1
 # https://warehouse.python.org/project/whitenoise/
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 EMAIL_BACKEND = "sgbackend.SendGridBackend"
-SENDGRID_API_KEY = os.environ.get('sgkey', '')
+
+#SENDGRID_API_KEY = os.environ.get('sgkey', '')

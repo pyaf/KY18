@@ -36,8 +36,7 @@ class College(models.Model):
 class KYProfile(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=50, unique=True)
     full_name = models.CharField(max_length=130, null=True, blank=True)
-    gender = models.CharField(max_length=10, choices=gender_choices, null=True, blank=True)
-
+    gender = models.CharField(max_length=10, choices=gender_choices, null=True, blank=True,default=None)
     college = models.ForeignKey(College, null=True, blank=True)
     year = models.PositiveSmallIntegerField(choices=year_choices, null=True, blank=True)
     mobile_number = models.BigIntegerField(null=True, blank=True)
@@ -72,7 +71,8 @@ class KYProfile(AbstractBaseUser, PermissionsMixin):
 #instance is socialaccount, instance .user is kyprofile
 def save_profile(sender, instance, **kwargs):
     instance.user.full_name = instance.extra_data['name']
-    instance.user.gender = instance.extra_data['gender']
+    if instance.provider!='google':
+    	instance.user.gender = instance.extra_data['gender']
     instance.user.profile_link = instance.extra_data['link']
     instance.user.profile_picture = instance.get_avatar_url()
     instance.user.save()

@@ -45,19 +45,28 @@ ul {
                     {% csrf_token %}
                       <div class="form-group float-label-control">
                           <label for="">Email</label>
-                          <input type="email" class="form-control" readonly placeholder="Email" value="{{email}}">
+                          <input type="email" class="form-control" id="email" name="email" required="true" placeholder="email">
                       </div>
-      {% csrf_token %}
+
                       <div class="form-group float-label-control">
                           <label for="">Name</label>
-                          <input type="text" class="form-control" readonly placeholder="Name" value="{{full_name}}">
+                          <input type="text" class="form-control" id="name" name="name" required="true" placeholder="name">
                       </div>
-{% csrf_token %}
+<div class="form-group float-label-control">
+                          <label for="">Gender</label>
+                          <select class="year" id="gender" name="gender" placeholder="gender" required="true" style="background-color: transparent; width:100%;;height:100%;font-size: 20px;padding: 1.5%;">
+                            <option value="1">Female</option>
+                            <option value="2">Male</option>
+                            <option value="3">Other</option>
+                            
+                          </select>
+                      </div>
+
                       <div class="form-group float-label-control">
                           <label for="">College</label>
                           <input type="text" id="id_college" name="college" class="form-control" required="true" placeholder="College">
                       </div>
-{% csrf_token %}
+
                       <div class="form-group float-label-control">
                           <label for="">Choose Year</label>
                           <select class="year" id="id_year" name="year" placeholder="Year" required="true" style="background-color: transparent; width:100%;;height:100%;font-size: 20px;padding: 1.5%;">
@@ -68,15 +77,27 @@ ul {
                             <option value="5">Fifth</option>
                           </select>
                       </div>
-{% csrf_token %}
+
                       <div class="form-group float-label-control">
                           <label for="">Mobile Number</label>
                           <input type="number" class="form-control" name="mobile_number"  placeholder="Mobile Number">
                       </div>
+                      <div class="form-group float-label-control">
+                          <label for="">Referral Code</label>
+                          <input type="text" class="form-control" name="ref"  placeholder="Referral Code">
+                      </div>
+                      <div class="form-group float-label-control">
+                          <label for="">Password</label>
+                          <input type="password" class="form-control" name="pass1" id="pass1"  placeholder="Password">
+                      </div>
+                         <div class="form-group float-label-control">
+                          <label for="">Confirm Password</label>
+                          <input type="password" class="form-control" name="pass2" id="pass2"  placeholder="Confirm Password">
+                      </div>
 
                    
 
-                      <button class="btn btn-submit"type="submit">Done</button>
+                      <button class="btn btn-submit" onclick="return Validate()" type="submit">Done</button>
                   </form>
 
 
@@ -112,6 +133,19 @@ ul {
          window.location = window.location.toString().substring(0, idx);
        }
 
+       function Validate(){
+
+        var pass1= document.getElementById("pass1").value;
+        var pass2= document.getElementById("pass2").value;
+        if (pass1!=pass2){
+          alert("Password do no match.")
+          return false;
+        }
+        return true;
+
+
+       }
+
 
 
 // Wait for the DOM to be ready
@@ -126,6 +160,18 @@ $(document).ready(function() {
         required: true,
         minlength: 10,
         maxlength: 10,
+      },
+        pass1: "required",
+        pass2: "required",
+      pass1: {
+        required: true,
+        minlength: 6,
+       
+      },
+       pass2: {
+        required: true,
+        minlength: 6,
+       
       },
       whatsapp_number:{
         required: true,
