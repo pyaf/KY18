@@ -56,6 +56,8 @@ def UserFormView(request): # for completing user profile after social login
         collegeName = post.get('college', None)
         year = post.get('year', None)
         mobile_number = post.get('mobile_number', None)
+        referralCode = post.get('referralCode', None)
+
         if collegeName and  mobile_number and year:
             college, created = College.objects.get_or_create(
                                             collegeName=collegeName)                                                
@@ -63,6 +65,7 @@ def UserFormView(request): # for completing user profile after social login
             kyprofile.mobile_number = mobile_number
             kyprofile.college = college
             kyprofile.year = year
+            kyprofile.referralCode = referralCode
             kyprofile.profile_completed = True
             kyprofile.save()
             return redirect('/dashboard')
@@ -98,6 +101,7 @@ def CaFormView(request):#ca-form
             try:
                 if ca_created:
                     addCaToSheet(kyprofile,ca)
+                    Point.objects.create(ca=ca)
                     welcome_note = Notifications.objects.all().order_by('id')[0]
                     welcome_note.users.add(ca)
                     welcome_note.save()
@@ -151,7 +155,7 @@ def EmailRegistration(request): # registration with email
                                                         referralCode=referralCode)
                     kyprofile.set_password(password)
                     kyprofile.save()
-                    IncreaseRegs(referralCode)
+                    # IncreaseRegs(referralCode) #write a script for this
                     send_reg_email(kyprofile,  get_current_site(request))
                     return HttpResponse('Confirmation link has been sent to your email id, Please confirm your email address to complete the registration.')
 
