@@ -44,10 +44,11 @@ class Point(models.Model):
 	fb_points = models.IntegerField(default=0)
 	extra_points = models.IntegerField(default=0)
 	reg_points = models.IntegerField(default=0)
+	payment_points = models.IntegerField(default=0)
 	total_points = models.IntegerField(null=True, blank=True)
 
 	def save(self, *args, **kwargs):
-		self.total_points = self.pr_points + self.fb_points + self.reg_points + self.extra_points
+		self.total_points = self.pr_points + self.fb_points + self.reg_points + self.extra_points + self.payment_points
 		super(self.__class__, self).save(*args, **kwargs)
 
 	def __str__(self):

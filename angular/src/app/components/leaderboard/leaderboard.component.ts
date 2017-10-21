@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CaDataService } from '../../services/ca-data.service';
 
 @Component({
   selector: 'app-leaderboard',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeaderboardComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(public caservice: CaDataService) { }
+  public userData: JSON;
+  ngOnInit(): void {
+  	this.caservice.getLeaderBoard()
+  	.then((data)=>{
+  		console.log(data);
+  		this.userData = data.json();
+  	})
   }
 
 }

@@ -41,6 +41,13 @@ def current_user(request, format=None):
 	serializer = UserSerializer(request.user)
 	return Response(serializer.data)
 
+
+@api_view(['GET'])
+def leaderboard(request, format=None):
+	top_points = Point.objects.all().order_by('-total_points')[:10]
+	response = PointSerializer(top_points, many=True)
+	return Response(response.data)
+
 @api_view(['GET'])
 def posts(request):
 	posts = Post.objects.filter(show=True)

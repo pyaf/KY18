@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from users.models import KYProfile, CAProfile
-from etc.models import Post, Notifications, PublicRelation
+from etc.models import *
 
 # Serializers define the API representation.
 class UserSerializer(serializers.ModelSerializer):
@@ -12,6 +12,13 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('ca_id', 'ky_id', 'email', 'full_name', 'gender', 'profile_link',
         			'college', 'year', 'mobile_number', 'profile_picture')
 
+class PointSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(source='ca.kyprofile.full_name', allow_blank=True)
+    college = serializers.CharField(source='ca.kyprofile.college.collegeName', allow_blank=True)
+
+    class Meta:
+        model = Point
+        fields = ('name', 'college', 'total_points')
 
 class CASerializer(serializers.ModelSerializer):
 
