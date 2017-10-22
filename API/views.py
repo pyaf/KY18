@@ -50,7 +50,7 @@ def leaderboard(request, format=None):
 
 @api_view(['GET'])
 def posts(request):
-	posts = Post.objects.filter(show=True)
+	posts = Post.objects.filter(show=True).order_by('-created_time')
 	serializer = PostSerializer(posts, many=True)
 	return Response(serializer.data)
 
