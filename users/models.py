@@ -73,7 +73,10 @@ class KYProfile(AbstractBaseUser, PermissionsMixin):
 def save_profile(sender, instance, **kwargs):
     instance.user.full_name = instance.extra_data['name']
     if instance.provider!='Google': #make sure the social app object's name is Google (case-sensitive)
-    	instance.user.gender = instance.extra_data['gender']
+        try:
+           instance.user.gender = instance.extra_data['gender']
+        except Exception as e:
+            pass # sometimes google doesn't return gender :(
     instance.user.profile_link = instance.extra_data['link']
     instance.user.profile_picture = instance.get_avatar_url()
     instance.user.save()
