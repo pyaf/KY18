@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^account/', include('allauth.urls')),
     url(r'^', include('users.urls')),
     url(r'^', include('etc.urls')),
+    url(r'^',include('event.urls')),
     url(r'^(?!/?static/)(?!/?media/)(?P<path>.*\..*)$',
         RedirectView.as_view(url='/static/%(path)s', permanent=False)),
 ]

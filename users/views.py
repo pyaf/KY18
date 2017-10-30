@@ -8,7 +8,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 import json
-
+import simplejson as json
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -39,6 +39,33 @@ def _getNotifications(kyprofile):
 
 def IndexView(request):
     template_name = 'main.html'
+    return render(request, template_name, {})
+
+def eventRegister(request):
+    template_name = 'eventsRegister.html'
+    kyprofile = request.user
+    if request.method == 'POST':
+        post = request.POST
+        event = post.get('event', None)
+        member = post.get('member', None)
+        regDetail=[event, member]
+        event_=[]
+        try:
+            jsonDec = json.deco
+            der.JSONDecoder()
+            eventsList = jsonDec.decode(kyprofile.eventsList)
+            print(eventsList.__class__)
+            #print ([ _ for _ in eventsList])
+            dump=[ _ for _ in eventsList]
+            #for _ in eventsList:
+               # event_.append( [_] )
+        except Exception as e:
+            pass
+        #event_.append(regDetail)
+        print (event_)
+        kyprofile.eventsList = json.dumps( [ _ for _ in event_])
+        kyprofile.save()
+
     return render(request, template_name, {})
 
 def CAIndexView(request):
