@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'API',
     #'django.contrib.sites',
     'etc',
+    'event',
     'users',
     'allauth',
     'allauth.account',
