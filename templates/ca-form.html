@@ -69,7 +69,7 @@ ul {
                         <label for="">why choose you?</label>
                         <textarea class="form-control"  name="reason" rows="2"></textarea>
                     </div>
-                      <button class="btn btn-submit"type="submit">Done</button>
+                      <button id="submit-button" class="btn btn-submit"type="submit">Done</button>
                   </form>
 
 
@@ -133,6 +133,7 @@ $(document).ready(function() {
 
     submitHandler: function(form) {
       form.submit();
+      $('#submit-button').prop('disabled', true);
     }
   });
 

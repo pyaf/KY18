@@ -156,6 +156,7 @@ def EmailRegistration(request): # registration with email
                     kyprofile.set_password(password)
                     kyprofile.save()
                     # IncreaseRegs(referralCode) #write a script for this
+                    addKYProfileToSheet(kyprofile)
                     send_reg_email(kyprofile,  get_current_site(request))
                     return HttpResponse('Confirmation link has been sent to your email id, Please confirm your email address to complete the registration.')
 

@@ -28,6 +28,26 @@ def addCaToSheet(kyprofile,ca):
 
     return requests.post(url, data=data)
 
+def addKYProfileToSheet(kyprofile):
+
+    data = {
+            'ky_id': kyprofile.ky_id,
+            'has_ca_profile': kyprofile.has_ca_profile,
+            'referralCode': kyprofile.referralCode,
+            'full_name': kyprofile.full_name,
+            'email': kyprofile.email,
+            'college': kyprofile.college,
+            'year': kyprofile.year,
+            'gender': kyprofile.gender,
+            'mobile_number': kyprofile.mobile_number,
+            'profile_link': kyprofile.profile_link,
+    }
+
+    url = 'https://script.google.com/macros/s/AKfycbw_ZIe5343MwBWtDTuxJBh48g_VFUst93QwX16ezXRZS6Q2krk/exec'
+
+    return requests.post(url, data=data)
+
+
 def send_email(subject, body, email):
     mail = EmailMultiAlternatives(
       subject = subject,
