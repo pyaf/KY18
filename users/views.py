@@ -190,9 +190,12 @@ def FormView(request):
                     return HttpResponse('Please confirm your account before loging in. Check your inbox for confirmation link.')
                 
                 kyprofile=authenticate(email=email,password=password)
-                kyprofile.backend='django.contrib.auth.backends.ModelBackend'
-                login(request,kyprofile)
-                return redirect('/dashboard')
+                if kyprofile:
+                	kyprofile.backend='django.contrib.auth.backends.ModelBackend'
+                	login(request,kyprofile)
+                	return redirect('/dashboard')
+                else:
+                	return HttpResponse('Either you have entered a wrong password or you need to try the option from which you have registered previously. (Facebook or Google)')
             else:
                 return HttpResponse("Invalid form submission")#sth to be done
         else:

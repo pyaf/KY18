@@ -48,7 +48,7 @@ class KYProfileAdmin(admin.ModelAdmin):
     list_max_show_all = 500
     list_filter = ('has_ca_profile', 'college__regCount', 'college__collegeName')
     list_display = ('ky_id', name, email, 'college', 'mobile_number',ca,ca_id)
-    search_fields = ('ky_id', 'college__collegeName', 'full_name')
+    search_fields = ('ky_id', 'email', 'college__collegeName', 'full_name')
     inlines = [
         CAInline,
     ]
