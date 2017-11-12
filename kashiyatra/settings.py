@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'API',
     #'django.contrib.sites',
     'etc',
+    'event',
     'users',
     'allauth',
     'allauth.account',
@@ -223,7 +224,8 @@ ALLOWED_HOSTS = ['*']
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "templates/angular/"),
+    os.path.join(BASE_DIR, "templates/angular/ca/"),
+    os.path.join(BASE_DIR, "templates/angular/user/"),
     os.path.join(BASE_DIR, "static/meta/"),
 
 ]
