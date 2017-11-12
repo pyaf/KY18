@@ -17,7 +17,15 @@ urlpatterns = [
     url(r'^all-notifications/$', all_notifications),
     url(r'^leaderboard/$', leaderboard),
     url(r'^ca-profile/$', CAProfileUpdate),
+    url(r'^ky-profile/$', KYProfileUpdate),
     url(r'^updatecauser/$', updateCAUser),
+    url(r'^all-event/$', allEvent),
+    url(r'^teamregister/$', registerTeam),
+    url(r'^get-reg/$', getReg),
+    url(r'^indregister/$', registerIndi),
+    url(r'^deleteteam/$', deleteteam),
+
+     url(r'^sub-event/(?P<eventName>[\w|\W]+)$',subEvent),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

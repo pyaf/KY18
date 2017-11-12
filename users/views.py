@@ -231,9 +231,9 @@ def DashboardView(request):
     kyprofile = request.user
     if kyprofile.profile_completed:
         if kyprofile.has_ca_profile:
-            template_name = 'angular/index.html'
+            template_name = 'angular/ca/index.html'
         else:
-            template_name = 'user-dashboard.html'
+            template_name = 'angular/user/index.html'
         return render(request, template_name, {})
     else:
         return redirect('/user-form')

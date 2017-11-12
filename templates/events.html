@@ -201,6 +201,7 @@ ul {
      <script>
         function myFunc(elem){
           var a=elem.getAttribute("id");
+          console.log(a);
           var elems=document.getElementsByClassName("jumbotron");
           for (var i=0;i<elems.length;i+=1){
             elems[i].style.display = 'none';

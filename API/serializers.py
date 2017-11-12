@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from users.models import KYProfile, CAProfile
 from etc.models import *
+from event.models import *
 
 # Serializers define the API representation.
 class UserSerializer(serializers.ModelSerializer):
@@ -11,6 +12,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = KYProfile
         fields = ('ca_id', 'ky_id', 'email', 'full_name', 'gender', 'profile_link',
         			'college', 'year', 'mobile_number', 'profile_picture')
+
 
 class PointSerializer(serializers.ModelSerializer):
     name = serializers.CharField(source='ca.kyprofile.full_name', allow_blank=True)
@@ -25,6 +27,13 @@ class CASerializer(serializers.ModelSerializer):
     class Meta:
         model = CAProfile
         fields = ('ca_id', 'whatsapp_number', 'pincode', 'postal_address')
+        
+class KYSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = KYProfile
+        fields = ( 'ky_id', 'email', 'full_name', 'gender',
+                    'college', 'year', 'mobile_number')
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
@@ -36,6 +45,25 @@ class NotificationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Notifications
         fields = ('text', 'recieved_date')
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ParentEvent 
+        fields = ('parentEventId', 'categoryName')
+        
+class SubEventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Event 
+        fields = ('eventId', 'eventName', 'eventDetails', 'maxMembers', 'minMembers', 'parentEvent')
+
+class TeamSerializer(serializers.ModelSerializer):
+    # ky_id = serializers.CharField(source='members_set.kyprofile.ky_id', allow_blank=True)
+
+    members = KYSerializer(read_only=True, many=True)
+    teamLeader = KYSerializer(read_only=True)
+    class Meta:
+        model = Team 
+        fields = ('teamName', 'teamId', 'event', 'teamLeader', 'members')
 
 class PublicRelationSerializer(serializers.ModelSerializer):
     class Meta:

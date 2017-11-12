@@ -22,6 +22,7 @@ class Event(models.Model):
     maxMembers = models.PositiveSmallIntegerField(null=True,blank=True)
     minMembers = models.PositiveSmallIntegerField(null=True,blank=True)
     parentEvent = models.ForeignKey(ParentEvent)
+    # parentEventId = models.PositiveSmallIntegerField(null=True,blank=True)
 
     def __unicode__(self):
         return 'Event:%s, EventId: %s, Category: %s' % ( self.eventName,self.eventId, self.parentEvent.categoryName, )
