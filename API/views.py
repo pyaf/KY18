@@ -59,23 +59,21 @@ def posts(request):
 
 def getReg(request):
 	kyprofile = request.user
-	team=Team.objects.filter(members=kyprofile)
-
-	print(team)
+	team=Team.objects.filter(teamLeader=kyprofile) | Team.objects.filter(members=kyprofile)
 
 	serializer = TeamSerializer(team, many=True)
-	print((serializer.data))
+	#print((serializer.data))
 
 	return Response(serializer.data)
 	
 @api_view(['POST'])
 def deleteteam(request):
-	print("agaya")
+	#print("agaya")
 	response_data={}
 	post = request.data
 	
 	name=post.get('event',0)
-	print(name)
+	#print(name)
 	
 	Team.objects.filter(teamId=name).delete()
 	
@@ -147,24 +145,24 @@ def allEvent(request):
 @api_view(['GET'])
 def subEvent(request,eventName):
 	event2=ParentEvent.objects.get(categoryName=eventName)
-	print(event2)
-	print(event2.event_set.all)
+	#print(event2)
+	#print(event2.event_set.all)
 	event = Event.objects.filter(parentEvent=event2)
-	print(event)
+	#print(event)
 	sub_event = SubEventSerializer(event,many =True)
 	
 	data = {
 		'sub_event': sub_event.data,
 		
 	}
-	print (eventName)
-	print (sub_event)
+	#print (eventName)
+	#print (sub_event)
 	return Response(data)
 	
 @api_view(['POST'])
 def updateCAUser(request):
-	print("aagaya")
-	print(request)
+	#print("aagaya")
+	#print(request)
 
 	try:
 		post = request.data
@@ -186,12 +184,12 @@ def updateCAUser(request):
 
 def regCheck(request, kyprofile, event):
 	response_data = {}
-	print 'checking ', kyprofile
+	#print ('checking ', kyprofile)
 	alreadyReg = False
 	try:
 		t=Team.objects.get(event=event, teamLeader=kyprofile)
-		print(t)
-		print("got")
+		#print(t)
+		#print("got")
 		alreadyReg = True
 	except :
 		try:
@@ -217,11 +215,11 @@ def registerTeam(request):
 	team_leader=KYProfile.objects.get(ky_id = team_leader)
 	
 	event = Event.objects.get(eventName=event_)
-	print("team:")
-	print(team_leader)
-	print(regCheck(request, team_leader, event))
+	#print("team:")
+	#print(team_leader)
+	#print(regCheck(request, team_leader, event))
 	if regCheck(request, team_leader, event):
-		print 'alreadyRe111g'
+		#print ('alreadyRe111g')
 				
 		response_data['status']= '%s already registered for event : %s.' %(team_leader.ky_id, event.eventName)
 		
@@ -233,14 +231,14 @@ def registerTeam(request):
 
 	membersList = []
 	for Id in members:
-		print(Id)
+		#print(Id)
 
 		if Id is not '':
 			try:
 				kyprofile = KYProfile.objects.get(ky_id=Id)
 			
 				if regCheck(request, kyprofile, event):
-					print 'alreadyRe111g'
+					#print ('alreadyRe111g')
 					
 					response_data['status']= '%s already registered for event : %s.' %(kyprofile.ky_id, event.eventName)
 					
@@ -250,11 +248,11 @@ def registerTeam(request):
 						)
 					break;
 				membersList.append(kyprofile)
-				print(membersList)
+				#print(membersList)
 			except Exception as e:
-			    # print e
+			    # #print e
 				response_data['status']='KY Id: '+Id+' is Invalid. (letters are case sensetive!)'
-				print(response_data)
+				#print(response_data)
 				return HttpResponse(
 					json.dumps(response_data),
 					content_type = "application/json"
@@ -283,10 +281,10 @@ def registerIndi(request):
 	response_data = {}
 	membersList = []
 
-	#print event_
+	##print event_
 	# try:
 	kyprofile = KYProfile.objects.get(ky_id=team_leader)
-	#print kyprofile
+	##print kyprofile
 	event = Event.objects.get(eventName=event_)
 	
 	# except Exception as e:
@@ -296,7 +294,7 @@ def registerIndi(request):
 	# 		content_type = "application/json"
 	# 		)
 	request=None
-	#print(regCheck(request,kyprofile, event))
+	##print(regCheck(request,kyprofile, event))
 	if not regCheck(request,kyprofile, event):
 		#Team.objects.create(teamLeader=kyprofile, event = event)
 		membersList.append(kyprofile)

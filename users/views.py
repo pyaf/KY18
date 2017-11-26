@@ -8,7 +8,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 import json
-import simplejson as json
+# import simplejson as json
 
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -38,7 +38,7 @@ def _getNotifications(kyprofile):
     return context
 
 def IndexView(request):
-    template_name = 'main.html'
+    template_name = 'index.html'
     return render(request, template_name, {})
 
 def eventRegister(request):
@@ -127,7 +127,9 @@ def CaFormView(request):#ca-form
             kyprofile.save()
             try:
                 if ca_created:
-                    addCaToSheet(kyprofile,ca)
+                    print('\n\n adding ca')
+                    resp  = addCaToSheet(kyprofile,ca)
+                    print(resp)
                     Point.objects.create(ca=ca)
                     welcome_note = Notifications.objects.all().order_by('id')[0]
                     welcome_note.users.add(ca)
@@ -184,7 +186,7 @@ def EmailRegistration(request): # registration with email
                     kyprofile.save()
                     # IncreaseRegs(referralCode) #write a script for this
                     addKYProfileToSheet(kyprofile)
-                    send_reg_email(kyprofile,  get_current_site(request))
+                    send_reg_email(kyprofile,  get_current_site(request))                        
                     return HttpResponse('Confirmation link has been sent to your email id, Please confirm your email address to complete the registration.')
 
                 else:
@@ -233,6 +235,7 @@ def FormView(request):
 @login_required(login_url=LOGIN_URL)
 def DashboardView(request):
     kyprofile = request.user
+    print(kyprofile.profile_completed, kyprofile.has_ca_profile)
     if kyprofile.profile_completed:
         if kyprofile.has_ca_profile:
             template_name = 'angular/ca/index.html'

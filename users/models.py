@@ -44,8 +44,6 @@ class KYProfile(AbstractBaseUser, PermissionsMixin):
     college = models.ForeignKey(College, null=True, blank=True)
     year = models.PositiveSmallIntegerField(choices=year_choices, null=True, blank=True)
     mobile_number = models.BigIntegerField(null=True, blank=True)
-    
-    
 
     profile_link = models.CharField(max_length=300, null=True, blank=True)
     profile_picture = models.URLField(null=True, blank=True, default='https://storage.forums.net/6479407/images/vagmAzMznjBJGQf_sumV.png')

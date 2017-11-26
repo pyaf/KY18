@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { PR } from '../models/PR';
+// import { PR } from '../models/PR';
 
 @Injectable()
 export class CaDataService {
@@ -32,11 +32,11 @@ export class CaDataService {
 									this.headers}).toPromise();
 	}
 
-	getPRs(): Promise <any>{
-		let url: string = `${this.BASE_URL}/api/public-relations/`;
-		return this.http.get(url, {headers: 
-									this.headers}).toPromise();
-	}
+	// getPRs(): Promise <any>{
+	// 	let url: string = `${this.BASE_URL}/api/public-relations/`;
+	// 	return this.http.get(url, {headers: 
+	// 								this.headers}).toPromise();
+	// }
   getResgistration(): Promise <any>{
     let url: string = `${this.BASE_URL}/api/get-reg/`;
     return this.http.get(url, {headers: 
@@ -52,11 +52,11 @@ export class CaDataService {
     return this.http.get(url, {headers: 
                   this.headers}).toPromise();
   }
-  createNewPR(PR: PR): Promise <any>{
-    let url: string = `${this.BASE_URL}/api/public-relations/`;
-    return this.http.post(url, PR, {headers: 
-                  this.headers}).toPromise();
-  }
+  // createNewPR(PR: PR): Promise <any>{
+  //   let url: string = `${this.BASE_URL}/api/public-relations/`;
+  //   return this.http.post(url, PR, {headers: 
+  //                 this.headers}).toPromise();
+  // }
 	getCookie(name: string) {
         let ca: Array<string> = document.cookie.split(';');
         let caLen: number = ca.length;

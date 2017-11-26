@@ -27,7 +27,7 @@ def eventPage(request):
 
 
 def regCheck(request, kyprofile, event):
-    print 'checking ', kyprofile
+    print ('checking ', kyprofile)
     alreadyReg = False
     try:
         Team.objects.get(event=event, teamLeader=kyprofile)
@@ -40,7 +40,7 @@ def regCheck(request, kyprofile, event):
             pass
 
     if alreadyReg:
-        print 'alreadyReg'
+        print ('alreadyReg')
         try:
             messages.info(request, '%s already registered for event : %s.' %(kyprofile.kyId, event.eventName), fail_silently=True)
         except:
@@ -61,7 +61,7 @@ def eventRegistration(request, eventName):
     if request.method == "POST":
 
         post = request.POST
-        print post
+        print (post)
         teamName = post['teamName']
         leaderId = post['leader']
         memberIds = post.getlist("fields[]")
@@ -86,7 +86,7 @@ def eventRegistration(request, eventName):
 
         msg = messages.get_messages(request)
         if msg:
-            print msg
+            print (msg)
             return render(request, template_name,context)
 
         team.save()
@@ -112,9 +112,9 @@ def individualReg(request):
         print(eventId)
         try:
             kyprofile = KYProfile.objects.get(ky_id=kyId)
-            print kyprofile
+            print (kyprofile)
             event = Event.objects.get(eventId=eventId)
-            print event
+            print (event)
         except Exception as e:
             response_data['error'] = str(e)
             return HttpResponse(
@@ -146,7 +146,7 @@ def dashboard(request):
         'memTeams' : Team.objects.filter(members=kyprofile).all(),
         'leadTeams':Team.objects.filter(teamLeader=kyprofile).all()
     }
-    print context['memTeams']
+    print (context['memTeams'])
     return render(request, template_name, context)
 
 def regCheckAjax(request):

@@ -8,14 +8,14 @@ import { AppComponent } from './app.component';
 
 import { CaDataService } from './services/ca-data.service';
 import { PostsComponent } from './components/posts/posts.component';
-import { NotificationsComponent } from './components/notifications/notifications.component';
+// import { NotificationsComponent } from './components/notifications/notifications.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { GuidelinesComponent } from './components/guidelines/guidelines.component';
+// import { GuidelinesComponent } from './components/guidelines/guidelines.component';
 import { CaProfileComponent } from './components/ca-profile/ca-profile.component';
-import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
-import { TasksComponent } from './components/tasks/tasks.component';
-import { EventsComponent } from './events/events.component';
+// import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+// import { TasksComponent } from './components/tasks/tasks.component';
+import { EventsComponent } from './components/events/events.component';
 
 const  BASE_URL : string = 'dashboard';
 const appRoutes: Routes = [
@@ -24,24 +24,8 @@ const appRoutes: Routes = [
 		component: PostsComponent,
 	},
     {
-        path: BASE_URL + '/guidelines',
-        component: GuidelinesComponent,
-    },
-    {
-        path: BASE_URL + '/ca-profile',
+        path: BASE_URL + '/user-profile',
         component: CaProfileComponent,
-    },
-    {
-        path: BASE_URL + '/tasks',
-        component: TasksComponent,
-    },
-    {
-        path: BASE_URL + '/leaderboard',
-        component: LeaderboardComponent,
-    },
-    {
-        path: BASE_URL + '/notifications',
-        component: NotificationsComponent,
     },
     {
         path: BASE_URL + '/events',

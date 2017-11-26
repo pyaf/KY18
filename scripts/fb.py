@@ -10,11 +10,12 @@ django.setup()
 from etc.models import Post, Notifications
 from users.models import CAProfile
 
-access_token = os.environ['AT']
+access_token = 'EAAFZCjVZAKmY0BACU365f7puGcbRZC1OZBUiK6stWTZBwdLELZAM653yLOaRu3fnOQXVIov3N1UgGAxKK4aCRI9sFex9ZASZC6qf51pv2IEfmZAFRrCeqnETgDd21UGmNSKUchZAVZBXbkFsLgyOCsAjURUg4GByoNsqiKlzpnwfrAdZAOS5mEIsWcP7AFSb4hRi0sMZD'
 url = "https://graph.facebook.com/kashiyatra.IITBHU/posts?fields=full_picture,picture,link,message,created_time&limit=10&access_token=" + access_token
 
 response =  requests.get(url).json()
 print('Got data\n')
+# print(response)
 for data in response['data']:
     try:
         created_time = datetime.strptime(data['created_time'].split('+')[0], '%Y-%m-%dT%H:%M:%S')

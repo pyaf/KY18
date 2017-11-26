@@ -14,7 +14,7 @@ import { GuidelinesComponent } from './components/guidelines/guidelines.componen
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { CaProfileComponent } from './components/ca-profile/ca-profile.component';
 import { TasksComponent } from './components/tasks/tasks.component';
-import { EventsComponent } from './events/events.component';
+import { EventsComponent } from './components/events/events.component';
   
 @NgModule({
   declarations: [

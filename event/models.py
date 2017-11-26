@@ -11,7 +11,7 @@ class ParentEvent(models.Model):
     parentEventId = models.AutoField(primary_key = True)
     categoryName = models.CharField(max_length = 50)
 
-    def __unicode__(self):
+    def __str__(self):
         return "Category: %s" %self.categoryName
 
 
@@ -24,7 +24,7 @@ class Event(models.Model):
     parentEvent = models.ForeignKey(ParentEvent)
     # parentEventId = models.PositiveSmallIntegerField(null=True,blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return 'Event:%s, EventId: %s, Category: %s' % ( self.eventName,self.eventId, self.parentEvent.categoryName, )
 
 class Team(models.Model):
@@ -34,6 +34,6 @@ class Team(models.Model):
     teamLeader = models.ForeignKey(KYProfile,related_name = 'teamLeader')
     members = models.ManyToManyField(KYProfile,related_name = 'members')
 
-    def __unicode__(self):
+    def __str__(self):
         return 'Team Id: %s, Event: %s' %(self.teamId, self.event.eventName)
 

@@ -24,9 +24,11 @@ def addCaToSheet(kyprofile,ca):
             'reason': ca.reason,
     }
 
-    url = 'https://script.google.com/macros/s/AKfycbyeu8AJ8Su8uwnvykOR_vzB9Rz49r05B2EKvgTKEFefpNeU4ik/exec'
+    url = 'https://script.google.com/macros/s/AKfycbwd3siEIr23TLoafEoG3z43TfYRh9BAc-JzmOlXmkVkvAyBHzE4/exec'
 
-    return requests.post(url, data=data)
+    response = requests.post(url, data=data)
+
+    return response
 
 def addKYProfileToSheet(kyprofile):
 
@@ -43,7 +45,7 @@ def addKYProfileToSheet(kyprofile):
             'profile_link': kyprofile.profile_link,
     }
 
-    url = 'https://script.google.com/macros/s/AKfycbw_ZIe5343MwBWtDTuxJBh48g_VFUst93QwX16ezXRZS6Q2krk/exec'
+    url = 'https://script.google.com/macros/s/AKfycby49G4fB7BNNXjvvLw-aPpUp3pefj5zY_LZcnYtdwyKtRJ7gbw/exec'
 
     return requests.post(url, data=data)
 

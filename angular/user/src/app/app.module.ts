@@ -7,27 +7,27 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
 import { CaDataService } from './services/ca-data.service';
 import { PostsComponent } from './components/posts/posts.component';
-import { NotificationsComponent } from './components/notifications/notifications.component';
+// import { NotificationsComponent } from './components/notifications/notifications.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { GuidelinesComponent } from './components/guidelines/guidelines.component';
-import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
+// import { GuidelinesComponent } from './components/guidelines/guidelines.component';
+// import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { CaProfileComponent } from './components/ca-profile/ca-profile.component';
-import { TasksComponent } from './components/tasks/tasks.component';
-import { EventsComponent } from './events/events.component';
+// import { TasksComponent } from './components/tasks/tasks.component';
+import { EventsComponent } from './components/events/events.component';
   
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
     PostsComponent,
-    NotificationsComponent,
+    // NotificationsComponent,
     SidebarComponent,
     NavbarComponent,
-    GuidelinesComponent,
-    LeaderboardComponent,
+    // GuidelinesComponent,
+    // LeaderboardComponent,
     CaProfileComponent,
-    TasksComponent,
+    // TasksComponent,
     EventsComponent,
   ],
   imports: [
