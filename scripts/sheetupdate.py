@@ -8,7 +8,7 @@ django.setup()
 
 from users.views import addCaToSheet, addKYProfileToSheet
 from users.models import KYProfile, CAProfile
-'''
+
 for kyprofile in KYProfile.objects.all().order_by('id'):
 	print(kyprofile)
 	try:
@@ -28,3 +28,4 @@ for kyprofile in KYProfile.objects.all().order_by('id'):
 	except Exception as e:
 		print(e)
 		print(kyprofile.ky_id, kyprofile.email)
+'''

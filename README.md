@@ -16,3 +16,6 @@ To build angular code:
 angular code structure.
 user dashboard angular initiate
 user profile update
+
+
+access_token = 'EAACEdEose0cBAPXknkQ9xqjsFWR10ZABfiM40r3qxZCOOe0Isn2emq9dH4kHXg3ZCpZBbd6trrZCiAJWvTZCG5x9lz1hnNRtZCRpDDZCtta6j0mZC4xyEfmyWGQUyCKofEYDB3Mtaaz70iafrv2LsP5C2ZAh2GFDHhhCblZCBo7hSYEnUKgaRVppX8bwbhCvzqe7g0ZD'
