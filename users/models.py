@@ -53,6 +53,8 @@ class KYProfile(AbstractBaseUser, PermissionsMixin):
     referralCode = models.CharField(max_length=20, null=True, blank=True) #should be caId of some CA.
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    is_paid = models.BooleanField(default=False)
+    payment_id = models.CharField(max_length=50,null=True,blank=True)
 
     objects = UserManager()
 
