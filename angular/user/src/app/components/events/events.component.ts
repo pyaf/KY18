@@ -21,6 +21,10 @@ export class EventsComponent implements OnInit {
   constructor(public http: Http,public caservice: CaDataService) { }
 	public PRData: JSON;
   public ky_id: string;
+  public email_id: string;
+  public mobile_number: number;
+  public paid_amt: number;
+  public payment_id: string = null;
   public team = new Team('' , '' , '' , '', null, null);
   public team_json:JSON;
   public button = "register";
@@ -47,7 +51,7 @@ export class EventsComponent implements OnInit {
   public previous_reg:JSON;
 
   public message;
-  public is_paid;
+    public is_paid;
 
   public BASE_URL: string = window.location.origin;
   public headers: Headers = new Headers({
@@ -83,6 +87,10 @@ export class EventsComponent implements OnInit {
       
       this.ky_id = data.json()['ky_id'];
       this.is_paid = data.json()['is_paid'];
+      this.email_id = data.json()['email'];
+      this.mobile_number = data.json()['mobile_number'];
+      this.payment_id = data.json()['payment_id'];
+      this.paid_amt = data.json()['paid_amt'];
       this.team.team_leader=this.ky_id;
     })
     .catch((err) =>{

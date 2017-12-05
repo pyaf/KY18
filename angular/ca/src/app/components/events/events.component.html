@@ -6,26 +6,34 @@
                 
                     <p style="color:whitesmoke;margin:auto;font-size:20px;cursor:pointer;" class="alert alert-info">{{message}}</p>
             </div>
-    
-     <div class="card-header collapsed" style="margin:3%" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" *ngIf="is_paid">
-                
-                    <p style="color:whitesmoke;margin:auto;font-size:20px;cursor:pointer;" class="alert alert-info">Successfully paid registration fees</p>
-            </div>
-<div class= "card" style="margin:4%;width:90%" *ngIf="!is_paid">
+            <div class= "card" style="margin:0%;width:50%" *ngIf="is_paid">
                <div class="" style="margin:3%" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                <a class="card-title" >
-                    <p style="color:black;margin:auto;font-size:20px;cursor:pointer;">Have you paid registration fees ?</p>
-                </a>
+                  <a class="card-title" >
+                      <p style="color:black;margin:auto;font-size:20px;cursor:pointer;margin-bottom: -2%">Click to check your payment status.<br><br></p>
+                  </a>
+                </div>
+                <div id="collapseOne" class="card-block collapse" style="margin:4%">
+                  Payment Status: Successful <br><br>
+                  Payment Reference Id: {{payment_id}}<br><br>
+                  Amount Paid: Rs. {{paid_amt}}
+                <br> 
             </div>
+          </div> 
+            <div class= "card" style="margin:4%;width:90%" *ngIf="!is_paid">
+               <div class="" style="margin:3%" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                  <a class="card-title" >
+                      <p style="color:black;margin:auto;font-size:20px;cursor:pointer;">Have you paid registration fees ?</p>
+                  </a>
+                </div>
             <div id="collapseOne" class="card-block collapse" style="margin:4%">
-            <p style="color:black;margin:auto;font-size:16px;cursor:pointer;">Important Instructions:<p>
-            <br> 
-            1. You will be redirected to Telr, online payment partner of Kashiyatra.<br> <br>
-            2. Please make sure you enter the same email id and mobile number you signed up with on Kashiyatra site.<br> <br>
-            3. After successful payment your payment status will be updated on the portal within 2 working days. <br> 
-            <a href="https://secure.telr.com/gateway/ql/KASHIYATRAIITBHU_9798.html"><button class="btn success" >Proceed</button></a>
+                <p style="color:black;margin:auto;font-size:16px;cursor:pointer;">Important Instructions:<p>
+                <br> 
+                1. You will be redirected to Telr, online payment partner of Kashiyatra.<br> <br>
+                2. Please make sure you use <b>{{email_id}}</b> as email id and <b>{{ mobile_number }} </b> as mobile number while filling details on Telr payment page.<br> <br>
+                3. After successful payment your payment status will be updated on this portal within 2-3 working days. <br> 
+                <a href="https://secure.telr.com/gateway/ql/KASHIYATRAIITBHU_9798.html"><button class="btn success" >Proceed</button></a>
             </div>
-</div>    
+          </div>    
         <div class="card m-b-0" style="background-color:rgb(49, 49, 50)">
             <div style="margin:3%"  >  
               <p style="color:whitesmoke;margin:auto;font-size:20px;cursor:pointer;">REGISTER FOR EVENT</p>
@@ -97,7 +105,7 @@
                       <input class="form-control" [(ngModel)]="members_kyid[in]" name="members[in]" required="true" type="text" placeholder="Member's KY Id (KY####)" />
                   </div><br><br>
               </div>
-              <button type="submit" class="btn btn-default" (click)="teamRegister($event)" name="register">Register</button>
+              <button type="submit" class="btn btn-default" (click)="teamRegister($event);eventForm.reset();" [disabled]="!eventForm.form.valid" name="register">Register</button>
       </div>
   </div>
 </div>

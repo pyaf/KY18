@@ -48,7 +48,13 @@ def current_user(request, format=None):
 def leaderboard(request, format=None):
 	top_points = Point.objects.all().order_by('-total_points')[:10]
 	response = PointSerializer(top_points, many=True)
-	return Response(response.data)
+	ca_points = PointSerializer(Point.objects.get(ca=request.user.caprofile))
+
+	data = {
+		'top_points': response.data,
+		'ca_points': ca_points.data
+	}
+	return Response(data)
 
 @api_view(['GET'])
 def posts(request):

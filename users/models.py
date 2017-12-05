@@ -55,6 +55,7 @@ class KYProfile(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_paid = models.BooleanField(default=False)
     payment_id = models.CharField(max_length=50,null=True,blank=True)
+    paid_amt = models.IntegerField(null=True, blank=True)
 
     objects = UserManager()
 

@@ -11,7 +11,8 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = KYProfile
         fields = ('ca_id', 'ky_id', 'email', 'full_name', 'gender', 'profile_link',
-        			'college', 'year', 'mobile_number', 'profile_picture','is_paid')
+        			'college', 'year', 'mobile_number', 'profile_picture','is_paid', 
+                    'payment_id', 'paid_amt')
 
 
 class PointSerializer(serializers.ModelSerializer):
