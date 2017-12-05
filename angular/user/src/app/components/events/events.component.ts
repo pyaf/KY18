@@ -47,6 +47,7 @@ export class EventsComponent implements OnInit {
   public previous_reg:JSON;
 
   public message;
+  public is_paid;
 
   public BASE_URL: string = window.location.origin;
   public headers: Headers = new Headers({
@@ -81,6 +82,7 @@ export class EventsComponent implements OnInit {
     .then((data) =>{
       
       this.ky_id = data.json()['ky_id'];
+      this.is_paid = data.json()['is_paid'];
       this.team.team_leader=this.ky_id;
     })
     .catch((err) =>{
