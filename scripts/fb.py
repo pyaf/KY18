@@ -10,7 +10,7 @@ django.setup()
 from etc.models import Post, Notifications
 from users.models import CAProfile
 
-access_token = 'EAACEdEose0cBAEpTIuHXRb1pxZB6YjwZAhgdLBZAFbY40pgqv2ZAcmi3dN0j7ou2JetmWEO39tY8bBS1W5yZBKuOyjttZCwBic8exYXZAEJbHuEr8tf0BcNqwTJC5hGvyD3lkTVSbd7pmGIZC9P2OUWVtSRbZAxsw5bNFqI9A8ZCukEztfun4wr5F5ZA0nWZAgDgquIZD'
+access_token = 'EAAFZCjVZAKmY0BACBBhZAbJmDPZBDrYzOlZAMcvm3DmJ2mysisIHAAQIqrlQ141HRiiTJVVBEUOs05WI4QcGnTTarKIR1nZCIvsAxhdH86drs7laSzmA1bY3GxqWZAt0DOWjiZAvESe7cVAa8xUlcPDUomWrt1zOZCfwZD'
 url = "https://graph.facebook.com/kashiyatra.IITBHU/posts?fields=full_picture,picture,link,message,created_time&limit=10&access_token=" + access_token
 
 response =  requests.get(url).json()
