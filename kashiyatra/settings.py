@@ -223,9 +223,13 @@ ALLOWED_HOSTS = ['*']
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+'''
+NOTE: angular builds static files with same name in dev mode. so make sure to run either ca or user build 
+at a time
+'''
 STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "templates/angular/user/"), 
     os.path.join(BASE_DIR, "templates/angular/ca/"),
-    os.path.join(BASE_DIR, "templates/angular/user/"),
     os.path.join(BASE_DIR, "static/meta/"),
 
 ]

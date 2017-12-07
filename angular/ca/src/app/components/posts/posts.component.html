@@ -1,7 +1,35 @@
-<div class= "card m-b-0" *ngIf="!if_canceled" style="margin:4%;margin-top:10%;width:90%">
+          <div class= "card" style="margin:0%;width:90%;margin-top:10%;margin-left:4%" *ngIf="is_paid">
+               <div class="" style="margin:3%" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                  <a class="card-title" >
+                      <p style="color:black;margin:auto;font-size:20px;cursor:pointer;margin-bottom: -2%">Click to check your payment status.<br><br></p>
+                  </a>
+                </div>
+                <div id="collapseTwo" class="card-block collapse" style="margin:4%">
+                  Payment Status: Successful <br><br>
+                  Payment Reference Id: {{payment_id}}<br><br>
+                  Amount Paid: Rs. {{paid_amt}}
+                <br> 
+            </div>
+          </div> 
+            <div class= "card" style="margin:4%;width:90%;margin-top:10%" *ngIf="!is_paid">
+               <div class="" style="margin:3%" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                  <a class="card-title" >
+                      <p style="color:black;margin:auto;font-size:20px;cursor:pointer;">Click to pay registration fee.</p>
+                  </a>
+                </div> 
+            <div id="collapseTwo" class="card-block collapse" style="margin:4%">
+                <p style="color:black;margin:auto;font-size:16px;cursor:pointer;">Important Instructions:<p>
+                <br> 
+                1. You will be redirected to Telr, online payment partner of Kashiyatra.<br> <br>
+                2. Please make sure you use <b>{{email_id}}</b> as email id and <b>{{ mobile_number }} </b> as mobile number while filling details on Telr payment page.<br> <br>
+                3. After successful payment your payment status will be updated on this portal within 2-3 working days. <br> 
+                <a href="https://secure.telr.com/gateway/ql/IndianInstituteTechnolo_9901.html"><button class="btn success" >Proceed</button></a>
+            </div>
+          </div>  
+<div class= "card m-b-0" *ngIf="!if_canceled" style="margin-left:4%;width:90%">
             <div class="card-header collapsed" style="margin:3%" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                 <a class="card-title" >
-                    <p style="color:whitesmoke;margin:auto;font-size:20px;cursor:pointer;">Click to see your registration</p>
+                    <p style="color:whitesmoke;margin:auto;font-size:20px;cursor:pointer;">Click to see your registrations</p>
                 </a>
             </div>
             <div id="collapseOne" class="card-block collapse" style="margin:4%">
@@ -77,7 +105,7 @@
  </div>
 
 
- <div class="content" >
+ <div class="content" style="margin-top:5%!important">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6" *ngFor="let post of posts" style="margin:auto">

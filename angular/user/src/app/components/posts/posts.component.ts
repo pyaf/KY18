@@ -20,6 +20,11 @@ declare var FB: any;
 export class PostsComponent implements OnInit{
   public BASE_URL: string = window.location.origin;
   public headers: Headers = new Headers({'content-type': 'application/json'})
+    public email_id: string;
+  public mobile_number: number;
+  public paid_amt: number;
+  public payment_id: string = null;
+  public is_paid = null;
   public posts: JSON;
   public previous_reg:JSON;
    public allevents:JSON;
@@ -45,7 +50,11 @@ export class PostsComponent implements OnInit{
     .then((data) =>{
       
       this.ky_id = data.json()['ky_id'];
- 
+       this.is_paid = data.json()['is_paid'];
+      this.email_id = data.json()['email'];
+      this.mobile_number = data.json()['mobile_number'];
+      this.payment_id = data.json()['payment_id'];
+      this.paid_amt = data.json()['paid_amt'];
     })
     .catch((err) =>{
       console.log(err);

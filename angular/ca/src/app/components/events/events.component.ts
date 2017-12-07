@@ -86,11 +86,6 @@ export class EventsComponent implements OnInit {
     .then((data) =>{
       
       this.ky_id = data.json()['ky_id'];
-      this.is_paid = data.json()['is_paid'];
-      this.email_id = data.json()['email'];
-      this.mobile_number = data.json()['mobile_number'];
-      this.payment_id = data.json()['payment_id'];
-      this.paid_amt = data.json()['paid_amt'];
       this.team.team_leader=this.ky_id;
     })
     .catch((err) =>{
