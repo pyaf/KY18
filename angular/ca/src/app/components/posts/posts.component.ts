@@ -31,6 +31,7 @@ export class PostsComponent implements OnInit{
   public previous_reg:JSON;
    public allevents:JSON;
    public en_to_cancel;
+   public referedreg
    public if_canceled: boolean = false;
   constructor(public http: Http,public caservice: CaDataService) { }
 
@@ -45,6 +46,12 @@ export class PostsComponent implements OnInit{
       // for (var i in this.previous_reg){
       //   console.log(this.previous_reg[i].teamLeader)
       // }
+
+    })
+    this.caservice.getReferedregs()
+    .then((data)=>{
+      this.referedreg = data.json()
+      console.log(this.referedreg);
 
     })
 

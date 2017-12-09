@@ -82,6 +82,51 @@
 
 
         </div>
+
+
+<div class= "card m-b-0" style="margin-left:4%;width:90%">
+            <div class="card-header collapsed" style="margin:3%" data-toggle="collapse" data-parent="#accordion" href="#collapseOne1">
+                <a class="card-title" >
+                    <p style="color:whitesmoke;margin:auto;font-size:20px;cursor:pointer;">See your reffered registrations</p>
+                </a>
+            </div>
+            <div id="collapseOne1" class="card-block collapse" style="margin:4%">
+            <table class="table table-inverse" style="background-color: whitesmoke">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name </th>
+                  <th>College</th>
+                  <th>KY ID</th>
+                  <th>Payment status</th>
+                   
+                  
+                  
+             
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let reg of referedreg; let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{reg.full_name}}</td>
+                  <td>{{reg.college}}</td>
+                  <td>{{reg.ky_id}}</td>
+                  <td>
+                  {{reg.is_paid}}
+                  </td>
+               
+         
+
+
+                </tr>
+              </tbody>
+            </table>
+            </div>
+
+
+
+
+        </div>
 <div class="card m-b-0" *ngIf="if_canceled">
   <div class="card-header collapsed" style="margin:3%" data-toggle="collapse">
                 
