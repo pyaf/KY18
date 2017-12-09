@@ -215,9 +215,11 @@ updateSub() {
        // var number=+this.selected_number_of_members;//string to int
     if (this.team.team_size == 1){
     this.indReg = true;
+    this.teamReg = false;
     
     }else{
       this.teamReg = true;
+      this.indReg = false;
 
     }
      this.members = Array(this.team.team_size-1);

@@ -17,6 +17,14 @@
 /* ANIMATION */
 /* SHADOWS */
 /* Shadows (from mdl http://www.getmdl.io/) */
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+ .top-card{
+  margin-top: 25%!important;
+ }
+  
+}
 .noUi-target,
 .noUi-target * {
   -webkit-touch-callout: none;

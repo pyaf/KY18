@@ -1,4 +1,4 @@
-          <div class= "card" style="margin:0%;width:90%;margin-top:10%;margin-left:4%" *ngIf="is_paid">
+          <div class= "card top-card" style="margin:0%;width:90%;margin-top:10%;margin-left:4%" *ngIf="is_paid">
                <div class="" style="margin:3%" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                   <a class="card-title" >
                       <p style="color:black;margin:auto;font-size:20px;cursor:pointer;margin-bottom: -2%">Click to check your payment status.<br><br></p>
@@ -11,7 +11,7 @@
                 <br> 
             </div>
           </div> 
-            <div class= "card" style="margin:4%;width:90%;margin-top:10%" *ngIf="!is_paid">
+            <div class= "card top-card" style="margin:4%;width:90%;margin-top:10%" *ngIf="!is_paid">
                <div class="" style="margin:3%" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
                   <a class="card-title" >
                       <p style="color:black;margin:auto;font-size:20px;cursor:pointer;">Click to pay registration fee.</p>
@@ -29,7 +29,7 @@
 <div class= "card m-b-0" *ngIf="!if_canceled" style="margin-left:4%;width:90%">
             <div class="card-header collapsed" style="margin:3%" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
                 <a class="card-title" >
-                    <p style="color:whitesmoke;margin:auto;font-size:20px;cursor:pointer;">Click to see your registrations</p>
+                    <p style="color:whitesmoke;margin:auto;font-size:20px;cursor:pointer;">Click to see your event registrations</p>
                 </a>
             </div>
             <div id="collapseOne" class="card-block collapse" style="margin:4%">
@@ -87,7 +87,7 @@
 <div class= "card m-b-0" style="margin-left:4%;width:90%">
             <div class="card-header collapsed" style="margin:3%" data-toggle="collapse" data-parent="#accordion" href="#collapseOne1">
                 <a class="card-title" >
-                    <p style="color:whitesmoke;margin:auto;font-size:20px;cursor:pointer;">See your reffered registrations</p>
+                    <p style="color:whitesmoke;margin:auto;font-size:20px;cursor:pointer;">See your referred registrations</p>
                 </a>
             </div>
             <div id="collapseOne1" class="card-block collapse" style="margin:4%">
@@ -111,8 +111,11 @@
                   <td>{{reg.full_name}}</td>
                   <td>{{reg.college}}</td>
                   <td>{{reg.ky_id}}</td>
-                  <td>
-                  {{reg.is_paid}}
+                  <td *ngIf="reg.is_paid">
+                  Paid
+                  </td>
+                  <td *ngIf="!reg.is_paid">
+                  Not Paid
                   </td>
                
          
