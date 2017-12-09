@@ -30,11 +30,12 @@ class CASerializer(serializers.ModelSerializer):
         fields = ('ca_id', 'whatsapp_number', 'pincode', 'postal_address')
         
 class KYSerializer(serializers.ModelSerializer):
+    college = serializers.CharField(source='college.collegeName', allow_blank=True)
 
     class Meta:
         model = KYProfile
         fields = ( 'ky_id', 'email', 'full_name', 'gender',
-                    'college', 'year', 'mobile_number')
+                    'college', 'year', 'mobile_number','is_paid')
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
@@ -65,7 +66,14 @@ class TeamSerializer(serializers.ModelSerializer):
     class Meta:
         model = Team 
         fields = ('teamName', 'teamId', 'event', 'teamLeader', 'members')
+class ReferedSerializer(serializers.ModelSerializer):
+    # ky_id = serializers.CharField(source='members_set.kyprofile.ky_id', allow_blank=True)
 
+    regs = KYSerializer(read_only=True, many=True)
+ 
+    class Meta:
+        model = CAProfile 
+        fields = ('regs','ca_id')
 class PublicRelationSerializer(serializers.ModelSerializer):
     class Meta:
         model = PublicRelation

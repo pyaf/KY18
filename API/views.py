@@ -71,6 +71,18 @@ def getReg(request):
 	#print((serializer.data))
 
 	return Response(serializer.data)
+
+@api_view(['GET'])
+def getReferedReg(request):
+	KY = request.user
+	ca=CAProfile.objects.get(kyprofile=KY)
+	
+	regs = KYProfile.objects.filter(referralCode=ca.ca_id)
+	serializer=KYSerializer(regs, many=True)
+
+	
+
+	return Response(serializer.data)
 	
 @api_view(['POST'])
 def deleteteam(request):
