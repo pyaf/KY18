@@ -20,6 +20,12 @@ export class CaDataService {
                   this.headers}).toPromise();
     }
 
+  getReferedregs(): Promise <any>{
+    let url: string = `${this.BASE_URL}/api/referedreg/`;
+    return this.http.get(url, {headers: 
+                  this.headers}).toPromise();
+    }
+
   getLeaderBoard(): Promise <any>{
     let url: string = `${this.BASE_URL}/api/leaderboard/`;
     return this.http.get(url, {headers: 
