@@ -11,18 +11,22 @@ from django.contrib.auth.decorators import login_required
 from users.models import *
 from event.models import *
 from users.forms import *
-from event.models import *
 from kashiyatra.settings import LOGIN_URL,LOGIN_URL_social,LOGIN_URL_email
 
 from django.core.mail import EmailMultiAlternatives
 
 @login_required(login_url = LOGIN_URL)
 def eventPage(request):
-    template_name = 'events.html'
+    template_name = 'events/index.html'
+    return render(request, template_name, {})
 
+def eventCatPage(request, eventCatName):
+    template_name = 'events/%s.html' % eventCatName
+    parentevent = ParentEvent.objects.get(categoryName=eventCatName.upper())
     context = {
-    'parentEvents' : ParentEvent.objects.all(),
+    'events' : Event.objects.filter(parentEvent=parentevent),
     }
+    print(context)
     return render(request, template_name, context)
 
 

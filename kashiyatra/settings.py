@@ -230,6 +230,8 @@ at a time
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "templates/angular/user/"), 
     os.path.join(BASE_DIR, "templates/angular/ca/"),
+    # os.path.join(BASE_DIR, "templates/events/"),
+
     os.path.join(BASE_DIR, "static/meta/"),
 
 ]
