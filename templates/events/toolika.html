@@ -45,7 +45,7 @@
 }
 body {
   line-height: 1.5;
-  font-family: 'Lato';
+  font-family: 'Raleway';
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -154,6 +154,7 @@ a {
 }
 #modal__temp {
   will-change: transform, opacity;
+    display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -162,7 +163,7 @@ a {
   background: #ffebee;
   -webkit-transform: none;
           transform: none;
-  opacity: 1;
+  opacity: 0;
   -webkit-transition: opacity 0.1s ease-out, -webkit-transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   transition: opacity 0.1s ease-out, -webkit-transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   transition: opacity 0.1s ease-out, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
@@ -1268,7 +1269,7 @@ just become the clay artist you once were, when you were young.
   };
 
   var close = function(event) {
-
+isOpen = false;
 		event.preventDefault();
     event.stopImmediatePropagation();
 
@@ -1283,8 +1284,8 @@ just become the clay artist you once were, when you were young.
     if (isOpen && target.classList.contains('modal__bg') || target.classList.contains('modal__close')) {
 
       // make the hidden div visible again and remove the transforms so it scales back to its original size
-      div.style.opacity = '1';
-      div.removeAttribute('style');
+div.remove();
+//      div.removeAttribute('style');
 
 			/**
 			* iterate through the modals and modal contents and triggers to remove their active classes.
