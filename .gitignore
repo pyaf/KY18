@@ -1,5 +1,6 @@
 venv
 *.pyc
+.idea/
 staticfiles
 .env
 # Byte-compiled / optimized / DLL files
