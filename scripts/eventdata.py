@@ -158,17 +158,17 @@ serve basis.<br>
 
 EventData['ASMITA'] = '''
 1. A participant can have a maximum of 3 helpers, one each for lights and sound
-and the third one could be incorporated in the act as per need.
+and the third one could be incorporated in the act as per need.<br>
 2. Act can be in English, Hindi or Bilingual. Short phrases of other languages can
-be used.
-3. Time Limit: 4-10 minutes.
+be used.<br>
+3. Time Limit: 4-10 minutes.<br>
 4. Any kind of Fluid, live animals, flames, heavy objects or any material which
-has a possibility of damaging the stage is not allowed.
-5. Points will be deducted on exceeding the time limit.
-6. Any type of Inappropriate content or vulgarity will not be tolerated.
+has a possibility of damaging the stage is not allowed.<br>
+5. Points will be deducted on exceeding the time limit.<br>
+6. Any type of Inappropriate content or vulgarity will not be tolerated.<br>
 7. Stage Props should be mentioned beforehand and can be used only after the
-consent of the Coordinating Team.
-8. The decision of the judges and organizers shall be final and abiding. 
+consent of the Coordinating Team.<br>
+8. The decision of the judges and organizers shall be final and abiding. <br>
 '''
 
 EventData['HULLAD'] = '''
@@ -558,7 +558,7 @@ relevant materials will be provided.<br>
 4. Judging Criteria: Creativity, uniqueness, relevance to the theme.<br>
 5. The decisions of the judges will be final and abiding<br>
 '''
-EventData['INK IT!'] = '''
+EventData['INK IT'] = '''
 Time limit -2 hours.<br><br>
 1. Team of maximum 2 members.<br>
 2. A4 sheets, sketch pens, paints, brushes, etc will be provided.<br>
