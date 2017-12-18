@@ -3,6 +3,7 @@ from django.shortcuts import render,HttpResponseRedirect,redirect,Http404, HttpR
 from django.contrib.auth.models import User, Group
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import authentication_classes, permission_classes
 
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
@@ -340,26 +341,10 @@ def registerIndi(request):
 			content_type = "application/json"
 			)
 
-{
-	"status":"Successful",
-	"status_code":200,
-	"name": "string",
-	"email":"string",
-	"college": "string"
-}
-
-{
-	"status":"Error",
-	"status_code":403
-}
-
-{
-"mobile_number":"9999999999",
-"secret":"a23hdf348sdh34587sjhd33u98sdfh34h34g59",
-"ky_id":"KYCA0101"
-}
 
 @api_view(['POST'])
+@authentication_classes([])
+@permission_classes([])
 def mobileLogin(request):
 	id_ = request.data.get('ky_id', None)
 	secret = request.data.get('secret', None)
