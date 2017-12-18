@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88f86e63-7217-4ce6-9f7d-fed1dc1912bf" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/WHAT WE DO _ Super Crowds inc_files/social-fb.png" afterPath="$PROJECT_DIR$/static/WHAT WE DO _ Super Crowds inc_files/social-fb.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/WHAT WE DO _ Super Crowds inc_files/social-tw.png" afterPath="$PROJECT_DIR$/static/WHAT WE DO _ Super Crowds inc_files/social-tw.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/WHAT WE DO _ Super Crowds inc_files/all.css" afterPath="$PROJECT_DIR$/static/WHAT WE DO _ Super Crowds inc_files/all.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/events/abhinay.html" afterPath="$PROJECT_DIR$/templates/events/abhinay.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/events/bandish.html" afterPath="$PROJECT_DIR$/templates/events/bandish.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/events/crosswindz.html" afterPath="$PROJECT_DIR$/templates/events/crosswindz.html" />
@@ -25,24 +29,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <file leaf-file-name="toolika.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/events/toolika.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4471">
-              <caret line="263" column="43" lean-forward="false" selection-start-line="263" selection-start-column="43" selection-end-line="263" selection-end-column="43" />
+            <state relative-caret-position="417">
+              <caret line="787" column="0" lean-forward="false" selection-start-line="787" selection-start-column="0" selection-end-line="787" selection-end-column="0" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#14;n#div#1;n#body#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="natraj.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/events/natraj.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="786" column="0" lean-forward="false" selection-start-line="786" selection-start-column="0" selection-end-line="786" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -50,19 +44,23 @@
       <file leaf-file-name="mirage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/events/mirage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="794" column="0" lean-forward="false" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="368">
+              <caret line="787" column="0" lean-forward="false" selection-start-line="787" selection-start-column="0" selection-end-line="787" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="toolika.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/events/toolika.html">
+      <file leaf-file-name="natraj.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/events/natraj.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="794" column="0" lean-forward="false" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="198">
+              <caret line="779" column="0" lean-forward="false" selection-start-line="779" selection-start-column="0" selection-end-line="779" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -70,9 +68,11 @@
       <file leaf-file-name="xtasy.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/events/xtasy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="793" column="0" lean-forward="false" selection-start-line="793" selection-start-column="0" selection-end-line="793" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="519">
+              <caret line="786" column="0" lean-forward="false" selection-start-line="786" selection-start-column="0" selection-end-line="786" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -80,9 +80,11 @@
       <file leaf-file-name="enquizta.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/events/enquizta.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="794" column="0" lean-forward="false" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="383">
+              <caret line="787" column="0" lean-forward="false" selection-start-line="787" selection-start-column="0" selection-end-line="787" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,9 +92,11 @@
       <file leaf-file-name="crosswindz.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/events/crosswindz.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="795" column="0" lean-forward="false" selection-start-line="795" selection-start-column="0" selection-end-line="795" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="332">
+              <caret line="788" column="0" lean-forward="false" selection-start-line="788" selection-start-column="0" selection-end-line="788" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -100,9 +104,11 @@
       <file leaf-file-name="bandish.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/events/bandish.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="793" column="0" lean-forward="false" selection-start-line="793" selection-start-column="0" selection-end-line="793" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="111">
+              <caret line="786" column="0" lean-forward="false" selection-start-line="786" selection-start-column="0" selection-end-line="786" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -110,19 +116,23 @@
       <file leaf-file-name="abhinay.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/events/abhinay.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3974">
-              <caret line="785" column="0" lean-forward="false" selection-start-line="785" selection-start-column="0" selection-end-line="785" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="128">
+              <caret line="778" column="0" lean-forward="false" selection-start-line="778" selection-start-column="0" selection-end-line="778" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/events/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="526" column="0" lean-forward="false" selection-start-line="526" selection-start-column="0" selection-end-line="526" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="391">
+              <caret line="519" column="0" lean-forward="false" selection-start-line="519" selection-start-column="0" selection-end-line="520" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,15 +155,15 @@
       <list>
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/static/index/index.css" />
-        <option value="$PROJECT_DIR$/templates/events/natraj.html" />
-        <option value="$PROJECT_DIR$/templates/events/mirage.html" />
-        <option value="$PROJECT_DIR$/templates/events/toolika.html" />
-        <option value="$PROJECT_DIR$/templates/events/xtasy.html" />
-        <option value="$PROJECT_DIR$/templates/events/enquizta.html" />
-        <option value="$PROJECT_DIR$/templates/events/crosswindz.html" />
-        <option value="$PROJECT_DIR$/templates/events/bandish.html" />
-        <option value="$PROJECT_DIR$/templates/events/abhinay.html" />
         <option value="$PROJECT_DIR$/templates/events/index.html" />
+        <option value="$PROJECT_DIR$/templates/events/abhinay.html" />
+        <option value="$PROJECT_DIR$/templates/events/bandish.html" />
+        <option value="$PROJECT_DIR$/templates/events/crosswindz.html" />
+        <option value="$PROJECT_DIR$/templates/events/enquizta.html" />
+        <option value="$PROJECT_DIR$/templates/events/xtasy.html" />
+        <option value="$PROJECT_DIR$/templates/events/toolika.html" />
+        <option value="$PROJECT_DIR$/templates/events/mirage.html" />
+        <option value="$PROJECT_DIR$/templates/events/natraj.html" />
       </list>
     </option>
   </component>
@@ -184,6 +194,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -210,27 +221,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KY-git" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KY-git" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="events" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -520,9 +512,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -555,11 +547,197 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3519">
+          <caret line="207" column="27" lean-forward="false" selection-start-line="207" selection-start-column="27" selection-end-line="207" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/kybase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/toolika.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13498">
+          <caret line="794" column="0" lean-forward="false" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/xtasy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13481">
+          <caret line="793" column="0" lean-forward="false" selection-start-line="793" selection-start-column="0" selection-end-line="793" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/enquizta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13498">
+          <caret line="794" column="0" lean-forward="false" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/crosswindz.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13515">
+          <caret line="795" column="0" lean-forward="false" selection-start-line="795" selection-start-column="0" selection-end-line="795" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/bandish.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13481">
+          <caret line="793" column="0" lean-forward="false" selection-start-line="793" selection-start-column="0" selection-end-line="793" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/abhinay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13345">
+          <caret line="785" column="0" lean-forward="false" selection-start-line="785" selection-start-column="0" selection-end-line="785" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8942">
+          <caret line="526" column="0" lean-forward="false" selection-start-line="526" selection-start-column="0" selection-end-line="526" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4471">
           <caret line="263" column="43" lean-forward="false" selection-start-line="263" selection-start-column="43" selection-end-line="263" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/natraj.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13362">
+          <caret line="786" column="0" lean-forward="false" selection-start-line="786" selection-start-column="0" selection-end-line="786" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/mirage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13498">
+          <caret line="794" column="0" lean-forward="false" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/toolika.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13498">
+          <caret line="794" column="0" lean-forward="false" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#14;n#div#1;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/xtasy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13481">
+          <caret line="793" column="0" lean-forward="false" selection-start-line="793" selection-start-column="0" selection-end-line="793" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/enquizta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13498">
+          <caret line="794" column="0" lean-forward="false" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/crosswindz.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13515">
+          <caret line="795" column="0" lean-forward="false" selection-start-line="795" selection-start-column="0" selection-end-line="795" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/bandish.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13481">
+          <caret line="793" column="0" lean-forward="false" selection-start-line="793" selection-start-column="0" selection-end-line="793" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/abhinay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13345">
+          <caret line="785" column="0" lean-forward="false" selection-start-line="785" selection-start-column="0" selection-end-line="785" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4471">
+          <caret line="263" column="43" lean-forward="false" selection-start-line="263" selection-start-column="43" selection-end-line="263" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -575,9 +753,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4471">
           <caret line="263" column="43" lean-forward="false" selection-start-line="263" selection-start-column="43" selection-end-line="263" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#14;n#div#1;n#body#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -599,9 +775,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3502">
           <caret line="206" column="42" lean-forward="false" selection-start-line="206" selection-start-column="42" selection-end-line="206" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#14;n#div#1;n#body#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -636,84 +810,112 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/kybase.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4471">
-          <caret line="263" column="43" lean-forward="false" selection-start-line="263" selection-start-column="43" selection-end-line="263" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#14;n#div#1;n#body#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/events/natraj.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="786" column="0" lean-forward="false" selection-start-line="786" selection-start-column="0" selection-end-line="786" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/events/mirage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="794" column="0" lean-forward="false" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/events/toolika.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="794" column="0" lean-forward="false" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/events/xtasy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="793" column="0" lean-forward="false" selection-start-line="793" selection-start-column="0" selection-end-line="793" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/events/enquizta.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="794" column="0" lean-forward="false" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/events/crosswindz.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="795" column="0" lean-forward="false" selection-start-line="795" selection-start-column="0" selection-end-line="795" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/events/bandish.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="793" column="0" lean-forward="false" selection-start-line="793" selection-start-column="0" selection-end-line="793" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/events/abhinay.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3974">
-          <caret line="785" column="0" lean-forward="false" selection-start-line="785" selection-start-column="0" selection-end-line="785" selection-end-column="0" />
+        <state relative-caret-position="546">
+          <caret line="207" column="27" lean-forward="false" selection-start-line="207" selection-start-column="27" selection-end-line="207" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/events/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="526" column="0" lean-forward="false" selection-start-line="526" selection-start-column="0" selection-end-line="526" selection-end-column="0" />
+        <state relative-caret-position="391">
+          <caret line="519" column="0" lean-forward="false" selection-start-line="519" selection-start-column="0" selection-end-line="520" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/abhinay.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="778" column="0" lean-forward="false" selection-start-line="778" selection-start-column="0" selection-end-line="778" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/bandish.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="786" column="0" lean-forward="false" selection-start-line="786" selection-start-column="0" selection-end-line="786" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/crosswindz.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="788" column="0" lean-forward="false" selection-start-line="788" selection-start-column="0" selection-end-line="788" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/enquizta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="787" column="0" lean-forward="false" selection-start-line="787" selection-start-column="0" selection-end-line="787" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/xtasy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="786" column="0" lean-forward="false" selection-start-line="786" selection-start-column="0" selection-end-line="786" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/toolika.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="787" column="0" lean-forward="false" selection-start-line="787" selection-start-column="0" selection-end-line="787" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/mirage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="787" column="0" lean-forward="false" selection-start-line="787" selection-start-column="0" selection-end-line="787" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/events/natraj.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="779" column="0" lean-forward="false" selection-start-line="779" selection-start-column="0" selection-end-line="779" selection-end-column="0" />
           <folding />
         </state>
       </provider>
