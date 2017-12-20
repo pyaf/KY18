@@ -29,8 +29,8 @@ CategoryList = [['NATRAJ',
                  ['SCRIPTURESQUE', 1, 1], ['BATTLEFRONT', 1, 1], ['SHIPWRECK COVE', 1, 1], 
                  ['THE LEGEND OF SIR SPEAK-A-LOT', 1, 1], ['A JESTERS COURT', 1, 1], ["WHAT'S THE WORD?", 2, 2],
                   ['VAAD VIVAAD', 1, 1], ['ALFAAZ', 1, 1], ['ASHUBHASHAN', 1, 1 ]],
-                ['INFORMAL EVENTS',
-                 ['INK IT',1, 2], ['SHORT FILM MAKING', 1, 5]],
+                ['XTASY',
+                 ['INK IT',1, 2], ['THIRD EYE', 1, 5], ['FX MAKEUP', 1, 3]],
 ]
 for i in CategoryList:
     print (i[0], '\n')

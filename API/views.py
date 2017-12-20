@@ -3,6 +3,7 @@ from django.shortcuts import render,HttpResponseRedirect,redirect,Http404, HttpR
 from django.contrib.auth.models import User, Group
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import authentication_classes, permission_classes
 
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
@@ -24,6 +25,7 @@ class UserViewSet(viewsets.ModelViewSet):
 	queryset = KYProfile.objects.all()
 	serializer_class = UserSerializer
 
+
 class publicRelationsView(APIView):
 	def get(self, request, format=None):
 		ca = request.user.caprofile
@@ -37,6 +39,7 @@ class publicRelationsView(APIView):
 			serializer.save(ca=request.user.caprofile)
 			return Response(serializer.data, status=status.HTTP_201_CREATED)
 		return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET'])
 def current_user(request, format=None):
@@ -56,13 +59,15 @@ def leaderboard(request, format=None):
 	}
 	return Response(data)
 
+
 @api_view(['GET'])
 def posts(request):
 	posts = Post.objects.filter(show=True).order_by('-created_time')
 	serializer = PostSerializer(posts, many=True)
 	return Response(serializer.data)
-@api_view(['GET'])
 
+
+@api_view(['GET'])
 def getReg(request):
 	kyprofile = request.user
 	team=Team.objects.filter(teamLeader=kyprofile) | Team.objects.filter(members=kyprofile)
@@ -71,6 +76,7 @@ def getReg(request):
 	#print((serializer.data))
 
 	return Response(serializer.data)
+
 
 @api_view(['GET'])
 def getReferedReg(request):
@@ -84,6 +90,7 @@ def getReferedReg(request):
 
 	return Response(serializer.data)
 	
+
 @api_view(['POST'])
 def deleteteam(request):
 	#print("agaya")
@@ -101,7 +108,6 @@ def deleteteam(request):
 		json.dumps(response_data),
 		content_type = "application/json"
 		)
-	
 
 
 @api_view(['GET'])
@@ -118,6 +124,7 @@ def notifications(request):
 	}
 	return Response(data)
 
+
 @api_view(['GET'])
 def CAProfileUpdate(request):
 	user = UserSerializer(request.user)
@@ -127,6 +134,7 @@ def CAProfileUpdate(request):
 		'ca': ca.data
 	}
 	return Response(data)
+
 
 @api_view(['GET'])
 def KYProfileUpdate(request):
@@ -138,12 +146,14 @@ def KYProfileUpdate(request):
 	}
 	return Response(data)
 
+
 @api_view(['GET'])
 def all_notifications(request):
 	ca = request.user.caprofile
 	notices = Notifications.objects.filter(users=ca).order_by('-id')
 	notices = NotificationSerializer(notices, many=True)
 	return Response(notices.data)
+
 
 @api_view(['GET'])
 def allEvent(request):
@@ -155,9 +165,7 @@ def allEvent(request):
 		events = SubEventSerializer(events, many=True)
 		data[pe.categoryName] = events.data
 
-
 	return Response(data)
-
 
 
 @api_view(['GET'])
@@ -177,6 +185,7 @@ def subEvent(request,eventName):
 	#print (sub_event)
 	return Response(data)
 	
+
 @api_view(['POST'])
 def updateCAUser(request):
 	#print("aagaya")
@@ -216,9 +225,9 @@ def regCheck(request, kyprofile, event):
 		except :
 			pass
 
-
-
 	return alreadyReg
+
+
 @api_view(['POST'])
 def registerTeam(request):
 	response_data = {}
@@ -332,3 +341,25 @@ def registerIndi(request):
 			content_type = "application/json"
 			)
 
+
+@api_view(['POST'])
+@authentication_classes([])
+@permission_classes([])
+def mobileLogin(request):
+	id_ = request.data.get('ky_id', None)
+	secret = request.data.get('secret', None)
+	mobile_number = int(request.data.get('mobile_number', None))
+	if secret == 'a23hdf348sdh34587sjhd33u98sdfh34h34g59':
+		kyprofile = KYProfile.objects.filter(ky_id=id_)
+		caprofile = CAProfile.objects.filter(ca_id = id_)
+		if kyprofile.exists() and kyprofile[0].mobile_number == mobile_number:
+			user = UserSerializer(kyprofile[0])
+			print(user.data)
+			return Response(user.data, status=status.HTTP_200_OK)
+		elif caprofile.exists() and caprofile[0].kyprofile.mobile_number == mobile_number:
+			user = UserSerializer(caprofile[0].kyprofile)
+			return Response(user.data, status=status.HTTP_200_OK)
+		else:
+			return Response(status=status.HTTP_403_FORBIDDEN)
+	else:
+		return Response(status=status.HTTP_400_BAD_REQUEST)

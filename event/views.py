@@ -12,16 +12,21 @@ from users.models import *
 from event.models import *
 from users.forms import *
 from kashiyatra.settings import LOGIN_URL,LOGIN_URL_social,LOGIN_URL_email
-
+from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
 
-@login_required(login_url = LOGIN_URL)
+# @login_required(login_url = LOGIN_URL)
 def eventPage(request):
     template_name = 'events/index.html'
     return render(request, template_name, {})
 
 def eventCatPage(request, eventCatName):
-    template_name = 'events/%s.html' % eventCatName
+    try:
+        template_name = 'events/%s.html' % eventCatName
+        get_template(template_name)
+    except:
+        raise Http404('Page not found')
+        
     parentevent = ParentEvent.objects.get(categoryName=eventCatName.upper())
     context = {
     'events' : Event.objects.filter(parentEvent=parentevent),
