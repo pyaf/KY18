@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88f86e63-7217-4ce6-9f7d-fed1dc1912bf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/WHAT WE DO _ Super Crowds inc_files/social-fb.png" afterPath="$PROJECT_DIR$/static/WHAT WE DO _ Super Crowds inc_files/social-fb.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/WHAT WE DO _ Super Crowds inc_files/social-tw.png" afterPath="$PROJECT_DIR$/static/WHAT WE DO _ Super Crowds inc_files/social-tw.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/WHAT WE DO _ Super Crowds inc_files/all.css" afterPath="$PROJECT_DIR$/static/WHAT WE DO _ Super Crowds inc_files/all.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/events/abhinay.html" afterPath="$PROJECT_DIR$/templates/events/abhinay.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/events/bandish.html" afterPath="$PROJECT_DIR$/templates/events/bandish.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/events/crosswindz.html" afterPath="$PROJECT_DIR$/templates/events/crosswindz.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/events/enquizta.html" afterPath="$PROJECT_DIR$/templates/events/enquizta.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/events/index.html" afterPath="$PROJECT_DIR$/templates/events/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/events/mirage.html" afterPath="$PROJECT_DIR$/templates/events/mirage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/events/natraj.html" afterPath="$PROJECT_DIR$/templates/events/natraj.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/events/toolika.html" afterPath="$PROJECT_DIR$/templates/events/toolika.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/events/xtasy.html" afterPath="$PROJECT_DIR$/templates/events/xtasy.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -511,8 +499,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -651,7 +639,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13362">
           <caret line="786" column="0" lean-forward="false" selection-start-line="786" selection-start-column="0" selection-end-line="786" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -659,7 +649,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13498">
           <caret line="794" column="0" lean-forward="false" selection-start-line="794" selection-start-column="0" selection-end-line="794" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -745,7 +737,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -908,7 +902,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="787" column="0" lean-forward="false" selection-start-line="787" selection-start-column="0" selection-end-line="787" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -916,7 +912,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="779" column="0" lean-forward="false" selection-start-line="779" selection-start-column="0" selection-end-line="779" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
