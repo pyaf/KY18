@@ -30,6 +30,8 @@ urlpatterns = [
 
     ##mobile app
     url(r'^mobile/login/$', mobileLogin),
+    url(r'^mobile/login/social/$', mobileSocialLogin),
+
 
 ]
 
