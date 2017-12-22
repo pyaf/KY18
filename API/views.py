@@ -1,4 +1,3 @@
-
 from django.shortcuts import render,HttpResponseRedirect,redirect,Http404, HttpResponse, render_to_response
 from django.contrib.auth.models import User, Group
 from django.db.models import Q
@@ -358,6 +357,24 @@ def mobileLogin(request):
 			return Response(user.data, status=status.HTTP_200_OK)
 		elif caprofile.exists() and caprofile[0].kyprofile.mobile_number == mobile_number:
 			user = UserSerializer(caprofile[0].kyprofile)
+			return Response(user.data, status=status.HTTP_200_OK)
+		else:
+			return Response(status=status.HTTP_403_FORBIDDEN)
+	else:
+		return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+@authentication_classes([])
+@permission_classes([])
+def mobileSocialLogin(request):
+	email = request.data.get('email', None)
+	secret = request.data.get('secret', None)
+	if secret == 'asdj439shfu834h8yr763t745uygaw76t32h8w7yrw84':
+		kyprofile = KYProfile.objects.filter(email=email)
+		if kyprofile.exists():
+			user = UserSerializer(kyprofile[0])
+			print(user.data)
 			return Response(user.data, status=status.HTTP_200_OK)
 		else:
 			return Response(status=status.HTTP_403_FORBIDDEN)
