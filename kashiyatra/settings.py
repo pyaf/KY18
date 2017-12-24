@@ -227,6 +227,7 @@ ALLOWED_HOSTS = ['*']
 NOTE: angular builds static files with same name in dev mode. so make sure to run either ca or user build 
 at a time
 '''
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "templates/angular/user/"), 
     os.path.join(BASE_DIR, "templates/angular/ca/"),
