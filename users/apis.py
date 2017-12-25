@@ -95,6 +95,23 @@ def send_reg_email(kyprofile, current_site):
     subject = 'Kashiyatra Account confirmation'
     send_email1(subject, text_content, email,html_content)
 
+def send_reset_pass(kyprofile, current_site):
+    d = {
+        'user':kyprofile, 
+        'domain':current_site.domain,
+        'uid': urlsafe_base64_encode(force_bytes(kyprofile.pk)),
+        'token': account_activation_token.make_token(kyprofile),
+    }
+    
+    text_content = render_to_string('acc_reset.txt',d)
+    html_content     = render_to_string('acc_reset.html',d)
+     
+
+   
+    email = kyprofile.email
+    subject = 'Kashiyatra Account confirmation'
+    send_email1(subject, text_content, email,html_content)
+
 def send_email1(subject, body, email,html_content):
     
     
