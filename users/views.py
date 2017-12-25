@@ -271,6 +271,7 @@ def activate(request, uidb64, token):
         return redirect('/dashboard')
     else:
         return HttpResponse('Activation link is invalid!')
+
 @csrf_exempt
 def reset_(request, uidb64, token):
     
@@ -332,7 +333,7 @@ def forgotPassword(request):
 
         send_reset_pass(kyprofile,  get_current_site(request))
         messages.success(request, "Password Reset link sent to your Email.")
-        return redirect('/form')
+        return redirect('/forgotPass')
         # subject = "Reset Password"
         # forgotPassKey = 'asljdkflasjkdf' + email + 'jalfdjskdjf'
         # forgotPassKey = str(hash(forgotPassKey))
