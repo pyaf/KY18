@@ -530,6 +530,7 @@ document.getElementById(‘page_loader’).style.display=’none’;
             background-image: url("/static/KY Pics/extras/clouds-1.png");
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             height: 700px;
             display: flex;
             justify-content: center;
@@ -805,11 +806,19 @@ Kashiyatra, the annual cultural festival of IIT(BHU), Varanasi is a three day fi
 
     <div class="aftermovie">
 <h2><span style="transition-delay: .8s; color: #ff9210; font-size: 60px; font-weight: 400; font-family: fright; text-align: center">GLIMPSES</span></h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/uQgYqnuHEX4" frameborder="0" gesture="media"            allow="encrypted-media" allowfullscreen></iframe>
+{#        <iframe width="560" height="315" src="https://www.youtube.com/embed/uQgYqnuHEX4" frameborder="0" gesture="media"            allow="encrypted-media" allowfullscreen></iframe>#}
+        <iframe style="z-index: 100000" width="560" height="315" src="https://www.youtube.com/embed/uQgYqnuHEX4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
     </div>
 
 
-<div class="p-who-company">
+
+<a class="c-link-project fade-nav" href="/events"><div class="c-link-project-text-mask"><div class="c-link-project-text">
+<div class="c-link-project-icon-arrow active"></div>
+<p style="font-family: fright">ALL EVENTS</p>
+<div class="c-link-project-icon-arrow"></div>
+</div></div>
+<div class="c-link-project-bg-mask"><div class="c-link-project-bg"></div></div></a>
+    <div class="p-who-company">
 <h2 class="p-who-company-title" style="font-family: fright">CONTACT INFORMATION</h2>
 <div class="p-who-company-info">
 <div class="p-who-company-info-item">
@@ -849,19 +858,13 @@ Kashiyatra, the annual cultural festival of IIT(BHU), Varanasi is a three day fi
 <div class="p-who-company-info-text">7080486918</div></div>
 </div>
     </br> </br>
-<a class="c-link-project fade-nav" href="/events"><div class="c-link-project-text-mask"><div class="c-link-project-text">
-<div class="c-link-project-icon-arrow active"></div>
-<p style="font-family: fright">ALL EVENTS</p>
-<div class="c-link-project-icon-arrow"></div>
-</div></div>
-<div class="c-link-project-bg-mask"><div class="c-link-project-bg"></div></div></a>
 </div>
 </div></div>
 
 <div class="l-loading"></div></div>
 <div class="l-footer hide-nav" style="display: flex!important;" id="footer">
       <p class="l-footer-copyright u-pc-view" style="font-family: fright; color: #ff9210">© 2018 Kashiyatra | IIT(BHU), Varanasi</p>
-      <a class="l-footer-contact no-barba" href="https://supercrowds.co/contact" style="font-family: fright; color: #ff9210">CONTACT US</a>
+      <a class="l-footer-contact no-barba" href="https://www.facebook.com/kashiyatra.IITBHU/" style="font-family: fright; color: #ff9210">CONTACT US</a>
       <div class="l-footer-social">
         <a class="l-footer-social-icon__fb" href="http://www.facebook.com/sharer/sharer.php?u=https://supercrowds.co" target="_blank">
           <img src="../static/WHAT%20WE%20DO%20_%20Super%20Crowds%20inc_files/social-fb.png">
