@@ -2,8 +2,11 @@ from django.contrib import admin
 from .models import *
 # Register your models here.
 admin.site.register(Notifications)
-admin.site.register(PublicRelation)
 
+class PRAdmin(admin.ModelAdmin):
+
+    list_display = ('ca', 'name', 'related_to', 'email', 'contact', 'designation', 'college')
+    search_fields = ('ca__ca_id','college', 'related_to', 'designation')
 
 class PostAdmin(admin.ModelAdmin):
 
@@ -16,5 +19,6 @@ class PointAdmin(admin.ModelAdmin):
     search_fields = ('ca__kyprofile__full_name',)
 
 admin.site.register(Point, PointAdmin)
+admin.site.register(PublicRelation, PRAdmin)
 
 admin.site.register(Post, PostAdmin)

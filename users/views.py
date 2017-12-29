@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
+
+from django.views.decorators.csrf import csrf_exempt
 import json
 # import simplejson as json
 
@@ -269,3 +271,90 @@ def activate(request, uidb64, token):
         return redirect('/dashboard')
     else:
         return HttpResponse('Activation link is invalid!')
+
+@csrf_exempt
+def reset_(request, uidb64, token):
+    
+    if request.method == 'GET':
+        try:
+            uid = force_text(urlsafe_base64_decode(uidb64))
+            user = KYProfile.objects.get(pk=uid)
+            return render(request,"reset.html")
+        except:
+            user = None
+            
+            return redirect('/form')
+    elif request.method == "POST":
+        post = request.POST
+        try:
+            uid = force_text(urlsafe_base64_decode(uidb64))
+            user = KYProfile.objects.get(pk=uid)
+            
+            password1 = post.get('password1')
+            password2 = post.get('password2')
+            if password1 == password2:
+                user.set_password(password1)
+                user.save()
+                user.backend = 'django.contrib.auth.backends.ModelBackend'
+                login(request, user)
+                messages.success(request,'password set successfully!',fail_silently=True)
+                return redirect('/dashboard')
+            else:
+                messages.warning(request, "passwords didn't match!")
+                
+                
+        except Exception as e:
+            return HttpResponse(e)
+    # if user is not None and account_activation_token.check_token(user, token):
+    #     user.is_active = True
+    #     user.save()
+    #     user.backend = 'django.contrib.auth.backends.ModelBackend'
+    #     login(request, user)
+    #     return redirect('/dashboard')
+    # else:
+    # return HttpResponse('Activation link is invalid!')
+
+
+
+@csrf_exempt
+def forgotPassword(request):
+    if request.user.is_authenticated():
+        return redirect('/dashboard')
+    if request.method == 'POST':
+        email = request.POST.get("email")
+        try:
+            kyprofile = KYProfile.objects.get(email = email)
+            # if user.is_active is False:
+            #     messages.warning(request,"Please confirm your email first!")
+            #     return redirect('/login')
+        except:
+            messages.warning(request, "Invalid Email!")
+            return redirect('/forgotPass')
+
+        send_reset_pass(kyprofile,  get_current_site(request))
+        messages.success(request, "Password Reset link sent to your Email.")
+        return redirect('/forgotPass')
+        # subject = "Reset Password"
+        # forgotPassKey = 'asljdkflasjkdf' + email + 'jalfdjskdjf'
+        # forgotPassKey = str(hash(forgotPassKey))
+        # try:
+        #     key = Key.objects.get(kyprofile = user.kyprofile)
+        #     key.forgotPassKey = forgotPassKey
+        #     key.save()
+        # except:
+        #     key = Key(kyprofile = user.kyprofile, forgotPassKey = forgotPassKey)
+        #     key.save()
+
+        # body = "Please Cick on the following link to reset your Password for Kashiyatra'17.\n\n"
+        # body += server + "resetPass/" + forgotPassKey
+        # try:
+        #     if send_email(subject, body, email):
+        #         messages.success(request, "Password Reset link sent to your Email.")
+        #         return redirect('/form')
+        # except:
+        #     messages.warning(request, "Email couldn't  be send, Retry please!")
+        #     return redirect('/forgotPass')
+    elif request.method == 'GET':
+        return render(request,'forgotpass.html', {})
+    # else:
+    #     raise Http404('NOT ALLOWED')

@@ -19,6 +19,10 @@
 
 
 <style>
+body, html {
+    height: 100%;
+    margin: 0;
+}
 
   input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
@@ -32,6 +36,16 @@ input[type=number]::-webkit-outer-spin-button {
   display: none;
 
 }
+
+.hero-image {
+  background-image: url("/static/creepy-halloween-56a6edde3df78cf77291043d.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
 .ui-menu-item-wrapper{
 
   background: #f7f7f7;
@@ -43,12 +57,26 @@ ul {
 
 </style>
 <body>
+{% if messages %}
+
+ <div class="alert">
+
+  <span class="closebtn" onclick="this.parentElement.style.display='none';" >&times;</span>
+     <b style="font-size:22px;">
+     {% for msg in messages %}
+  {{msg.message}}
+{% endfor %}
+    </b>
+</div>
+
+{% endif %}
+<div class="">
   <ul class="l-main-content main-content">
           <li class="l-section section section--is-active" style="background-image:url(../static/img/cap1.jpg);  background-repeat: no-repeat;
 		  background-size:1450px;background-position:center;background-attachment:fixed;" >
             <div class="intro">
               <div class="intro--banner">
-<h1 style="font-family: 'Exo', sans-serif;">Kashiyatra</h1>
+<h1   >Kashiyatra</h1>
 <br><br><br>
 				<h2></h2>
                  <a href="/account/facebook/login/" style="color:white;"><button> Register / Login with Facebook
@@ -81,8 +109,8 @@ ul {
 
                   <div class="container">
       <div class="row">
-        <hr />
-          <h2>Login</h2>
+        <hr  /><br>
+          <h2 >Login</h2>
 
           <div class="row">
               <div class="col-sm-5">
@@ -90,13 +118,13 @@ ul {
                   <form action="" role="form" method="POST" id="ca-form">
                     {% csrf_token %}
                       <div class="form-group float-label-control">
-                          <label for="">Email</label>
-                          <input type="email" class="form-control" id="email" name="email" required="true" placeholder="Email">
+                          <label for="" s>Email</label>
+                          <input type="email" style="color" class="form-control" id="email" name="email" required="true" placeholder="Email">
                       </div>
 
                       <div class="form-group float-label-control">
-                          <label for="">Password</label>
-                          <input type="password" class="form-control" id="pass1" name="pass1" required="true" placeholder="Password">
+                          <label for="" >Password</label>
+                          <input type="password" style="" class="form-control" id="pass1" name="pass1" required="true" placeholder="Password">
                           </div>
 
                       <button class="btn btn-submit"  style="color:white;" type="submit">Login<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
@@ -105,7 +133,20 @@ ul {
                   </g>
                   </svg>
                   <span class="btn-background"></span></button>
+
                   </form>
+                  <br>
+                  <a href="/forgotPass/" style="color:white;"><button>Forgot Password!
+                   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                    <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                     <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
+                   </g>
+                   </svg>
+                   <span class="btn-background"></span>
+                 </button></a>
+<br><br>
+
+                  
 
 
               </div>
@@ -113,7 +154,8 @@ ul {
           </div>
       </div>
   </div>
-
+ 
+</div>
 </body>
 
 <script src="/static/js/jquery-1.11.3.min.js"></script>

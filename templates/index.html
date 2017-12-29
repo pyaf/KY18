@@ -530,7 +530,6 @@ document.getElementById(‘page_loader’).style.display=’none’;
             background-image: url("/static/KY Pics/extras/clouds-1.png");
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
             height: 700px;
             display: flex;
             justify-content: center;
@@ -625,7 +624,7 @@ document.getElementById(‘page_loader’).style.display=’none’;
 <h3 class="l-header-menu-text" style=" font-size: 20px">MENU</h3>
 </div>
 <div class="l-header-menu-border-mask"><div class="l-header-menu-border"></div></div>
-<a class="l-header-menu-projects bgcheck" href="/dashboard/events/"><div class="l-header-menu-projects-icon">
+<a class="l-header-menu-projects bgcheck" href="/dashboard/events/" target="_blank"><div class="l-header-menu-projects-icon">
 <div class="l-header-menu-projects-icon-dot" style="font-family: fright; color: #ff9210"></div>
 <div class="l-header-menu-projects-icon-dot" style="font-family: fright; color: #ff9210"></div>
 <div class="l-header-menu-projects-icon-dot" style="font-family: fright; color: #ff9210"></div>
@@ -806,19 +805,11 @@ Kashiyatra, the annual cultural festival of IIT(BHU), Varanasi is a three day fi
 
     <div class="aftermovie">
 <h2><span style="transition-delay: .8s; color: #ff9210; font-size: 60px; font-weight: 400; font-family: fright; text-align: center">GLIMPSES</span></h2>
-{#        <iframe width="560" height="315" src="https://www.youtube.com/embed/uQgYqnuHEX4" frameborder="0" gesture="media"            allow="encrypted-media" allowfullscreen></iframe>#}
-        <iframe style="z-index: 100000" width="560" height="315" src="https://www.youtube.com/embed/uQgYqnuHEX4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/uQgYqnuHEX4" frameborder="0" gesture="media"            allow="encrypted-media" allowfullscreen></iframe>
     </div>
 
 
-
-<a class="c-link-project fade-nav" href="/events"><div class="c-link-project-text-mask"><div class="c-link-project-text">
-<div class="c-link-project-icon-arrow active"></div>
-<p style="font-family: fright">ALL EVENTS</p>
-<div class="c-link-project-icon-arrow"></div>
-</div></div>
-<div class="c-link-project-bg-mask"><div class="c-link-project-bg"></div></div></a>
-    <div class="p-who-company">
+<div class="p-who-company">
 <h2 class="p-who-company-title" style="font-family: fright">CONTACT INFORMATION</h2>
 <div class="p-who-company-info">
 <div class="p-who-company-info-item">
@@ -858,18 +849,24 @@ Kashiyatra, the annual cultural festival of IIT(BHU), Varanasi is a three day fi
 <div class="p-who-company-info-text">7080486918</div></div>
 </div>
     </br> </br>
+<a class="c-link-project fade-nav" target="_blank" href="/events"><div class="c-link-project-text-mask"><div class="c-link-project-text">
+<div class="c-link-project-icon-arrow active"></div>
+<p style="font-family: fright">ALL EVENTS</p>
+<div class="c-link-project-icon-arrow"></div>
+</div></div>
+<div class="c-link-project-bg-mask"><div class="c-link-project-bg"></div></div></a>
 </div>
 </div></div>
 
 <div class="l-loading"></div></div>
 <div class="l-footer hide-nav" style="display: flex!important;" id="footer">
       <p class="l-footer-copyright u-pc-view" style="font-family: fright; color: #ff9210">© 2018 Kashiyatra | IIT(BHU), Varanasi</p>
-      <a class="l-footer-contact no-barba" href="https://www.facebook.com/kashiyatra.IITBHU/" style="font-family: fright; color: #ff9210">CONTACT US</a>
+      <!-- <a class="l-footer-contact no-barba" href="#" style="font-family: fright; color: #ff9210">CONTACT US</a> -->
       <div class="l-footer-social">
-        <a class="l-footer-social-icon__fb" href="http://www.facebook.com/sharer/sharer.php?u=https://supercrowds.co" target="_blank">
+        <a class="l-footer-social-icon__fb" href="http://www.facebook.com/kashiyatra.iitbhu" target="_blank">
           <img src="../static/WHAT%20WE%20DO%20_%20Super%20Crowds%20inc_files/social-fb.png">
         </a>
-        <a class="l-footer-social-icon__tw" href="https://twitter.com/share?url=https://supercrowds.co&amp;related=twitterapi,twitter&amp;hashtags=supercrowds&amp;text=Super%C2%A0Crowds%C2%A0inc." target="_blank">
+        <a class="l-footer-social-icon__tw" href="https://twitter.com/ky_iitbhu" target="_blank">
           <img src="../static/WHAT%20WE%20DO%20_%20Super%20Crowds%20inc_files/social-tw.png">
         </a>
       </div>
