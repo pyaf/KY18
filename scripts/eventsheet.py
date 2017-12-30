@@ -40,8 +40,8 @@ with open('scripts/checkpoint.csv','r') as f:
 			baseTeamId = row[1]
 			break
 
-for team in Team.objects.filter(teamId__gte=baseTeamId).order_by('-teamId'):
-	# EventSheetUpdate(team)
+for team in Team.objects.filter(teamId__gte=baseTeamId).order_by('teamId'):
+	EventSheetUpdate(team)
 	newBaseTeamId = team.teamId
 
 
