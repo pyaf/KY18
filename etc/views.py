@@ -13,3 +13,7 @@ def notification_list(request):
 
 def teamPage(request):
 	return render(request, 'our-team.html', {})
+
+
+def contactPage(request):
+	return render(request, 'contact.html', {})
