@@ -4,5 +4,6 @@ from django.contrib.auth.views import logout
 from .views import *
 
 urlpatterns = [
+	url(r'^ky-team/$', teamPage, name= 'events_index'),
 
 ]
