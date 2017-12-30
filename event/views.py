@@ -56,6 +56,7 @@ def regCheck(request, kyprofile, event):
             pass
     return alreadyReg
 
+
 @login_required(login_url = LOGIN_URL)
 def eventRegistration(request, eventName):
     event = Event.objects.get(eventName=eventName)
@@ -144,19 +145,6 @@ def individualReg(request):
     else:
         return HttpResponse('not allowed')
 
-
-
-@login_required(login_url = LOGIN_URL)
-def dashboard(request):
-    template_name = 'dashboard.html'
-    kyprofile = request.user.kyprofile
-    context = {
-        'indTeams': Team.objects.filter(teamLeader=kyprofile, members=None).all(),
-        'memTeams' : Team.objects.filter(members=kyprofile).all(),
-        'leadTeams':Team.objects.filter(teamLeader=kyprofile).all()
-    }
-    print (context['memTeams'])
-    return render(request, template_name, context)
 
 def regCheckAjax(request):
     if request.method == "POST":

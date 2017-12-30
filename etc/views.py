@@ -10,3 +10,6 @@ def notification_list(request):
 	notifications = Notifications.objects.filter(recieved_date__lte=timezone.now()).order_by('recieved_date')
 	print(notifications)
 	return render(request, 'etc/notifications.html',{'notifications':notifications})
+
+def teamPage(request):
+	return render(request, 'our-team.html', {})

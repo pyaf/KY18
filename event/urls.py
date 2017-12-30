@@ -10,12 +10,9 @@ urlpatterns = [
 	
 	url(r'^events/$', eventPage, name= 'events_index'),
 	url(r'^events/(?P<eventCatName>[\w|\W]+)$', eventCatPage, name= 'events_category_reg'),
-	
-	# url(r'^contingent$', contingentRegistration, name= 'contingent_reg'),
 	url(r'^events/teamRegister/(?P<eventName>[\w|\W]+)$', eventRegistration, name= 'events_reg'),
 	url(r'^events/individualRegister/$', individualReg, name= 'ind_reg'),
 	url(r'^regCheck/$', regCheckAjax, name= 'events_reg'),
-	url(r'^dashboard/$', dashboard, name= 'dashboard'),
-	# url(r'^deregister/$', deregister, name= 'deregister'),
+
 
 ]
