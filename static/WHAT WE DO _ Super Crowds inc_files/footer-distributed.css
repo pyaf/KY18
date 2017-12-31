@@ -9,6 +9,7 @@
 	padding: 45px 50px;
 	margin-top: 0px;
 	font-family: fright;
+
 }
 
 .footer-distributed .footer-left p{
@@ -20,7 +21,9 @@
 /* Footer links */
 
 .footer-distributed p.footer-links{
+
 	font-size:25px;
+
 	font-weight: bold;
 	color:  #ffffff;
 	margin: 0 0 10px;
