@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from django.contrib.auth import logout
 from django.views.generic import TemplateView, FormView
 from django.views import View
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -156,7 +157,7 @@ def IncreaseRegs(ref):
     except Exception as e:
         print(ref, e)
 
-
+@csrf_exempt
 def EmailRegistration(request): # registration with email
     template_name='email_reg.html'
     if not request.user.is_authenticated():
