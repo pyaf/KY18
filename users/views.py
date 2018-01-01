@@ -157,7 +157,6 @@ def IncreaseRegs(ref):
     except Exception as e:
         print(ref, e)
 
-@csrf_exempt
 def EmailRegistration(request): # registration with email
     template_name='email_reg.html'
     if not request.user.is_authenticated():
