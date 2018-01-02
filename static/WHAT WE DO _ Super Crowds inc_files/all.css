@@ -10,8 +10,21 @@ src:url("../GhoulFriAOE.ttf") format("truetype");
 font-weight:900;
 font-style:normal
 }
-.znetlive{position:absolute; float:left; left:20px; bottom:-20px; z-index:2;}
+.znetlive{
+	position:absolute; float:left; left:20px; bottom:-20px; z-index:2;
+}
 
+.mascot{
+	position:absolute; float:right; right:20px; bottom:10px;width: 20%; z-index:2;
+}
+
+@media(max-width: 768px)
+{
+	.mascot
+	{
+		width:150px;
+	}
+}
 
 #page_loader {
       height: 100%;
