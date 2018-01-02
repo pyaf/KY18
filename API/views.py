@@ -14,7 +14,8 @@ from rest_framework import permissions
 import json
 
 from API.serializers import *
-from users.models import KYProfile
+from users.models import *
+from users.apis import *
 from etc.models import *
 from event.models import *
 from itertools import chain
@@ -370,7 +371,7 @@ def mobileLogin(request):
 def mobileSocialLogin(request):
 	email = request.data.get('email', None)
 	secret = request.data.get('secret', None)
-	if secret == 'asdj439shfu834h8yr763t745uygaw76t32h8w7yrw84':
+	if secret == 'a23hdf348sdh34587sjhd33u98sdfh34h34g59':
 		kyprofile = KYProfile.objects.filter(email=email)
 		if kyprofile.exists():
 			user = UserSerializer(kyprofile[0])
@@ -380,3 +381,45 @@ def mobileSocialLogin(request):
 			return Response(status=status.HTTP_403_FORBIDDEN)
 	else:
 		return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+@authentication_classes([])
+@permission_classes([])
+def mobileRegister(request): # registration with email
+    post = request.data
+    secret = request.data.get('secret', None)
+    if secret != 'a23hdf348sdh34587sjhd33u98sdfh34h34g59':
+        return Response(status=status.HTTP_406_NOT_ACCEPTABLE)
+    email = post.get('email', None)
+    name = post.get('name', None)
+    password = post.get('pass1', None)
+    referralCode = post.get('ref', None)
+    gender = post.get('gender', None)
+    collegeName = post.get('college', None)
+    year = post.get('year', None)
+    mobile_number = post.get('mobile_number', None)
+    check_email=KYProfile.objects.filter(email=email)
+    if not len(check_email):
+        if collegeName and  mobile_number and year and name and password and email:
+            college, created = College.objects.get_or_create(
+                                            collegeName=collegeName)                                                
+            kyprofile = KYProfile.objects.create(email=email,
+                                                full_name=name,
+                                                gender=gender,
+                                                mobile_number=mobile_number,
+                                                college=college,
+                                                year=year,
+                                                is_active=False,
+                                                profile_completed=True,
+                                                referralCode=referralCode)
+            kyprofile.set_password(password)
+            kyprofile.save()
+            addKYProfileToSheet(kyprofile)
+            send_reg_email(kyprofile,  get_current_site(request))                        
+            return Response(status=status.HTTP_200_OK)
+
+        else:
+            return Response(user.data, status=status.HTTP_400_BAD_REQUEST)
+    else:
+        return HttpResponse(status=status.HTTP_403_FORBIDDEN)

@@ -5,6 +5,8 @@ from .views import *
 
 urlpatterns = [
 	url(r'^ky-team/$', teamPage, name= 'events_index'),
+	url(r'^sponsors/$', sponsorsPage, name= 'events_index'),
+
 	url(r'^contact/$', contactPage, name= 'events_index'),
 
 ]
