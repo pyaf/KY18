@@ -206,12 +206,13 @@ def EmailRegistration(request): # registration with email
             return HttpResponse('Please confirm your email address to complete the registration')
 
 def FormView(request):
-    template_name='form.html'
+    template_name='loginmain.html'
     if not request.user.is_authenticated():
         if request.method == 'POST':
             post = request.POST
             email = post.get('email', None)
             password = post.get('pass1', None)
+            print(email, password)
             if password and email:
                 try:    
                     kyprofile = KYProfile.objects.get(email=email)
