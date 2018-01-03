@@ -7,7 +7,7 @@
   
   
   
-      <link rel="stylesheet" href="/static/css/style login.css">
+      <link rel="stylesheet" href="/static/login/css/style.css">
 
   
 </head>
@@ -15,21 +15,25 @@
 <body>
 
   <div class="loginpanel" >
+  <form action="" role="form" method="POST">
+  {% csrf_token %}
+    
   <div class="txt">
-    <input id="user" type="text" placeholder="Username" />
+    <input id="user" name="email" type="text" placeholder="Email" />
     <label for="user" class="entypo-user"></label>
   </div>
   <div class="txt">
-    <input id="pwd" type="password" placeholder="Password" />
+    <input id="pwd" type="password" name="pass1" placeholder="Password" />
     <label for="pwd" class="entypo-lock"></label>
   </div>
   <div class="buttons">
-    <input type="button" value="Login" />
+    <input type="submit" value="Login" />
     <span>
-      <a href="javascript:void(0)" class="entypo-user-add register">Register</a>
-	  <a href="/forgotpass.hmtl" class="entypo-user-add register">Forgot Password</a>
+      <a href="/email_reg" class="entypo-user-add register">Register</a>
+    <a href="/forgotPass" class="entypo-user-add register">Forgot Password</a>
     </span>
   </div>
+  </form>
   
   <div class="hr">
     <div></div>
@@ -38,9 +42,9 @@
   </div>
   
   <div class="social">
-    <a href="javascript:void(0)" class="facebook"></a>
+    <a href="/account/facebook/login/" class="facebook"></a>
    <!-- <a href="javascript:void(0)" class="twitter"></a>-->
-    <a href="javascript:void(0)" class="googleplus"></a>
+    <a href="/account/google/login/" class="googleplus"></a>
   </div>
 </div>
 
