@@ -1,4 +1,8 @@
 import requests
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+
 from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
 from django.contrib.sites.shortcuts import get_current_site
@@ -7,6 +11,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.template import Context
+
 
 def addCaToSheet(kyprofile,ca):
 
@@ -74,7 +79,7 @@ def regSuccessMail(kyprofile):
 
     email = kyprofile.email
     try:
-        return send_email(subject, body, email)
+        return send_email_smtp1(subject, body, email, '')
     except Exception as e:
         print(e)
 
@@ -86,14 +91,14 @@ def send_reg_email(kyprofile, current_site):
         'token': account_activation_token.make_token(kyprofile),
     }
     
-    text_content = render_to_string('acc_active_email1.txt',d)
-    html_content     = render_to_string('acc_active_email.html',d)
+    text_content = render_to_string('acc_active_email1.txt', d)
+    html_content = render_to_string('acc_active_email.html', d)
      
 
    
     email = kyprofile.email
     subject = 'Kashiyatra Account confirmation'
-    send_email1(subject, text_content, email,html_content)
+    send_email_smtp1(subject, text_content, email,html_content)
 
 def send_reset_pass(kyprofile, current_site):
     d = {
@@ -105,14 +110,12 @@ def send_reset_pass(kyprofile, current_site):
     
     text_content = render_to_string('acc_reset.txt',d)
     html_content     = render_to_string('acc_reset.html',d)
-     
 
-   
     email = kyprofile.email
     subject = 'Kashiyatra Account confirmation'
-    send_email1(subject, text_content, email,html_content)
+    send_email_smtp1(subject, text_content, email,html_content)
 
-def send_email1(subject, body, email,html_content):
+def send_email1(subject, body, email, html_content):
     
     
     mail = EmailMultiAlternatives(
@@ -127,3 +130,62 @@ def send_email1(subject, body, email,html_content):
     mail.attach_alternative(html_content, "text/html")
     mail.send()
     return True
+
+
+def send_email_smtp(subject, body, email):
+    msg = MIMEMultipart()
+    msg['From'] = 'kashiyatra@iitbhu.ac.in'
+    msg['To'] = email
+    msg['Subject'] = subject
+    message = body
+    msg.attach(MIMEText(message))
+
+    mailserver = smtplib.SMTP('smtp.gmail.com', 587)
+    # identify ourselves to smtp gmail client
+    mailserver.ehlo()
+    # secure our email with tls encryption
+    mailserver.starttls()
+    # re-identify ourselves as an encrypted connection
+    mailserver.ehlo()
+    mailserver.login('kashiyatra@itbhu.ac.in', 'biggerandbetter18')
+
+    mailserver.sendmail('Kashiyatra',email ,msg.as_string())
+
+    mailserver.quit()
+
+def send_email_smtp1(subject, body, email, html_content):
+    me = "Kashiyatra'18"
+    you = email
+
+    # Create message container - the correct MIME type is multipart/alternative.
+    msg = MIMEMultipart('alternative')
+    msg['Subject'] = subject
+    msg['From'] = me
+    msg['To'] = you
+
+    # Create the body of the message (a plain-text and an HTML version).
+
+
+    # Record the MIME types of both parts - text/plain and text/html.
+    part1 = MIMEText(body, 'plain')
+    part2 = MIMEText(html_content, 'html')
+
+    # Attach parts into message container.
+    # According to RFC 2046, the last part of a multipart message, in this case
+    # the HTML message, is best and preferred.
+    msg.attach(part1)
+    msg.attach(part2)
+
+    # Send the message via local SMTP server.
+    mailserver = smtplib.SMTP('smtp.gmail.com', 587)
+    mailserver.ehlo()
+    # secure our email with tls encryption
+    mailserver.starttls()
+    # re-identify ourselves as an encrypted connection
+    mailserver.ehlo()
+    mailserver.login('kashiyatra@itbhu.ac.in', 'biggerandbetter18')
+
+    # sendmail function takes 3 arguments: sender's address, recipient's address
+    # and message to send - here it is sent as one string.
+    mailserver.sendmail(me, you, msg.as_string())
+    mailserver.quit()
