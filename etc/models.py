@@ -2,6 +2,8 @@ from django.db import models
 from users.models import CAProfile
 from collections import defaultdict
 from django.utils import timezone
+from datetime import datetime, tzinfo, timedelta
+
 # Create your models here.
 
 class Notifications(models.Model):
@@ -55,3 +57,13 @@ class Point(models.Model):
 		return '%s - %s' %(self.ca.ca_id, self.ca.kyprofile.full_name)
 
 
+
+class MobileNotification(models.Model):
+	body = models.TextField()
+	image_url = models.URLField(null=True, blank=True)
+	link = models.URLField(null=True, blank=True)
+	timestamp = models.DateTimeField(default=datetime.now)
+
+	def __str__(self):
+		return '%s - %s' % (self.pk, self.body)
+	

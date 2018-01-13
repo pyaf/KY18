@@ -43,6 +43,12 @@ class PostSerializer(serializers.ModelSerializer):
         fields = ('message', 'pid', 'link', 'full_picture', 'picture')
 
 
+class MobileNotificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MobileNotification
+        fields = ('body', 'image_url', 'link', 'timestamp')
+
+
 class NotificationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Notifications

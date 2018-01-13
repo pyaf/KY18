@@ -22,3 +22,5 @@ admin.site.register(Point, PointAdmin)
 admin.site.register(PublicRelation, PRAdmin)
 
 admin.site.register(Post, PostAdmin)
+
+admin.site.register(MobileNotification)

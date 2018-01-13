@@ -25,7 +25,6 @@ class UserViewSet(viewsets.ModelViewSet):
 	queryset = KYProfile.objects.all()
 	serializer_class = UserSerializer
 
-
 class publicRelationsView(APIView):
 	def get(self, request, format=None):
 		ca = request.user.caprofile
@@ -68,6 +67,15 @@ def posts(request):
 
 
 @api_view(['GET'])
+@authentication_classes([])
+@permission_classes([])
+def mobileNotifications(request):
+	notices = MobileNotification.objects.all()
+	serializer = MobileNotificationSerializer(notices, many=True)
+	return Response(serializer.data)
+
+
+@api_view(['GET'])
 def getReg(request):
 	kyprofile = request.user
 	team=Team.objects.filter(teamLeader=kyprofile) | Team.objects.filter(members=kyprofile)
@@ -85,8 +93,6 @@ def getReferedReg(request):
 	
 	regs = KYProfile.objects.filter(referralCode=ca.ca_id)
 	serializer=KYSerializer(regs, many=True)
-
-	
 
 	return Response(serializer.data)
 	

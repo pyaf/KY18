@@ -18,6 +18,7 @@ DEBUG = True
 if os.environ.get('production', '') == 'True':
     DEBUG = False
 
+USE_TZ = True
 APPEND_SLASH  = True
 
 # Application definition
