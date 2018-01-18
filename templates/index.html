@@ -551,7 +551,7 @@
         }
         .p-who-team-member-desc{color: white;}
         .glimpses_head{font-size: 150px;}
-.schedule{
+#sche{
     margin: auto;
     border: 3px solid white;
     padding: 10px;
@@ -563,6 +563,7 @@
     text-align: center;
     width: 10%;
     z-index: 10000000000000000000;
+    cursor: hand; !important;
 }
         @media (max-width: 750px){
         body
@@ -577,7 +578,7 @@
             .aftermovie{letter-spacing: 1px; background-size: cover; height: 780px;}
             #page_loader{display: none;}
             .glimpses_head{font-size: 60px}
-            .schedule{width: 30%;margin-top: 400px;}
+            #sche{width: 30%;margin-top: 400px;}
         }
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
         .stars {
@@ -696,7 +697,7 @@
     </div>
 
 </div>
-  <a href="#"><div class="schedule">SCHEDULE</div></a>
+  <a href="#"><div id="sche">SCHEDULE</div></a>
   <img class="mascot" style="position: fixed; margin: auto 0 0 auto; max-width: 280px" src="/static/KY%20Pics/extras/Asset%2019.png"/>
   <a href="www.znetlive.com"><img class="znetlive" style="position: fixed; margin: auto 0 0 auto; max-width: 100px" src="/static/znetlivelogo.png"/></a>
 
@@ -962,6 +963,9 @@ Kashiyatra, the annual cultural festival of IIT(BHU), Varanasi is a three day fi
     // Animation complete.
   });
 document.getElementById("page_loader").style.display = "none";
+$("#sche").on("click", function(event) {
+  window.location.href = "/schedule";
+});
 });
 </script>
 </html>
