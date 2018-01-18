@@ -21,33 +21,30 @@ def EventSheetUpdate(team):
     'memNum': len(team.members.all()),
     'parentEvent' : team.event.parentEvent.categoryName,
     }
-
     url = "https://script.google.com/a/itbhu.ac.in/macros/s/AKfycbywC5S-LFfaXrVcI4CpGOMVaNoLrjCuabrMnt3Ayanyk7K6pkg/exec"
-
-    try:
-        
+    try:        
         resp = requests.post(url,data=dic)
         print(resp.status_code, team.teamId)
     except requests.exceptions.ConnectionError:
         print ('ConnectionError')
 
+if __name__=='main':
+	with open('scripts/checkpoint.csv','r') as f:
+		data = csv.reader(f)
+		for row in data:
+			print(row)
+			if row[0] == 'TeamId':
+				baseTeamId = row[1]
+				break
 
-with open('scripts/checkpoint.csv','r') as f:
-	data = csv.reader(f)
-	for row in data:
-		print(row)
-		if row[0] == 'TeamId':
-			baseTeamId = row[1]
-			break
-
-for team in Team.objects.filter(teamId__gte=baseTeamId).order_by('teamId'):
-	EventSheetUpdate(team)
-	newBaseTeamId = team.teamId
+	for team in Team.objects.filter(teamId__gte=553).order_by('teamId'):
+		EventSheetUpdate(team)
+		# newBaseTeamId = team.teamId
 
 
-with open('scripts/checkpoint.csv','w') as f:
-	writer = csv.writer(f)
-	writer.writerow(['TeamId', newBaseTeamId])
+	with open('scripts/checkpoint.csv','w') as f:
+		writer = csv.writer(f)
+		writer.writerow(['TeamId', newBaseTeamId])
 
-print("newBaseTeamId", newBaseTeamId)
+	print("newBaseTeamId", newBaseTeamId)
 

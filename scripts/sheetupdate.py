@@ -29,3 +29,9 @@ for kyprofile in KYProfile.objects.all().order_by('id'):
 		print(e)
 		print(kyprofile.ky_id, kyprofile.email)
 '''
+
+for k in KYProfile.objects.filter(is_paid=True).order_by('id'):
+	try:
+		print(';'.join([k.ky_id, k.full_name, k.email, k.college.collegeName, str(k.year), str(k.gender), str(k.mobile_number), str(k.paid_amt), k.payment_id ]))		
+	except Exception as e:
+		print(e)
