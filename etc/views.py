@@ -17,6 +17,8 @@ def teamPage(request):
 def sponsorsPage(request):
 	return render(request, 'sponsors.html', {})
 
+def schedulePage(request):
+	return render(request, 'schedule.html', {})
 
 def contactPage(request):
 	return render(request, 'contact.html', {})
