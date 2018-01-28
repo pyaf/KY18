@@ -1,19 +1,31 @@
-# Kashiyatra Website Source Code
+# Kashiyatra IIT (BHU) Website Source Code
 
-Cultural Festival IIT (BHU) 2018
+Kashiyatra is socio-cultural festival of Indian Institute of Technology (B.H.U), Varanasi, India. 
 
+Webiste: www.kashiyatra.org
 
-To build angular code:
+## Stack:
+ * Django 1.10
+ * Angular 4.0
 
-* `cd angular`
-* `cd user`
+## Instuctions:
+
+### To build angular code:
+
+* `cd angular/user/`
 * `ng build -op=../../templates/angular/user --prod -d /static/`
 
 OR
 
-* `cd ca`
-* `ng build -op=../../templates/angular/ca/ --prod -d /static/` 		
+* `cd angular/ca/`
+* `ng build -op=../../templates/angular/ca/ --prod -d /static/`
+
+### To install python dependencies:
+
+* pip install -r requirements.txt
+
+### To run Development server:
+
+* python manage.py runserver
 
 
-
-access_token = `EAACEdEose0cBAPXknkQ9xqjsFWR10ZABfiM40r3qxZCOOe0Isn2emq9dH4kHXg3ZCpZBbd6trrZCiAJWvTZCG5x9lz1hnNRtZCRpDDZCtta6j0mZC4xyEfmyWGQUyCKofEYDB3Mtaaz70iafrv2LsP5C2ZAh2GFDHhhCblZCBo7hSYEnUKgaRVppX8bwbhCvzqe7g0ZD`
